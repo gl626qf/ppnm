@@ -1,0 +1,8 @@
+. copy ( ) , R=new mat rix (m,m) ;
+fo r ( int i =0; i<m; i ++){
+R[ i , i ]=Q[ i ] . norm ( ) ; /∗ Q[ i ] p o i n t s t o t h e i−t h columb ∗/
+Q[ i ]/=R[ i , i ] ;
+fo r ( int j=i +1; j<m; j ++){
+R[ i , j ]=Q[ i ] . dot (Q[ j ] ) ;
+Q[ j ]−=Q[ i ] ∗R[ i , j ] ; } }
+
