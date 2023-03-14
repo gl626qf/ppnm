@@ -15,13 +15,13 @@ public static class main{
 		double piPower = Pow(PI, E);
 		WriteLine($"Pow(PI, E) is {piPower}");
 		/*Stirling's approximation for 1,2,3,10 */
-		WriteLine("Here we print gamma function for 1, 2, 3 and 10");
+		WriteLine("Here we print lngamma function for 1, 2, 3 and 10");
 		WriteLine(sfuns.gamma(1));
 		WriteLine(sfuns.gamma(2));
 		WriteLine(sfuns.gamma(3));
 		WriteLine(sfuns.gamma(10));
 		/*Now we print the ln to the gamma function */
-		WriteLine("We print the lngamma function");
+	
 		
 }
 }

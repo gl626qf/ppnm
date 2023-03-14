@@ -6,7 +6,7 @@ public static class QRGS{
 			Q[i]/=R[i,i];
 			for (int j=i+1; j<m; j++){
 				R[ i , j ]=Q[ i ].dot(Q[j]) ;
-				Q[j]−=Q[i]∗R[i,j]; } }
+				Q[j]−=Q[i]*R[i,j]; } }
 	  
 	  
 	  
