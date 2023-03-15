@@ -5,8 +5,8 @@ using static System.Console;
 public class main{
 
 	public static void Main(){
-		var list = new genlist<double[]>
-		char[] delimiters = {' ','\t'};
+		var list = new genlist<double[]>(); //Inserted ;
+		char[] delimiters = {' ','\t'}; 
 		var options = StringSplitOptions.RemoveEmptyEntries;
 		for(string line = ReadLine(); line!=null; line = ReadLine()){
 			var words = line.Split(delimiters,options);
@@ -22,7 +22,6 @@ public class main{
 			}
 
 
-}
-
-
-} 
+} // Main
+} // main
+ 
