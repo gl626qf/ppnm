@@ -2,6 +2,7 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 # MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 # MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
+GAMMA_DATA = 
 
 Gamma.svg : gamma.gpi gamma.data factorials.data
 	gnuplot $<
@@ -11,7 +12,7 @@ gamma.data : main.exe
 
 
 #Here I create the gamma function
-lnGamma.svg : lngamma.gpi lngamma.data factorials.data
+lngamma.svg : lngamma.gpi lngamma.data factorials.data
 	gnuplot $<
 
 lngamma.data : main.exe
