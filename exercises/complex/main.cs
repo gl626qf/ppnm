@@ -14,8 +14,6 @@ public static class main(){
 		WriteLine(Sin(i * PI);
 
 
-
-
 	} // Main
 
 
