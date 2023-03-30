@@ -3,32 +3,27 @@ CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 # MATRIXLIB = ~(HOME)/repos/ppnm/matlib/matrix/
-MATRIXLIB = /home/thomas_hmm/repos/ppnm/matlib/matrix/matrix.cs
-
-
-###TRY IMPLEMENT THIS
-#  instead of our usual
-# mono main.exe >Out.txt
-# you should say
-# MONO_PATH=/path/to/my/dll/folder mono main.exe >Out.txt
-
-# all : main.exe Out.txt
-
+# MATRIXLIB = ../../matlib
+MATRIXLIB = /home/thomas_hmm/repos/ppnm/matlib/matrix
 
 Out.txt : main.exe
 	mono $< > $@
 
 
-# main.exe : main.cs ; $(MKEXE)
-main.exe : main.cs matrix.dll
-	mcs $(filter %.cs,$^) $(addprefix -reference:,$(filter %.dll,$^))
-
 matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs 
-	mcs -target:library -out:./$@ $^
+	mcs -target:library -out:./matrix.dll $^
 
 
 
 
+main.exe : main.cs matrix.dll
+	mcs -reference:matrix.dll main.cs
+
+# main.exe : main.cs ; $(MKEXE)
+
+
+# matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs 
+# 	mcs -target:library -out:./$@ $^
 # matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs ; $(MKLIB)
 
 
@@ -61,3 +56,14 @@ matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs
 
 # clean:
 # 	$(RM) *.dll *.exe [Oo]ut*
+
+
+
+
+###TRY IMPLEMENT THIS
+#  instead of our usual
+# mono main.exe >Out.txt
+# you should say
+# MONO_PATH=/path/to/my/dll/folder mono main.exe >Out.txt
+
+# all : main.exe Out.txt

@@ -22,7 +22,7 @@ public static class main{
 
             // Testing vectors
             /// HAVDE IKKE DET RIGTIGE I MIN MAKEFILE
-            WriteLine(matrix);
+            // WriteLine(matrix);
             
 
 
