@@ -2,7 +2,6 @@ using System;
 using static System.Console;
 using static System.Math;
 
-
 public static class main{
 
     public static void Main(){
@@ -23,7 +22,11 @@ public static class main{
 
             // Testing vectors
             /// HAVDE IKKE DET RIGTIGE I MIN MAKEFILE
-            WriteLine(matrix.matrix(1,2));
+            WriteLine(matrix);
+            
+
+
+
 
 
 	
