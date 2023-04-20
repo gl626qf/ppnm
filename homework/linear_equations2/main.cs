@@ -6,6 +6,26 @@ using static System.Math;
 
 public static class main{
 
+
+    
+    // public static bool CheckUpperTriangular(Matrix A){
+    //     int N = A.RowCount;
+    //     for (int i = 1; i < N; i++){
+    //         for (int j = 0; j < i; j++){
+    //             if (A[i, j] != 0){
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     return true;
+    //     return false;
+    // }
+
+
+
+
+    
+
     public static void Main(){
 
             WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
@@ -42,9 +62,22 @@ public static class main{
 
             //We need to check that R is upper triangular
 
-
+            // int N = R.size1;
+            // WriteLine(N);
+            // for (int i = 1; i < N; i++){
+            //     for (int j = 0; j < i; j++){
+            //         if (R[i, j] != 0){
+            //             WriteLine("yes");
+            //         }
+            //     }
+            // }
+            
 
             //We need to check if Q**T * Q = 1
+            matrix trans_check = Q.T * Q;
+            trans_check.print("Q.T * Q = 1 check");
+            
+            // bool d_ = checkUpperTriangular(Q);
             
 
 
