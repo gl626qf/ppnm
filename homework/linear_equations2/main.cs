@@ -8,8 +8,8 @@ public static class main{
 
 
     
-    // public static bool CheckUpperTriangular(Matrix A){
-    //     int N = A.RowCount;
+    // public static bool CheckUpperTriangular(matrix A){
+    //     int N = A.size1;
     //     for (int i = 1; i < N; i++){
     //         for (int j = 0; j < i; j++){
     //             if (A[i, j] != 0){
@@ -18,7 +18,6 @@ public static class main{
     //         }
     //     }
     //     return true;
-    //     return false;
     // }
 
 
@@ -31,11 +30,12 @@ public static class main{
             WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
 
 
+            //Making make the Next to Nextdouble
+
             //random tall
             // var random = new Random(Guid.NewGuid().GetHashCode());
             var random = new Random();
             int random_n = random.Next(2,7);
-            // Here we might implement + 1, so it is not quadratic
             int random_m = random.Next(2,random_n);
             // Here the matrix library is used 
             matrix random_a = new matrix(random_n, random_m);
@@ -71,6 +71,8 @@ public static class main{
             //         }
             //     }
             // }
+
+            // checkUpperTriangular(Q);
             
 
             //We need to check if Q**T * Q = 1
@@ -82,11 +84,26 @@ public static class main{
 
 
 
+            // Making square matrix
+            matrix random_square = new matrix(random_n, random_n);
+            for(int i=0;i<random_n;i++){
+                for(int j=0;j<random_n;j++){
+                    random_square[i,j] = random.NextDouble();
+                }
+            }
+            random_square.print("Random square matrix");
 
 
-            
+            vector random_b = new vector(random_n);
+
+            for (int i=0; i<random_n;i++){
+                random_b[i] = random.NextDouble();
+            }
+            random_b.print("Random vector of size b");
 
 
+
+        
 
 
     }
