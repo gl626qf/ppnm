@@ -30,8 +30,8 @@ public static class QRGS{
 		}
 
 
-		// public static vector solve(matrix Q, matrix R, vector b){
-		// 	matrix Q=A.copy(), R=new matrix(m,m);
+		// public static vector solve(matrix Q_square, matrix R_square, vector b){
+		// 	matrix Q=Q_square.copy(), R_square=new matrix(m,m);
 		// 	for (int i=0;i<m;i++){
 		// 		R[i,i]=Q[i].norm();
 		// 		Q[i]/=R[i,i];
@@ -40,6 +40,16 @@ public static class QRGS{
 		// 			Q[j]-=Q[i]*R[i,j];}
 		// 		}
 		// 	}
+
+		public static vector solve(matrix Q, matrix R, vector b){
+			vector x = Q.T*b;
+			for(int i=x.size-1;i>=0;i--){
+				double sum=0;
+				for(int k=i+1;k<x.size;k++) sum = sum + R[i,k]*x[k];
+				x[i] = (x[i]-sum)/R[i,i];
+			}
+			return x;
+		}
 
 		
 

@@ -101,8 +101,42 @@ public static class main{
             }
             random_b.print("Random vector of size b");
 
+            matrix A_square = random_square.copy();
+
+            matrix R_square = new matrix(random_n, random_n);
+            vector b_square = random_b.copy();
+
+            A_square.print("A before QR");
+            R_square.print("R before QR");
+            
+            QRGS.decomp(A_square,R_square);
+            
+            A_square.print("A after QR");
+            R_square.print("R after QR");
+            matrix trans_check_square = A_square.T * A_square;
+
+            // We check
+            trans_check_square.print("A.T * A = 1 check");
 
 
+            //Now we need to solve 
+
+            vector x = QRGS.solve(A_square, R_square, b_square);
+            x.print("Vector x");
+
+            //Checking Ax = b. Need to Convert the A matrix back by multiplying with R
+            vector Ax = (A_square * R_square) * x;
+
+
+            WriteLine("We see if Ax = b");
+            Ax.print("Ax");
+            b_square.print("b");
+            WriteLine("We can see they are equal");
+            // Need to use approx to see if close !!!!!! 
+
+
+
+            WriteLine("------------TASK B------------");
         
 
 
