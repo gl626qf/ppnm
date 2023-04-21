@@ -19,7 +19,14 @@ matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs
 main.exe : main.cs matrix.dll
 	mcs -reference:matrix.dll main.cs
 
-# main.exe : main.cs ; $(MKEXE)
+
+
+clean:
+	$(RM) *.dll *.exe [Oo]ut*
+
+
+
+# main.exe : main.cs ; $(MKEXE) main.cs(25,23): error CS0103: The name `matrix' does not exist in the current context
 
 
 # matrix.dll : $(MATRIXLIB)/matrix.cs $(MATRIXLIB)/vector.cs 
@@ -53,9 +60,6 @@ main.exe : main.cs matrix.dll
 
 # matrix.dll : vector.cs matrix.cs
 # 	$(CSC) -target:library -out:$@ $^
-
-# clean:
-# 	$(RM) *.dll *.exe [Oo]ut*
 
 
 

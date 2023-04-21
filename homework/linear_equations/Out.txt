@@ -1,1 +1,11 @@
 ------------TASK A------------
+This is A before decomposition
+     0.563      0.219 
+     0.929      0.403 
+      0.13      0.568 
+    0.0313       0.66 
+       0.2      0.222 
+     0.511      0.672 
+This is R before decomposition
+         0          0 
+         0          0 
