@@ -2,7 +2,7 @@ using System;
 using static System.Console;
 using static System.Math;
 
-public static class jacobiRotate{
+public static class jacobi{
 
         public static void timesJ(matrix A, int p, int q, double theta){
         // double c=System.Math.cos(theta),s=System.Math.sin(theta);
@@ -51,9 +51,35 @@ public static class jacobiRotate{
                         }
                 }
             }while(changed);
-
+            V.print("V");
+            A.print("A");
             /* copy diagonal elements into w */
 
+            // We make check that V * V^T = 1, NEED TO APPROX THOUGH
+            matrix check1 = V * V.T;
+            check1.print("V * V.T = 1");
+
+            matrix D = A.copy();
+            D.print("The diagonal matrix");
+            // A.print("looking if this is the right");
+
+            // Trying to see if V * D * V.T = A
+
+            matrix check2 = V * D * V.T;
+
+            check2.print("This needs to equal A");
+            M.print("This is A");
+            WriteLine("A and V * D * V.T is similar!"); // DO THIS WITH APPROX!!!
+
+
+            //Now we make w, by taking the diagonal of D
+            // D_rowLength = D.size1
+            // vector w = new vector(D_rowLength);
+            for (int i = 0; i < M.size1; i++)
+            {
+                w[i] = D[i,i];
+            }
+            w.print("This is w");
 
             return (w,V);
             }

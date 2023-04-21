@@ -1,7 +1,7 @@
 using System;
 using static System.Console;
 using static System.Math;
-using static jacobiRotate;
+// using static jacobi;
 
 
 
@@ -42,14 +42,14 @@ public static class main{
 
             A.print("Symmetric matrix A");
 
-            // jacobiRotate.timesJ(A, 4, 4, 1.8);
+            // jacobi.timesJ(A, 4, 4, 1.8);
 
 
             // A.print("After rotate timesJ");
 
 
             // Here it could be smart to just make the random matrix to a method in matrix.dll
-            // jacobiRotate.Jtimes(A, 4, 4, 1.8);
+            // jacobi.Jtimes(A, 4, 4, 1.8);
 
 
             A.print("After rotate Jtimes");
@@ -57,9 +57,14 @@ public static class main{
 
             //Now the 3. job in exercise A, is to use the cyclic method
 
-            jacobiRotate.cyclic(A);
+            jacobi.cyclic(A);
 
-            A.print("cyclic method on A");
+            // A.print("cyclic method on A"); DOES NOT CHANGE ANYTHING I THINK!!!
+            EVD.evd(A);
+            A.print("EVD on A");
+
+
+
 
 
 
