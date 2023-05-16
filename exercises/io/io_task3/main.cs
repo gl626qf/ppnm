@@ -3,11 +3,11 @@ using static System.Console;
 using static System.Math;
 
 
-public static class main{
+public class main{
 
 
 
-public static void Main(string[] args){
+public static int Main(string[] args){
 
 
 
@@ -15,7 +15,7 @@ public static void Main(string[] args){
 	foreach(var arg in args){
 			var words=arg.Split(':');
 				if(words[0]=="-input")infile=words[1];
-					if(words[0]=="-output")outfile=words[1];
+				if(words[0]=="-output")outfile=words[1];
 						}
 	if( infile==null || outfile==null) {
 			Error.WriteLine("wrong filename argument");
@@ -25,19 +25,12 @@ public static void Main(string[] args){
 	var outstream=new System.IO.StreamWriter(outfile,append:false);
 	for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
 			double x=double.Parse(line);
-				outstream.WriteLine($"{x} {Sin(x)} {Cos(x)}");
+				outstream.WriteLine($"x = {x}, sin(x) = {Sin(x)}, cos(x) = {Cos(x)}");
 				        }
 	instream.Close();
 	outstream.Close();
-
-
+	return 0;
 
 } // Main
 
-
-
-
-
 } // main
-
-

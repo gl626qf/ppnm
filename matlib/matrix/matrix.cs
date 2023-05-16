@@ -6,6 +6,12 @@ public partial class matrix{
 public readonly int size1, size2;
 public double[][] data;
 
+
+/* 
+My code: 
+*/
+
+
 public matrix(int n, int m){
 	size1=n; size2=m; data = new double[size2][];
 	for(int j=0;j<size2;j++) data[j]=new double[size1];
@@ -234,9 +240,3 @@ public bool approx(matrix B,double acc=1e-6, double eps=1e-6){
 }
 
 }//matrix
-
-
-
-
-
-

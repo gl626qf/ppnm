@@ -1,8 +1,7 @@
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
-# MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
-# MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
-GAMMA_DATA = 
+MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
+MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 
 Gamma.svg : gamma.gpi gamma.data factorials.data
 	gnuplot $<
@@ -18,11 +17,11 @@ lngamma.svg : lngamma.gpi lngamma.data factorials.data
 lngamma.data : main.exe
 	mono $< > $@
 
-main.exe : main.cs sfuns.dll
-	mcs -target:exe -out:$@ $(CODE) $(DLLS)
 
-sfuns.dll : gamma.cs lngamma.cs erf.cs
-	mcs -target:library -out:$@ $(CODE)
+main.exe : main.cs sfuns.dll ; $(MKEXE)
+sfuns.dll : gamma.cs lngamma.cs erf.cs ; $(MKLIB)
+
+
 
 factorials.data : Makefile
 	>$@

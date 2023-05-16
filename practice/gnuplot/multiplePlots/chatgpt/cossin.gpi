@@ -1,0 +1,29 @@
+# Set the x range and number of points
+set xrange [0:2*pi]
+set samples 100
+
+# Define the output file names
+set output "cosine.png"
+cosine_file = "cosine.dat"
+sine_file = "sine.dat"
+
+# Define the functions to plot
+cosine(x) = cos(x)
+sine(x) = sin(x)
+
+# Evaluate the functions and save to files
+set table cosine_file
+plot cosine(x)
+unset table
+
+set table sine_file
+plot sine(x)
+unset table
+
+# Plot the cosine function
+set output "cosine.png"
+plot cosine_file with lines title "Cosine"
+
+# Plot the sine function
+set output "sine.png"
+plot sine_file with lines title "Sine"
