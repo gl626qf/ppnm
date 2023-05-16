@@ -1,0 +1,8 @@
+------------TASK A------------
+This is Q before decomposition
+     0.819       0.83 
+     0.385      0.855 
+This is R before decomposition
+         0          0 
+         0          0 
+------------TASK B------------
