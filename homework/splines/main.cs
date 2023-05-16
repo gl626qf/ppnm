@@ -30,43 +30,82 @@ public class spline{
             return y[i]+dy/dx*(z-x[i]);
         }
 
+    // public static double linterpInteg(double[] x, double[] y, double z){
+
+        
+    // }
+
 }
 
 
+// Test case, where it is NOT written to a file
+// public class main{
 
+// 	static void Main(string[] args){
+// 		double[] xs = {1,3,4,7,9,12};
+//         double[] ys = {1,3,6,10,10,9};
+// 		foreach(var arg in args){
+// 			if(arg == "-points"){
+// 				int l = xs.Length;
+// 				for(int i=0;i<l;i++){
+// 					WriteLine($"{xs[i]} {ys[i]}");
+// 				}
+// 			}
+// 			if(arg == "-interpolate"){
+// 				int l = xs.Length;
+//     				for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10.0){
+// 					double interpValue = spline.linterp(xs, ys, z);
+//     					WriteLine($"{z} {interpValue}");
+// 				}
+// 			}	
+// 		// 	if(arg == "integral"){
+//         //                         int l = xs.Length;
+// 		// 		for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10){
+//         //                  	       WriteLine($"{z} {spline.linterpInteg(xs, ys, z)}");
+//         //                 	}	
+//         //        		}
+// 		// }
+//         }
+
+
+
+// 	}//Main
+// }//main
+
+
+
+// I NEED TO IMPLEMENT THE WRITING TO FILE!!!
 public class main{
-
-	static void Main(string[] args){
-		double[] xs = {1,3,4,7,9,12};
-        double[] ys = {1,3,6,10,10,9};
-		foreach(var arg in args){
-			if(arg == "-points"){
-				int l = xs.Length;
-				for(int i=0;i<l;i++){
-					WriteLine($"{xs[i]} {ys[i]}");
-				}
-			}
-			if(arg == "-interpolate"){
-				int l = xs.Length;
-    				for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10.0){
-					double interpValue = spline.linterp(xs, ys, z);
-    					WriteLine($"{z} {interpValue}");
-				}
-			}	
-		// 	if(arg == "integral"){
-        //                         int l = xs.Length;
-		// 		for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10){
-        //                  	       WriteLine($"{z} {spline.linterpInteg(xs, ys, z)}");
-        //                 	}	
-        //        		}
-		// }
-        }
-
-	}//Main
-}//main
+public static int Main(string[] args){
 
 
 
+	string infile=null,outfile=null;
+	foreach(var arg in args){
+			var words=arg.Split(':');
+				if(words[0]=="-input")infile=words[1];
+				if(words[0]=="-output")outfile=words[1];
+						}
+	if( infile==null || outfile==null) {
+			Error.WriteLine("wrong filename argument");
+				return 1;
+					}
+	var instream =new System.IO.StreamReader(infile);
+	var outstream=new System.IO.StreamWriter(outfile,append:false);
+	for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
+            // WriteLine(line);
+            var XY = line.Split(" ");
+            // WriteLine(XY);
+			double x = double.Parse(XY[0]);
+            double y = double.Parse(XY[1]);
+			outstream.WriteLine($"x = {x}, y = {y}");
+				        }
+	instream.Close();
+	outstream.Close();
+	return 0;
+}
+
+}
 
 // public static class main{
 
