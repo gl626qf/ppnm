@@ -83,26 +83,33 @@ public static int Main(string[] args){
 	var instream =new System.IO.StreamReader(infile);
 	var outstream=new System.IO.StreamWriter(outfile,append:false);
     
-    outstream.WriteLine("The data points:");
-	for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
-            // WriteLine(line);
-            var XY = line.Split(" ");
-            // WriteLine(XY);
-			double x = double.Parse(XY[0]);
-            double y = double.Parse(XY[1]);
-			outstream.WriteLine($"x = {x}, y = {y}");
 
-			}
+    foreach(var arg in args){
 
-    outstream.WriteLine("The interpolated data");
-    for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){    
+        if(arg == "-data"){
+            outstream.WriteLine("The data points:");
+            for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
+                    // WriteLine(line);
+                    var XY = line.Split(" ");
+                    // WriteLine(XY);
+                    double x = double.Parse(XY[0]);
+                    double y = double.Parse(XY[1]);
+                    outstream.WriteLine($"x = {x}, y = {y}");
+
+                    }
+        }
+        if(arg == "-interpolate"){
+        outstream.WriteLine("The interpolated data");
+        for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){    
 
 
-            // double interpvalue = spline.linterp(x,y,z);
-            // outstream.WriteLine($"");
-        
+                // double interpvalue = spline.linterp(x,y,z);
+                // outstream.WriteLine($"");
+            
 
-    }
+        }
+        }
+    } //foreach
 	instream.Close();
 	outstream.Close();
 	return 0;
