@@ -34,48 +34,69 @@ public class spline{
 
 
 
+public class main{
+
+	static void Main(string[] args){
+		double[] xs = {1,3,4,7,9,12};
+        double[] ys = {1,3,6,10,10,9};
+		foreach(var arg in args){
+			if(arg == "-points"){
+				int l = xs.Length;
+				for(int i=0;i<l;i++){
+					WriteLine($"{xs[i]} {ys[i]}");
+				}
+			}
+			if(arg == "-interpolate"){
+				int l = xs.Length;
+    				for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10.0){
+					double interpValue = spline.linterp(xs, ys, z);
+    					WriteLine($"{z} {interpValue}");
+				}
+			}	
+		// 	if(arg == "integral"){
+        //                         int l = xs.Length;
+		// 		for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10){
+        //                  	       WriteLine($"{z} {spline.linterpInteg(xs, ys, z)}");
+        //                 	}	
+        //        		}
+		// }
+        }
+
+	}//Main
+}//main
 
 
 
-public static class main{
 
-    public static void Main(){
+// public static class main{
 
-            WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
+//     public static void Main(){
+
+//             WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
 
 
-            //Making make the Next to Nextdouble
+//             //Making make the Next to Nextdouble
 
-            //random tall
-            // var random = new Random(Guid.NewGuid().GetHashCode());
-            var random = new Random();
-            int random_n = random.Next(2,7);
-            int random_m = random.Next(2,random_n);
-            // Here the matrix library is used 
-            matrix random_a = new matrix(random_n, random_m);
-            for(int i=0;i<random_n;i++){
-                for(int j=0;j<random_m;j++){
-                    random_a[i,j] = random.NextDouble();
-                }
-            }
+//             //random tall
+//             // var random = new Random(Guid.NewGuid().GetHashCode());
+//             // var random = new Random();
+//             // int random_n = random.Next(2,7);
+//             // int random_m = random.Next(2,random_n);
+//             // Here the matrix library is used 
+
+
+
+
+
+
             
-            matrix Q = random_a.copy();
-            matrix R = new matrix(random_m, random_m);
-
-            Q.print("This is Q before decomposition");
-            R.print("This is R before decomposition");
 
 
 
 
-            
-
-
-
-
-            WriteLine("------------TASK B------------");
+//             WriteLine("------------TASK B------------");
         
 
 
-    }
-}
+//     }
+// }
