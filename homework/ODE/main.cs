@@ -1,77 +1,115 @@
 using System;
 using static System.Console;
 using static System.Math;
+using System.Collections.Generic;
 
 
 
 
 
-public static class binsearch{ // maybe change name
-    public static int binsearch(double[] x, double z)
-        {/* locates the interval for z by bisection */ 
-        if(!(x[0]<=z && z<=x[x.Length-1])) throw new Exception("binsearch: bad z");
-        int i=0, j=x.Length-1;
-        while(j-i>1){
-            int mid=(i+j)/2;
-            if(z>x[mid]) i=mid; else j=mid;
-            }
-        return i;
-        }
+public class genlist<T>{
+	public T[] data;
+	public int size => data.Length;
+	public T this[int i] => data[i]; 
+	public genlist(){ data = new T[0]; }
+	public void add(T item){
+		T[] newdata = new T[size+1];
+		System.Array.Copy(data,newdata,size);
+		newdata[size]=item;
+		data=newdata;
+	}
 }
 
-public static class linspline{
-    public static double linterp(double[] x, double[] y, double z){
-            int i=binsearch(x,z);
-            double dx=x[i+1]-x[i]; if(!(dx>0)) throw new Exception("uups...");
-            double dy=y[i+1]-y[i];
-            return y[i]+dy/dx*(z-x[i]);
-        }
+public static class runge_kutta{
+		
+	public static (vector,vector) rkstep12(
+	Func<double,vector,vector> f, /* the f from dy/dx=f(x,y) */
+	double x,                    /* the current value of the variable */
+	vector y,                    /* the current value y(x) of the sought function */
+	double h                     /* the step to be taken */
+	)
+{
+	vector k0 = f(x,y);              /* embedded lower order formula (Euler) */
+	vector k1 = f(x+h/2,y+k0*(h/2)); /* higher order formula (midpoint) */
+	vector yh = y+k1*h;              /* y(x+h) estimate */
+	vector er = (k1-k0)*h;           /* error estimate */
+	return (yh,er);
+}	
+
+	
+	public static (genlist<double>,genlist<vector>) driver(
+	Func<double,vector,vector> F, /* the f from dy/dx=f(x,y) */
+	double a,                    /* the start-point a */
+	vector ya,                   /* y(a) */
+	double b,                    /* the end-point of the integration */
+	double h=0.01,               /* initial step-size */
+	double acc=0.01,             /* absolute accuracy goal */
+	double eps=0.01              /* relative accuracy goal */
+	){
+	if(a>b) throw new ArgumentException("driver: a>b");
+	double x=a; vector y=ya.copy();
+	var xlist=new genlist<double>(); xlist.add(x);
+	var ylist=new genlist<vector>(); ylist.add(y);
+	do{ if(x>=b) return (xlist,ylist);/* job done */
+	if(x+h>b) h=b-x;/* last step should end at b */
+		var (yh,erv) = rkstep12(F,x,y,h);
+		double tol = (acc+eps*yh.norm()) * Sqrt(h/(b-a));
+		double err = erv.norm();
+	if(err<=tol){ // accept step
+		x+=h; y=yh;
+		xlist.add(x);
+		ylist.add(y);
+	}
+		h *= Min( Pow(tol/err,0.25)*0.95 , 2); // reajust stepsize
+	}while(true);
+}//driver
 
 }
 
 
+public class func{
+	public static vector harmonic(double x, vector y){
+        return new vector(y[1], -y[0]);
+	}
 
 
 
-public static class main{
-
-    public static void Main(){
-
-            WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
-
-
-            //Making make the Next to Nextdouble
-
-            //random tall
-            // var random = new Random(Guid.NewGuid().GetHashCode());
-            var random = new Random();
-            int random_n = random.Next(2,7);
-            int random_m = random.Next(2,random_n);
-            // Here the matrix library is used 
-            matrix random_a = new matrix(random_n, random_m);
-            for(int i=0;i<random_n;i++){
-                for(int j=0;j<random_m;j++){
-                    random_a[i,j] = random.NextDouble();
-                }
-            }
-            
-            matrix Q = random_a.copy();
-            matrix R = new matrix(random_m, random_m);
-
-            Q.print("This is Q before decomposition");
-            R.print("This is R before decomposition");
-
-
-
-
-            
-
-
-
-
-            WriteLine("------------TASK B------------");
-        
-
-
-    }
 }
+
+
+public class main{
+public static void Main(string[] args){
+
+
+	foreach(var arg in args){
+		if(arg == "Harmonic"){
+			vector init_y = new vector(0, 1);
+			(var xs, var ys) = runge_kutta.driver(func.harmonic, 0, init_y, 30);
+			//var harmonic_data = new StreamWriter("harmonic_data.data");
+			for(int i=0; i<xs.size; i++) 
+				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
+		}
+
+		// if(arg=="Pendul"){
+		// vector init_pendul = new vector(Math.PI-0.1,0);
+		// (var pendul_xs, var pendul_ys) = driver(pendul,0,init_pendul,30);
+		// for(int i=0; i<pendul_xs.size;i++)
+		// 	WriteLine($"{pendul_xs[i]} {pendul_ys[i][0]} {pendul_ys[i][1]}");
+		// }
+
+
+	}//foreach	
+
+
+	}//Main
+}//main
+
+
+
+
+
+
+
+
+
+
