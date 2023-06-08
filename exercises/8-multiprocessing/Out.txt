@@ -1,0 +1,34 @@
+number of terms=200000, number of threads=1
+i = 0 x.a = 1 x.b = 200001
+total sum = 12.7832908104298
+-----------------------------------------------
+real 0.11
+user 0.02
+sys 0.02
+number of terms=200000, number of threads=2
+i = 0 x.a = 1 x.b = 100001
+i = 1 x.a = 100001 x.b = 200001
+total sum = 12.7832908104295
+-----------------------------------------------
+real 0.11
+user 0.02
+sys 0.02
+number of terms=200000, number of threads=3
+i = 0 x.a = 1 x.b = 66667
+i = 1 x.a = 66667 x.b = 133334
+i = 2 x.a = 133334 x.b = 200001
+total sum = 12.7832908104296
+-----------------------------------------------
+real 0.11
+user 0.01
+sys 0.03
+number of terms=200000, number of threads=4
+i = 0 x.a = 1 x.b = 50001
+i = 1 x.a = 50001 x.b = 100001
+i = 2 x.a = 100001 x.b = 150001
+i = 3 x.a = 150001 x.b = 200001
+total sum = 12.7832908104296
+-----------------------------------------------
+real 0.10
+user 0.01
+sys 0.02

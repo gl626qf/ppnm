@@ -1,0 +1,16 @@
+-----Part 1-----
+my max int = 2147483647
+my min int = -2147483648
+-----Part 2-----
+my machine epsilon for doubles = 2.22044604925031E-16
+We check the value with System.Math.Pow(2,-52) = 2.22044604925031E-16
+my machine epsilon for floats = 1.192093E-07
+We check the value with System.Math.Pow(2,-23) = 1.19209289550781E-07
+Both values are as we expected
+-----Part 3-----
+Third part
+sumA-1 = 0.000000e+000 should be 1.110223e-010
+sumB-1 = 1.110223e-010 should be 1.110223e-010
+Why does this differ?
+The reason is that, epsilon is divisable with 2
+, and all added together, gives a float!! LLOOOOK UP !!!!

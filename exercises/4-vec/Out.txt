@@ -1,0 +1,16 @@
+I define the vectors
+u = 1 2 3
+v = 2 4 6
+We define multiplication of a scalar
+c * v =4 8 12
+We now define addition and subtraction
+u + v = 3 6 9
+-u = -1 -2 -3
+u - v = -1 -2 -3
+scalar product u.dot(v) = 28
+vec.dot(u,v) = 28
+We use some syntax sugar
+u.dot_syntax(v) = 28
+vec.dot_syntax(u,v) = 28
+We make approximation function
+True
