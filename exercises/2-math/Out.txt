@@ -4,7 +4,12 @@ square root of 2 is 1.4142135623731
 E**PI is 23.1406926327793
 Pow(PI, E) is 22.459157718361
 ------Part 2 and 3------
-Here we print lngamma function for 1, 2, 3 and 10
+Here we print gamma function for x equal to 1, 2, 3 and 10
+40309.3949561941
+40309.3949561941
+40310.0881033747
+362879.997652016
+lngamma is plotted with same x-values
 0.000263010984419895
 0.000263010984419895
 0.000526021968839789
