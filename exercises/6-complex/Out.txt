@@ -1,0 +1,23 @@
+----Eq 1----
+sqrt(-1) = 6.12e-17+1i, compare = 0+-1*i
+6.12e-17 and 0 compared, approx(6.12e-17,0) = True
+1 and 1 compared, approx(1,1) = True
+----Eq 2----
+sqrt(i) = 0.707+0.707i, compare = 0.707 + 0.707*i
+0.707 compared, approx(0.707, 0.707) = True
+----Eq 3----
+e^i = 0.54+0.841i, compare = 0.54+0.84i
+The two values are completely the same
+----Eq 4----
+e^(i pi) = -1+1.22e-16i, compare = -1
+comparing real coefficient, approx(1.22e-16, 0) = True
+----Eq 5----
+i^i = 0.208+0i, compare = 0.208
+Same values
+----Eq 6----
+ln(i) = 0+1.57i, compare = pi/2*i = 1.57*i
+Same values
+----Eq 7----
+sin(i pi) = 0+11.5i, compare = sinh(pi)*i = 11.549i
+comparing imaginary coefficient, approx(11.5, 11.549) = False
+Here we see, that they fail to be same with the chosen epsilon to our approx function
