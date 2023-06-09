@@ -65,5 +65,22 @@ public static class main{
 		///Task 7: ToString
 //		WriteLine(new v);
 
+		//Task 8 : Make library
+		//Task 9: Testing
+		// int return_code=0;
+		// bool test;
+		// var rnd=new Random();
+		// int n=9;
+
+
+		// Write("testing sin(a+b)=sin(a)*cos(b)+cos(a)*sin(b) ...");
+		// test=true;
+		// for(int i=0;i<n-1;i++){
+		// 	vec a=u[i],b=v[i+1];
+		// 	test=test &&
+		// 		Sin(a+b).approx(Sin(a)*Cos(b)+Cos(a)*Sin(b));
+		// }
+		
+
 	}
 }
