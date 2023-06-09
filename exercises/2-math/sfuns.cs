@@ -17,14 +17,6 @@ public class sfuns{
 		if(x <= 0) return double.NaN;
 		if(x < 9) return gamma(x+1) - Log(x);
 		return Exp(lngamma(x));
-		// 
-		//double gamma = 1/2 * (Log(2*PI) - Log(x)) 
-		//	+ x * (Log(x + 1 / (12 * x - 1 / (10 * x)) - 1));
-		//return gamma
-		// double lngamma=x*Log(x+1/(12*x-1/x/10))-x+Log(2*PI/x)/2;
-		// if(x <= 0) return double.NaN;
-		// if(x < 9) return lngamma(x+1) - Log(x);	
-		// return lngamma;
 	}
 
 }

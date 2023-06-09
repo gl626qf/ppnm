@@ -14,3 +14,9 @@ sumB-1 = 1.110223e-010 should be 1.110223e-010
 Why does this differ?
 The reason is that, epsilon is divisable with 2
 , and all added together, gives a float!! LLOOOOK UP !!!!
+-----Part 4-----
+d1=7.999999999999999e-001
+d2=8.000000000000000e-001
+d1==d2 ? => False
+Here we test the approx function
+approx(d1,d2) = True
