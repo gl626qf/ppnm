@@ -1,7 +1,10 @@
 using System;
 using System.Threading;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using static System.Console;
 using static System.Math;
+
 
 class main{
 	public class data {public int a,b; public double sum_;}
@@ -44,7 +47,25 @@ class main{
 		}
 		WriteLine($"total sum = {total}");
 		WriteLine("-----------------------------------------------");
+
+		Stopwatch stopwatch = Stopwatch.StartNew();
+		
+		double sum=0; Parallel.For( 1, nterms+1, delegate(int i){sum+=1.0/i;} );
+		WriteLine("sum_parallel = " + sum);
+
+
+		stopwatch.Stop();
+		TimeSpan elapsedTime = stopwatch.Elapsed;
+        Console.WriteLine($"Elapsed Time: {elapsedTime.TotalMilliseconds} ms");
+
+		WriteLine("The reason why it takes longer, is that it is a simple calculation, and it takes more time to parallelize.");
+
+
+
+		WriteLine("-----------------------------------------------");
 		return 0;
+
+
 
 	}
 }
