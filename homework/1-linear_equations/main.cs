@@ -103,6 +103,9 @@ public class main{
                     random_square[i,j] = random.NextDouble();
                 }
             }
+
+
+
             random_square.print("Random square matrix");
 
 
@@ -116,6 +119,8 @@ public class main{
 
             // Making square matrix
             matrix A_square = random_square.copy();
+            // Making for later
+            matrix A2_square = random_square.copy();
 
             matrix R_square = new matrix(random_n, random_n);
             vector b_square = random_b.copy();
@@ -150,6 +155,59 @@ public class main{
 
 
             WriteLine("------------TASK B------------");
+
+
+            // int random_n = random.Next(2,7);
+            // matrix A_b = new matrix(rand_s, rand_s);
+            // for(int i=0;i<rand_s;i++){
+            //         for(int j=0;j<rand_s;j++){
+            //                 A_b[i,j] = random.NextDouble();
+            //         }
+            // }
+            // A_b.print("A:");
+
+            // check inverse function
+            // matrix Q_b = A_b.copy();
+            // matrix R_b = new matrix(Q_b.size2, Q_b.size2);
+            // QRGS.decomp(Q_b, R_b);
+            // matrix B = QRGS.inverse(Q_b, R_b);
+            // B.print("B:");
+
+            A2_square.print("Random square matrix: A");
+
+            // To test with later in the AB = I case
+            matrix A2_test = A2_square.copy();
+
+            matrix R2_square = new matrix(A2_square.size2, A2_square.size2);
+
+            R2_square.print("Random square matrix: R");
+
+            QRGS.decomp(A2_square, R2_square);
+
+            matrix B = QRGS.inverse(A2_square, R2_square);
+
+            B.print("The inverse matrix: B");
+
+            WriteLine("Now we test if AB = I");
+            // (A2_square * B).approx(matrix.id(random_m));
+            // WriteLine((A2_square * B).approx(matrix.id(random_n)));
+
+            // WriteLine(matrix.id(random_m));
+            WriteLine($"Testing if Q.T * A is equal to the identity matrix: {((A2_test) * B).approx(matrix.id(A2_square.size1))}");
+            // WriteLine(matrix.id(random_n));
+
+
+
+
+            // matrix check4 = A_b*B;
+            // R_b.set_unity();
+            // if(R_b.approx(check4)){
+            //     WriteLine("B is the inverse of A.");
+            // }
+            // else{
+            //     WriteLine("B is not the inverse of A.");
+            // }
+
 
             // matrix C_square = random_square.copy();
             
