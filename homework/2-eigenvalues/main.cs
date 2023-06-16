@@ -81,6 +81,7 @@ public static class main{
 
             V.print("matrix V:");
             // A.print("matrix A:");
+            w.print("vector w");
 
 
 
@@ -88,7 +89,8 @@ public static class main{
             WriteLine("-------------------------");
             matrix check1 = V * D * V.T;
             // WriteLine($"Eigen value decomp if (V.T * A * V) = D:");
-            check1.print($"Eigen value decomp: (V.T * A * V) = D:");              
+            check1.print($"Eigen value decomp: (V.T * A * V) = D. Matrix D");      
+            // D.print("Matrix D:");        
 
 
             matrix check2 = V.T * A * V;
@@ -97,14 +99,6 @@ public static class main{
 
             matrix check3 = V * D * V.T;
             WriteLine($"Testing if (V * D * V.T) = A: {check3.approx(A)}");            
-
-
-            // matrix check1 = V.T * V;
-            // WriteLine($"Testing if (V.T * V) = I: {check4.approx(matrix.id(A.size1))}");
-
-            // matrix check4 = V.T * V;
-            // WriteLine($"Testing if (V.T * V) = I: {check4.approx(matrix.id(A.size1))}");
-
 
 
 

@@ -61,21 +61,6 @@ public static class jacobi{
             // check1.print("V * V.T = 1");
 
             matrix D = A.copy();
-            // D.print("The diagonal matrix");
-            // A.print("looking if this is the right");
-
-            // Trying to see if V * D * V.T = A
-
-            // matrix check2 = V * D * V.T;
-
-            // check2.print("This needs to equal A");
-            // M.print("This is A");
-            // WriteLine("A and V * D * V.T is similar!"); // DO THIS WITH APPROX!!!
-
-
-            //Now we make w, by taking the diagonal of D
-            // D_rowLength = D.size1
-            // vector w = new vector(D_rowLength);
             for (int i = 0; i < M.size1; i++)
             {
                 w[i] = D[i,i];

@@ -103,7 +103,7 @@ public static class EVD{
 
             // Trying to see if V * D * V.T = A
 
-            matrix check2 = V * D * V.T;
+            // matrix check2 = V * D * V.T;
 
             // check2.print("This needs to equal A");
             // M.print("This is A");
