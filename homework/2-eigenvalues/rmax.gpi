@@ -1,0 +1,10 @@
+set terminal svg background "white"
+set key left
+set xlabel "rmax"
+set ylabel "Lowest eigenvalue"
+set tics out
+set title "E0 vs rmax parameter"
+set output "Rmax.svg"
+
+
+plot [0:10][-1:2.5] "out.rmax.data" using ($1):($2) with points notitle #title "experiment"

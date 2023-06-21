@@ -1,0 +1,18 @@
+------------TASK A------------
+----Part 1----
+This is Q before decomposition
+     0.876      0.476 
+     0.229      0.619 
+     0.835      0.415 
+     0.564       0.54 
+This is R before decomposition
+         0          0 
+         0          0 
+This is Q after decomposition
+     0.646     -0.192 
+     0.169      0.891 
+     0.617     -0.258 
+     0.416       0.32 
+This is R after decomposition
+      1.35      0.892 
+         0      0.525 

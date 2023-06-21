@@ -49,7 +49,7 @@ public class main{
             // Here the matrix library is used 
             matrix random_a = new matrix(random_n, random_m);
             for(int i=0;i<random_n;i++){
-                for(int j=0;j<random_m;j++){
+                for(int j=i;j<random_m;j++){
                     random_a[i,j] = random.NextDouble();
                 }
             }
@@ -57,7 +57,8 @@ public class main{
 
 
 
-            WriteLine("\n \n");
+            // WriteLine("\n \n");
+
             WriteLine("----Decomp Testing----");
 
 
@@ -65,8 +66,8 @@ public class main{
             matrix Q = random_a.copy();
             matrix R = new matrix(random_m, random_m);
 
-            Q.print("This is Q before decomposition");
-            R.print("This is R before decomposition");
+            // Q.print("This is Q before decomposition");
+            // R.print("This is R before decomposition");
 
 
             //We use decomposition
@@ -81,14 +82,15 @@ public class main{
             // WriteLine($"checkUpperTriangular(R)) is {checkUpperTriangular(R)}";
 
 
-            WriteLine($"checkUpperTriangular(R) is {checkUpperTriangular(R)}");
+            WriteLine($"Testing if R is upper triangular: {checkUpperTriangular(R)}");
         
+            WriteLine($"Testing if Q.T * Q is equal to the identity matrix: {((Q.T)*Q).approx(matrix.id(random_m))}");
+        	// R.print("Check that R is upper triangular, R = \n");
 
-        	R.print("Check that R is upper triangular, R = \n");
-            WriteLine($"Testing if Q.T * A is equal to the identity matrix: {((Q.T)*Q).approx(matrix.id(random_m))}");
+            WriteLine($"Testing if Q * R is equal to the matrix A: {(Q*R).approx(A)}");
 
 
-            WriteLine($"QR = A: {A.approx(Q*R)}");
+            // WriteLine($"QR = A: {A.approx(Q*R)}");
 
 
 
@@ -146,32 +148,15 @@ public class main{
             vector Ax = (A_square * R_square) * x;
 
 
-            WriteLine("We see if Ax = b");
+            // WriteLine("We see if Ax = b");
             // Ax.print("Ax");
             // b_square.print("b");
-            WriteLine($"Checking if they are equal : {Ax.approx(b_square)}");
+            WriteLine($"Testing if Ax = b : {Ax.approx(b_square)}");
 
 
 
 
             WriteLine("------------TASK B------------");
-
-
-            // int random_n = random.Next(2,7);
-            // matrix A_b = new matrix(rand_s, rand_s);
-            // for(int i=0;i<rand_s;i++){
-            //         for(int j=0;j<rand_s;j++){
-            //                 A_b[i,j] = random.NextDouble();
-            //         }
-            // }
-            // A_b.print("A:");
-
-            // check inverse function
-            // matrix Q_b = A_b.copy();
-            // matrix R_b = new matrix(Q_b.size2, Q_b.size2);
-            // QRGS.decomp(Q_b, R_b);
-            // matrix B = QRGS.inverse(Q_b, R_b);
-            // B.print("B:");
 
             A2_square.print("Random square matrix: A");
 
@@ -188,6 +173,8 @@ public class main{
 
             B.print("The inverse matrix: B");
 
+            WriteLine("\n");
+
             WriteLine("Now we test if AB = I");
             // (A2_square * B).approx(matrix.id(random_m));
             // WriteLine((A2_square * B).approx(matrix.id(random_n)));
@@ -195,29 +182,6 @@ public class main{
             // WriteLine(matrix.id(random_m));
             WriteLine($"Testing if Q.T * A is equal to the identity matrix: {((A2_test) * B).approx(matrix.id(A2_square.size1))}");
             // WriteLine(matrix.id(random_n));
-
-
-
-
-            // matrix check4 = A_b*B;
-            // R_b.set_unity();
-            // if(R_b.approx(check4)){
-            //     WriteLine("B is the inverse of A.");
-            // }
-            // else{
-            //     WriteLine("B is not the inverse of A.");
-            // }
-
-
-            // matrix C_square = random_square.copy();
-            
-
-
-            // matrix C = QRGS.inverse(C_square);
-
-            
-
-            // C_square.print("Random C_square matrix");
 
             
 

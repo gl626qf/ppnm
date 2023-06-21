@@ -4,41 +4,36 @@ using static System.Math;
 // using static jacobi;
 
 
+public class func{
+        public static matrix hamiltonian(double rmax, double dr){
+            /* your main should get rmax and dr from the command line, like this */
+            /* mono main.exe -rmax:10 -dr:0.3 */
+            int npoints = (int)(rmax/dr)-1;
+            vector r = new vector(npoints);
+            for(int i=0;i<npoints;i++)r[i]=dr*(i+1);
+            matrix H = new matrix(npoints,npoints);
+            for(int i=0;i<npoints-1;i++){
+                H[i,i]  =-2;
+                H[i,i+1]= 1;
+                H[i+1,i]= 1;
+            }
+            H[npoints-1,npoints-1]=-2;
+            matrix.scale(H,(-0.5/dr/dr));
+            for(int i=0;i<npoints;i++)H[i,i]+=-1/r[i];
 
-public static class main{
+            return H;
+
+        }
+}
 
 
+public class partA{
 
-    
-
-    public static void Main(){
+    public void Run()
+    {
 
             WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
 
-
-            // jacobiRotate.timesJ()
-
-            //We make the symmetric matrix A:
-            // var random = new Random();
-            // int random_n = random.Next(3,8);
-            // int random_m = random.Next(3,random_n);
-            // int random_m = random.Next(2,random_n);
-            // Here the matrix library is used 
-            // matrix random_a = new matrix(random_n + 1, random_n + 1);
-            // for(int i=0;i<random_n;i++){
-            //     for(int j=0;j<i;j++){
-            //         double value = random.NextDouble();
-
-            //         // Here I mirror the value to get the off-diagonal
-            //         random_a[i,j] = value;
-            //         random_a[j,i] = value;
-            //     }
-            // }
-            // for (int i = 0; i < random_n; i++)
-            // {
-            //     random_a[i,i] = random.NextDouble();
-            // }
-    
             var random = new Random();
             int random_n = random.Next(2,10);
             // WriteLine(random_n);
@@ -55,27 +50,6 @@ public static class main{
             // Creating the matrix
             matrix A = A_square.copy();
 
-
-
-            // WriteLine("-----Part 1-----");
-            // A.print("Symmetric matrix A");
-
-            // jacobi.timesJ(A, random_n, random_n, 1.8);
-
-
-            // A.print("After rotate timesJ");
-
-            // WriteLine("-----Part 2-----");
-            // Here it could be smart to just make the random matrix to a method in matrix.dll
-            // jacobi.Jtimes(A, 4, 4, 1.8);
-
-
-            // A.print("After rotate Jtimes");
-
-            // WriteLine("-----Part 3-----");
-
-
-            //Now the 3. job in exercise A, is to use the cyclic method
 
             (matrix D, vector w, matrix V) = jacobi.cyclic(A);
 
@@ -109,24 +83,80 @@ public static class main{
             // Now the testing comes:
             matrix check5 = V * V.T;
             WriteLine($"Testing if (V * V.T) = I: {check5.approx(matrix.id(A.size1))}");
+        
+    }
 
-            
-
-
-
-
-            // EVD.evd(A);
-            // A.print("EVD on A");
-
-            // V.print("V");
-            // A.print("A");
+}
 
 
+public class Hydrogen{
+	public static void eigen(double rmax, double dr){
+		matrix H = func.hamiltonian(rmax, dr);
+		(matrix D, vector e, matrix V) = jacobi.cyclic(H);
+		e.print("Eigenvalues:");
+		V.print("Eigenvectors:");
+	}
+	public static void plot(double rmax, double dr){
+		matrix H = func.hamiltonian(rmax, dr);
+		(matrix D, vector e, matrix V) = jacobi.cyclic(H);
+		for(int i=0 ; i<V.size2 ; i++){
+			Write($"{i*dr} ");
+			for(int j=0 ; j<V.size1 ; j++){
+				Write($"{V[j][i]/Sqrt(dr)} ");
+			}
+			Write("\n");
+		}
+	}
+	public static void rmax(double rmax, double dr){
+		matrix H = func.hamiltonian(rmax, dr);
+		(matrix D, vector e, matrix V) = jacobi.cyclic(H);
+		WriteLine($"{rmax} {e[0]}");
+	}
+	public static void dr(double rmax, double dr){
+		matrix H = func.hamiltonian(rmax, dr);
+		(matrix D, vector e, matrix V) = jacobi.cyclic(H);
+		WriteLine($"{dr} {e[0]}");
+	}
+}
 
 
 
+public static class main{
 
-            
+    public static void Main(string[] args){
+            // partA PartA_ = new partA(); 
+            // PartA_.Run();
+
+
+            double rmax = 10;
+            double dr = 0.5;
+            int size = 5;
+            double scale = 10;
+            bool trace = false;
+
+            foreach(string param in args){ // set all params
+                string[] words = param.Split(":");
+                if(words[0] == "-rmax"){rmax = double.Parse(words[1]);}
+                if(words[0] == "-dr"){dr = double.Parse(words[1]);}
+                if(words[0] == "-size"){size = int.Parse(words[1]);}
+                if(words[0] == "-scale"){scale = double.Parse(words[1]);}
+                if(words[0] == "-trace"){trace = true;}
+            }
+            foreach(string run in args){
+
+                if(run == "-partA"){partA PartA_ = new partA(); PartA_.Run();}
+                if(run == "-eigen"){Hydrogen.eigen(rmax, dr);}
+                if(run == "-plot"){Hydrogen.plot(rmax=20, dr=0.1);}
+                if(run == "-plotrmax"){Hydrogen.rmax(rmax, dr);}
+                if(run == "-plotdr"){Hydrogen.dr(rmax, dr);}
+
+            }
+
+
+            // WriteLine("------------TASK B------------"); 
+
+            // matrix H = hamiltonian(rmax, dr);
+            // WriteLine(H);
 
 
 
