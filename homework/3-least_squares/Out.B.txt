@@ -1,0 +1,21 @@
+matrix
+Fit parameters given by: 
+a = 4.9511553496486
+b = 0.169887082001008
+(Here b refers to lambda)
+Covariance matrix given by:
+     0.522      0.437 
+     0.446      0.234 
+     0.392     0.0837 
+     0.401    -0.0395 
+     0.295     -0.213 
+     0.219     -0.363 
+     0.187     -0.369 
+     0.169     -0.492 
+     0.124     -0.436 
+
+ *************************** 
+
+Half life given by:
+4.08004641904341 +/- 5.62201558966225 days
+Compared to the theoretical value of 3.6 days

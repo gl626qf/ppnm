@@ -122,9 +122,7 @@ class main{
 				WriteLine($"{Log(2)/c[1]} +/- {err*Log(2)/(Pow(c[1],2))} days");
 				WriteLine("Compared to the theoretical value of 3.6 days");
 			}
-			//xs.print("xs = ");
-			//ys.print("ys = ");
-			//dys.print("dys = ");
+
 		}
 		foreach(string run in args){
 			if(run=="-test"){Test.testA(writeFit,writeData,trace);}
