@@ -1,0 +1,12 @@
+set terminal svg
+set output "taskA.svg"
+set xlabel "x"
+set ylabel "y"
+set title "Interpolation and integration"
+set terminal svg background "white"
+set key box top
+set grid 
+plot [-2.2:2.2] [0:4] "datapoints.txt" using 1:2 with points pt 2 ps 2 title "exp(-x**2)" \
+	, "linterpdata.txt" using 1:2 with lines title "linear interpolation points" \
+	, "data_integrate.txt" using 1:2 with lines title "integrated linint." 
+

@@ -36,26 +36,19 @@ public class spline{
 
 
 
-    // MAKE THIS NEW
+
 	public static double linterpInteg(double[] x, double[] y, double z){
+		int i = binsearch.binsearch_(x,z);
 		double sum = 0;
-		int index = binsearch.binsearch_(x, z);
-		for(int i=0;i<index;i++){
-			double dx=x[i+1]-x[i]; if(!(dx>0)) throw new Exception("seems wrong");
-			double dy=y[i+1]-y[i];
-			double a = dy/dx;
-			double b = y[i]-a*x[i];
-			double integral = (a/2)*(x[i+1]*x[i+1]-x[i]*x[i]) + b*dx;
-			sum += integral;
-			}
-		double last_y = linterp(x, y, z);
-		double last_x = z;
-		double last_dx = last_x-x[index];
-		double last_dy = last_y-y[index];
-		double last_a = last_dy/last_dx;
-		double last_b = y[index]-last_a*x[index];
-		double last_integral = (last_a/2)*(last_x*last_x-x[index]*x[index]) + last_b*last_dx;
-		sum += last_integral;
+		for(int k = 0; k<i; k++){
+			double dy = y[k+1]-y[k];
+			double dx = x[k+1]-x[k];
+			sum += y[k]*dx + 1.0/2*dy*dx;
+		}
+		double dxi = x[i+1]-x[i];
+		double dyi = y[i+1]-y[i];
+		sum += y[i]*(z-x[i])+1.0/2*(dyi/dxi)*(z-x[i])*(z-x[i]);
+
 		return sum;
 		}
 
@@ -66,13 +59,16 @@ public class spline{
 public class main{
 
 	static void Main(string[] args){
-		double[] xs = {1,3,4,7,9,12};
-        double[] ys = {1,3,6,10,10,9};
+		// Set data points
+		double[] xs = {-2, -1.55555556, -1.11111111, -0.66666667, -0.22222222,
+        0.22222222,  0.66666667,  1.11111111,  1.55555556,  2};
+        double[] ys = {0.01831564, 0.08894358, 0.29096046, 0.64118039, 0.95181678,
+       0.95181678, 0.64118039, 0.29096046, 0.08894358, 0.01831564};
 		foreach(var arg in args){
 			if(arg == "-data"){
 				int l = xs.Length;
 				for(int i=0;i<l;i++){
-					WriteLine($"x = {xs[i]}, y = {ys[i]}");
+					WriteLine($"{xs[i]} {ys[i]}");
 				}
 			}
 			if(arg == "-interpolate"){
@@ -84,12 +80,11 @@ public class main{
 			if(arg == "-integrate"){
 				for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10){
                          	    //    WriteLine($"z = {z}, value = {spline.linterInteg(xs, ys, z)}");
-								WriteLine(spline.linterpInteg(xs,ys,z));
+								double intergralValue = spline.linterpInteg(xs,ys,z);
+								// WriteLine(intergralValue);
+							    WriteLine($"{z} {intergralValue}");
                         	}	
                		}
-			if(arg == "-plots"){
-				
-			}
 
 
 		}
