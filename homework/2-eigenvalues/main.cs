@@ -130,7 +130,7 @@ public static class main{
 
             double rmax = 10;
             double dr = 0.3;
-            int size = 30;
+            int size = 20;
             double scale = 1.0;
             bool trace = false;
 
@@ -138,9 +138,6 @@ public static class main{
                 string[] words = param.Split(":");
                 if(words[0] == "-rmax"){rmax = double.Parse(words[1]);}
                 if(words[0] == "-dr"){dr = double.Parse(words[1]);}
-                if(words[0] == "-size"){size = int.Parse(words[1]);}
-                if(words[0] == "-scale"){scale = double.Parse(words[1]);}
-                if(words[0] == "-trace"){trace = true;}
             }
             foreach(string run in args){
 

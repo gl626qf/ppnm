@@ -4,8 +4,8 @@ set termoption dash
 set key right
 set xlabel "r (units of Bohr Radii)"
 set ylabel "r*R(r) - Eigenfunctions of Hydrogen s-waves"
-set tics out
-set title "Several l=0 reduced radial eigenfunctions of Hydrogen"
+set tics in
+set title "Hydrogen l=0 eigenfunctions"
 set output "Eigen.svg"
 
 

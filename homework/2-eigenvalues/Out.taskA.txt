@@ -1,0 +1,16 @@
+------------TASK A------------
+random square matrix A:
+        51         71 
+        71          4 
+matrix V:
+     0.586      0.811 
+    -0.811      0.586 
+vector w     -47.3        102 
+-------------------------
+Eigen value decomp: (V.T * A * V) = D. Matrix D
+        51         71 
+        71          4 
+Testing if (V.T * A * V) = D: True
+Testing if (V * D * V.T) = A: True
+Testing if (V.T * V) = I: True
+Testing if (V * V.T) = I: True
