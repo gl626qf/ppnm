@@ -129,26 +129,53 @@
 </g>
 	<g id="gnuplot_plot_1" ><title>r*R10(r)-calc</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(498.09,75.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >r*R10(r)-calc</tspan></text>
+	</g>
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(  0,   0, 255)'  d='M506.48,72.01 L549.04,72.01 M85.39,324.15 L87.28,337.03 L87.94,337.63 L87.89,330.44 L87.45,318.43 L86.81,303.91
+		L86.11,288.54 L85.44,273.51 L84.79,259.46 L84.23,247.18 L83.74,236.70 L83.32,228.31 L82.97,221.73 L82.69,216.93
+		L82.45,213.94 L82.26,212.74 L82.11,212.74 L81.99,214.24 L81.89,216.63 L81.81,219.63 L81.75,223.82 L81.70,228.31
+		L81.66,233.41 L81.63,238.80 L81.61,244.49 L81.59,250.48 L81.58,256.47 L81.56,262.76 L81.55,268.87 L81.55,275.06
+		L81.54,281.26 L81.54,287.43  '/></g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>r*R20(r)-calc</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(498.09,93.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >r*R20(r)-calc</tspan></text>
+	</g>
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(238, 130, 238)'  d='M506.48,90.01 L549.04,90.01 M85.39,256.47 L87.28,242.09 L87.94,244.19 L87.89,257.07 L87.45,275.99 L86.81,297.35
+		L86.11,318.25 L85.44,336.73 L84.79,351.11 L84.23,360.69 L83.74,364.88 L83.32,364.28 L82.97,358.59 L82.69,349.01
+		L82.45,336.13 L82.26,320.74 L82.11,303.85 L81.99,286.42 L81.89,269.34 L81.81,253.47 L81.75,239.40 L81.70,228.01
+		L81.66,219.33 L81.63,213.94 L81.61,212.14 L81.59,213.34 L81.58,218.13 L81.56,225.62 L81.55,235.80 L81.55,248.38
+		L81.54,262.46 L81.54,277.76  '/></g>
 	</g>
 	<g id="gnuplot_plot_3" ><title>r*R30(r)-calc</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(498.09,111.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >r*R30(r)-calc</tspan></text>
+	</g>
 </g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(255,   0,   0)'  d='M506.48,108.01 L549.04,108.01 M85.39,337.63 L87.28,352.00 L87.94,344.52 L87.89,323.10 L87.45,295.01 L86.81,266.65
+		L86.11,242.99 L85.44,227.42 L84.79,221.73 L84.23,226.22 L83.74,239.69 L83.32,260.06 L82.97,284.59 L82.69,310.26
+		L82.45,334.03 L82.26,353.20 L82.11,365.48 L81.99,370.27 L81.89,366.68 L81.81,355.30 L81.75,337.33 L81.70,315.20
+		L81.66,290.76 L81.63,266.59 L81.61,245.09 L81.59,228.31 L81.58,218.13 L81.56,214.84 L81.55,219.33 L81.55,230.71
+		L81.54,248.08 L81.54,269.76  '/></g>
 	</g>
 	<g id="gnuplot_plot_4" ><title>r*R10(r)-theory</title>
 <g fill="none" color="#FFFFFF" stroke="rgb(255,   0,   0)" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(498.09,75.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(498.09,129.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >r*R10(r)-theory</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0,   0, 255)' stroke-dasharray='7.5,12.0'  d='M506.48,72.01 L549.04,72.01 M81.53,293.60 L86.42,159.54 L91.31,95.58 L96.21,74.22 L101.10,77.56 L105.99,94.15
+	<path stroke='rgb(  0,   0, 255)' stroke-dasharray='7.5,12.0'  d='M506.48,126.01 L549.04,126.01 M81.53,293.60 L86.42,159.54 L91.31,95.58 L96.21,74.22 L101.10,77.56 L105.99,94.15
 		L110.88,116.83 L115.77,141.28 L120.66,165.03 L125.56,186.77 L130.45,205.93 L135.34,222.38 L140.23,236.21 L145.12,247.68
 		L150.02,257.08 L154.91,264.70 L159.80,270.83 L164.69,275.74 L169.58,279.63 L174.47,282.71 L179.37,285.13 L184.26,287.04
 		L189.15,288.52 L194.04,289.68 L198.93,290.58 L203.83,291.28 L208.72,291.82 L213.61,292.23 L218.50,292.55 L223.39,292.80
@@ -164,12 +191,12 @@
 	</g>
 	<g id="gnuplot_plot_5" ><title>r*R20(r)-theory</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(498.09,93.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(498.09,147.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >r*R20(r)-theory</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(238, 130, 238)' stroke-dasharray='7.5,12.0'  d='M506.48,90.01 L549.04,90.01 M81.53,293.60 L86.42,340.40 L91.31,359.67 L96.21,360.26 L101.10,348.76 L105.99,330.07
+	<path stroke='rgb(238, 130, 238)' stroke-dasharray='7.5,12.0'  d='M506.48,144.01 L549.04,144.01 M81.53,293.60 L86.42,340.40 L91.31,359.67 L96.21,360.26 L101.10,348.76 L105.99,330.07
 		L110.88,307.71 L115.77,284.18 L120.66,261.20 L125.56,239.89 L130.45,220.95 L135.34,204.72 L140.23,191.33 L145.12,180.75
 		L150.02,172.84 L154.91,167.38 L159.80,164.12 L164.69,162.79 L169.58,163.12 L174.47,164.85 L179.37,167.74 L184.26,171.55
 		L189.15,176.08 L194.04,181.16 L198.93,186.62 L203.83,192.33 L208.72,198.16 L213.61,204.04 L218.50,209.87 L223.39,215.59
@@ -185,12 +212,12 @@
 	</g>
 	<g id="gnuplot_plot_6" ><title>r*R30(r)-theory</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(498.09,111.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(498.09,165.91)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >r*R30(r)-theory</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="3.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(255,   0,   0)' stroke-dasharray='7.5,12.0'  d='M506.48,108.01 L549.04,108.01 M81.53,293.60 L86.42,268.19 L91.31,258.03 L96.21,258.37 L101.10,265.55 L105.99,276.74
+	<path stroke='rgb(255,   0,   0)' stroke-dasharray='7.5,12.0'  d='M506.48,162.01 L549.04,162.01 M81.53,293.60 L86.42,268.19 L91.31,258.03 L96.21,258.37 L101.10,265.55 L105.99,276.74
 		L110.88,289.86 L115.77,303.35 L120.66,316.13 L125.56,327.45 L130.45,336.86 L135.34,344.10 L140.23,349.08 L145.12,351.83
 		L150.02,352.47 L154.91,351.16 L159.80,348.12 L164.69,343.57 L169.58,337.75 L174.47,330.89 L179.37,323.22 L184.26,314.95
 		L189.15,306.28 L194.04,297.40 L198.93,288.45 L203.83,279.57 L208.72,270.89 L213.61,262.51 L218.50,254.50 L223.39,246.95
