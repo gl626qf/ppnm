@@ -1,34 +1,45 @@
-# Out.txt : main.exe
-# 	mono main.exe > Out.txt
+#RM = rm ---force
+DLLS = $(addprefix -reference:,$(filter %.dll,$^))
+CODE = $(filter %.cs,$^)
+MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
+MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
+MATLIB = ../../matlib
+LINALG := $(shell find $(MATLIB)/matrix -name '*.cs')
+CALCULUS := $(shell find $(MATLIB)/calculus -name '*.cs')
+GENLIST := $(shell find $(MATLIB)/genlist -name '*.cs')
 
-# main.exe : main.cs matrix.dll QRGS.dll
-# 	mcs main.cs -reference:matrix.dll -reference:QRGS.dll -target:exe -out:main.exe
+all: Out.TestJacobi.txt Out.A.txt Convergence.svg Eigenfunc.svg
 
-# DIR = ../../matlib/matrix
-# matrix.dll : $(DIR)/vector.cs $(DIR)/matrix.cs
-# 	mcs -target:library -out:$@ $^
+Out.TestJacobi.txt: main.exe Makefile
+	mono $< -test > $@
 
-# QRGS.dll : QRGS.cs matrix.dll
-# 	mcs QRGS.cs -target:library -out:$@ -reference:matrix.dll
-# clean : 
-# 	$(RM) *.dll *.exe [Oo]ut*
+Out.A.txt: main.exe Makefile
+	mono $< -A > $@ 
 
+Convergence.svg: convergence.gpi out.b.data
+	gnuplot $<
 
-Out.txt :main.exe
-	mono $<>$@
+Eigenfunc.svg: eigenfunc.gpi out.b2all.data out.b2final.data
+	gnuplot $<
 
-lib.dll : LSF.cs  QRGS.cs matrix.cs vector.cs
-	mcs -target:library -out:$@ $^
+out.b.data: main.exe Makefile
+	mono $< -B:plot
 
-Info.txt : main.exe
-	mono $< info | sed -e's/,/./g' > $@
+out.b2all.data out.b2final.data: main.exe Makefile
+	mono $< -B:eigenfunc
 
-fit.data : main.exe
-	mono $< fit | sed -e's/,/./g' > $@
+main.exe : main.cs matrix.dll calculus.dll
+	$(MKEXE)
 
-main.exe : main.cs lib.dll
-	mcs -target:exe -out:$@ \
-                $(filter %.cs,$^) $(addprefix -reference:,$(filter %.dll,$^))
+matrix.dll : $(MATRIX) $(GENLIST)
+	$(MKLIB)
+
+calculus.dll : matrix.dll $(CALCULUS)
+	$(MKLIB)
+
+.PHONY : all clean test
 
 clean:
-	rm -rf *.txt main.exe lib.dll *.svg *.data plots/*
+	$(RM) *.exe *.dll [Oo]ut* log*
+test: 
+	echo $(RM)

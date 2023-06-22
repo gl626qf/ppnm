@@ -13,9 +13,6 @@ Covariance matrix given by:
      0.187     -0.369 
      0.169     -0.492 
      0.124     -0.436 
-
- *************************** 
-
 Half life given by:
 4.08004641904341 +/- 5.62201558966225 days
 Compared to the theoretical value of 3.6 days

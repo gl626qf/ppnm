@@ -6,7 +6,7 @@ set xlabel "r (units of Bohr Radii)"
 set ylabel "r*R(r) - Eigenfunctions of Hydrogen s-waves"
 set tics out
 set title "Several l=0 reduced radial eigenfunctions of Hydrogen"
-set output "Eigenfuncs.svg"
+set output "Eigen.svg"
 
 
 # info taken from https://quantummechanics.ucsd.edu/ph130a/130_notes/node233.html
@@ -14,9 +14,9 @@ E10(x) = x*2.0*exp(-x)
 E20(x) = -2.0*x*exp(-x/2.0)*(1.0-x/2.0)*(2.0**(-3.0/2.0)) # For some reason this is upside down, but it doesn't matter because wavefunctions are not observable, only |R(x)| 
 E30(x) = 2.0*x*(1.0-(2.0*x/3.0)+(2.0*x*x/27.0))*exp(-x/3.0)*(3.0**(-3.0/2.0))
 
-plot [0:30][-0.4:0.8] "out.eigenfuncs.data" using 1:2 w lines lt rgb "blue" title "r*R10(r)-calc",\
-		"out.eigenfuncs.data" using 1:3 w lines lt rgb "violet" title "r*R20(r)-calc",\
-		"out.eigenfuncs.data" using 1:4 w lines lt rgb "red" title "r*R30(r)-calc",\
+plot [0:30][-0.4:0.8] "out.eigen.data" using 1:2 w lines lt rgb "blue" title "r*R10(r)-calc",\
+		"out.eigen.data" using 1:3 w lines lt rgb "violet" title "r*R20(r)-calc",\
+		"out.eigen.data" using 1:4 w lines lt rgb "red" title "r*R30(r)-calc",\
 		E10(x) with lines dt 2 lw 3 lt rgb "blue" title "r*R10(r)-theory",\
 		E20(x) with lines dt 2 lw 3 lt rgb "violet" title "r*R20(r)-theory",\
 		E30(x) with lines dt 2 lw 3 lt rgb "red" title "r*R30(r)-theory"

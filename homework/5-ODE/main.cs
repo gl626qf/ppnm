@@ -85,10 +85,11 @@ public static void Main(string[] args){
 		if(arg == "Harmonic"){
 			vector init_y = new vector(0, 1);
 			(var xs, var ys) = runge_kutta.driver(func.harmonic, 0, init_y, 30);
-			//var harmonic_data = new StreamWriter("harmonic_data.data");
+			var harmonic_data = new System.IO.StreamWriter("harmonic.data");
 			for(int i=0; i<xs.size; i++) 
 				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
 		}
+
 
 		// if(arg=="Pendul"){
 		// vector init_pendul = new vector(Math.PI-0.1,0);

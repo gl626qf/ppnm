@@ -17,6 +17,14 @@ using System.Collections.Generic;
 // 		data=newdata;
 // 	}
 // }
+public class func{
+	public static vector qnewton(
+	Func<vector,double> f, /* objective function */
+	vector start, /* starting point */
+	double acc /* accuracy goal, on exit |gradient| should be < acc */
+)
+}
+
 
 
 public class integrate{

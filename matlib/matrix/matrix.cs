@@ -239,4 +239,8 @@ public bool approx(matrix B,double acc=1e-6, double eps=1e-6){
 	return true;
 }
 
+
+
+
+
 }//matrix

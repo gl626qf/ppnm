@@ -129,9 +129,9 @@ public static class main{
 
 
             double rmax = 10;
-            double dr = 0.5;
-            int size = 5;
-            double scale = 10;
+            double dr = 0.3;
+            int size = 30;
+            double scale = 1.0;
             bool trace = false;
 
             foreach(string param in args){ // set all params

@@ -47,7 +47,7 @@ MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 MATLIB = ../../matlib
 
-all : Out.testA.txt Dr.svg Rmax.svg Eigenfuncs.svg
+all : Out.testA.txt Dr.svg Rmax.svg Eigen.svg
 
 Out.testA.txt: main.exe Makefile
 	mono main.exe -test > $@
@@ -61,7 +61,7 @@ Dr.svg: dr.gpi out.dr.data
 Rmax.svg: rmax.gpi out.rmax.data
 	gnuplot $<
 
-Eigenfuncs.svg: eigenfuncs.gpi out.eigenfuncs.data
+Eigen.svg: eigen.gpi out.eigen.data
 	gnuplot $<
 
 out.dr.data : main.exe
@@ -76,7 +76,7 @@ out.rmax.data : main.exe
 		mono $< -plotrmax -rmax:$$N -dr:0.1 1>>$@ 2>err ;\
 	done
 
-out.eigenfuncs.data : main.exe
+out.eigen.data : main.exe
 	>$@
 	mono main.exe -plotfuncs >>$@
 
@@ -86,7 +86,7 @@ matlib.dll : EVD.cs $(MATLIB)/matrix/vector.cs  $(MATLIB)/matrix/matrix.cs
 .PHONEY : clean test
 
 clean:
-	$(RM) *.exe *.dll [Oo]ut* log* *.data err
+	$(RM) *.exe *.dll [Oo]ut* log* *.data err *.svg
 test: 
 	echo $(RM)
 

@@ -41,7 +41,7 @@ public class spline{
 		double sum = 0;
 		int index = binsearch.binsearch_(x, z);
 		for(int i=0;i<index;i++){
-			double dx=x[i+1]-x[i]; if(!(dx>0)) throw new Exception("seems wrong again...");
+			double dx=x[i+1]-x[i]; if(!(dx>0)) throw new Exception("seems wrong");
 			double dy=y[i+1]-y[i];
 			double a = dy/dx;
 			double b = y[i]-a*x[i];
@@ -83,9 +83,15 @@ public class main{
 			}	
 			if(arg == "-integrate"){
 				for(double z=xs[0];z<=xs[xs.Length-1];z+=1.0/10){
-                         	       WriteLine($"z = {z}, value = {spline.linterInteg(xs, ys, z)}");
+                         	    //    WriteLine($"z = {z}, value = {spline.linterInteg(xs, ys, z)}");
+								WriteLine(spline.linterpInteg(xs,ys,z));
                         	}	
                		}
+			if(arg == "-plots"){
+				
+			}
+
+
 		}
 		
 
@@ -236,35 +242,3 @@ public class main{
 // }
 // }
 
-// public static class main{
-
-//     public static void Main(){
-
-//             WriteLine("------------TASK A------------"); // Maybe make it not hardcoded
-
-
-//             //Making make the Next to Nextdouble
-
-//             //random tall
-//             // var random = new Random(Guid.NewGuid().GetHashCode());
-//             // var random = new Random();
-//             // int random_n = random.Next(2,7);
-//             // int random_m = random.Next(2,random_n);
-//             // Here the matrix library is used 
-
-
-
-
-
-
-            
-
-
-
-
-//             WriteLine("------------TASK B------------");
-        
-
-
-//     }
-// }

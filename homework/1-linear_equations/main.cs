@@ -63,15 +63,15 @@ public class main{
 
 
             matrix A = random_a.copy();
-            matrix Q = random_a.copy();
-            matrix R = new matrix(random_m, random_m);
+            matrix Q_ = random_a.copy();
+            matrix R_ = new matrix(random_m, random_m);
 
             // Q.print("This is Q before decomposition");
             // R.print("This is R before decomposition");
 
 
             //We use decomposition
-            QRGS.decomp(Q, R);
+            (matrix Q, matrix R) = QRGS.decomp(A);
             
             //We check the different matrices after decomp
             Q.print("This is Q after decomposition");
@@ -90,7 +90,7 @@ public class main{
             WriteLine($"Testing if Q * R is equal to the matrix A: {(Q*R).approx(A)}");
 
 
-            // WriteLine($"QR = A: {A.approx(Q*R)}");
+            WriteLine($"QR = A: {A.approx(Q*R)}");
 
 
 
@@ -124,28 +124,24 @@ public class main{
             // Making for later
             matrix A2_square = random_square.copy();
 
-            matrix R_square = new matrix(random_n, random_n);
+            // matrix R_square = new matrix(random_n, random_n);
             vector b_square = random_b.copy();
 
-            A_square.print("A before QR");
-            R_square.print("R before QR");
+            // A_square.print("A before QR");
+            // R_square.print("R before QR");
             
-            QRGS.decomp(A_square,R_square);
+            (matrix Q_square, matrix R_square) = QRGS.decomp(A_square);
             
-            A_square.print("A after QR");
-            R_square.print("R after QR");
-
-
-            // WriteLine($"Testing if A.T * A is equal to the identity matrix: {(A_square.T * A_square).approx(matrix.id(random_n))}");
-
+            // Q_square.print("A after QR");
+            // R_square.print("R after QR");
 
             //Now we need to solve 
 
-            vector x = QRGS.solve(A_square, R_square, b_square);
+            vector x = QRGS.solve(Q_square, R_square, b_square);
             x.print("Solution vector x");
 
             //Checking Ax = b. Need to Convert the A matrix back by multiplying with R
-            vector Ax = (A_square * R_square) * x;
+            vector Ax = (Q_square * R_square) * x;
 
 
             // WriteLine("We see if Ax = b");
@@ -163,13 +159,9 @@ public class main{
             // To test with later in the AB = I case
             matrix A2_test = A2_square.copy();
 
-            matrix R2_square = new matrix(A2_square.size2, A2_square.size2);
+            (matrix Q2_square, matrix R2_square) = QRGS.decomp(A2_square);
 
-            R2_square.print("Random square matrix: R");
-
-            QRGS.decomp(A2_square, R2_square);
-
-            matrix B = QRGS.inverse(A2_square, R2_square);
+            matrix B = QRGS.inverse(Q2_square, R2_square);
 
             B.print("The inverse matrix: B");
 
@@ -183,18 +175,7 @@ public class main{
             WriteLine($"Testing if Q.T * A is equal to the identity matrix: {((A2_test) * B).approx(matrix.id(A2_square.size1))}");
             // WriteLine(matrix.id(random_n));
 
-            
-
-
-
-
-
-
-
-
-
-
-
+        
 
         
 
