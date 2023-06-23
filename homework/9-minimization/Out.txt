@@ -1,0 +1,20 @@
+ #### Testing the method for Quasi newton and rand-1 update #### 
+
+For the alogorithm the number of steps are recored
+
+Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:
+Start guess is (2,1.6)
+The minimum is found be be: (0.999999346609459,0.999998454810039)
+In the minimum the function Gradf(x,y) is: (8.84053145379256E-06,-4.61917476174189E-06)
+|Gradf(x,y)| = 9.97455622396349E-06
+The theoretical is a minimum at (1,1) for grad(f(x,y))=0
+Number of steps in caculation: 1616
+
+ ------------------------------ 
+ 
+Minimum of Himmelblau's function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2:
+Start guess is (5,3)
+The minimum is found be be: (-2.8051181044991,3.13131249741439)
+In the minimum the function Gradf(x,y) is: (1.90615207668563E-07,1.77718845533822E-07)
+There is a theoretical minimum at (-2.805123,3.13131) for grad(f(x,y))=0
+Number of steps in caculation: 11

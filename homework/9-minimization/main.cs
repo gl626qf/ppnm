@@ -1,77 +1,43 @@
 using System;
 using static System.Console;
 using static System.Math;
-using System.Collections.Generic;
 
+public static class main{
+	
+	public static void Main(){
+		WriteLine(" #### Testing the method for Quasi newton and rand-1 update #### " );
+		WriteLine("");
+		WriteLine("For the alogorithm the number of steps are recored\n");
+		var epsi = 1e-5;
+		//
+		//
+		WriteLine("Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:");
+		//Func<vector,double> F1 = (x) =>{return Pow(1-x[0],2)+100*Pow(x[1]-x[0]*x[0],2);};
+		Func<vector,double> F1 = (x) =>{return Pow(1-x[0],2)+10*Pow(x[1]-x[0]*x[0],2);};
+		vector vec1 = new vector(2,1.6);
+		WriteLine($"Start guess is ({vec1[0]},{vec1[1]})");
+		int nsteps1 = qnewton.minimum(F1,ref vec1,epsi);
+		var GradF1 = qnewton.gradient(F1,vec1);
+		WriteLine($"The minimum is found be be: ({vec1[0]},{vec1[1]})");
+		WriteLine($"In the minimum the function Gradf(x,y) is: ({GradF1[0]},{GradF1[1]})");
+		WriteLine($"|Gradf(x,y)| = {GradF1.norm()}");
+		WriteLine("The theoretical is a minimum at (1,1) for grad(f(x,y))=0"); 
+		WriteLine($"Number of steps in caculation: {nsteps1}");
+		//
+		//
+		WriteLine("\n ------------------------------ \n ");
+		//
+		//
+		WriteLine("Minimum of Himmelblau's function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2:");
+		Func<vector,double> F2 = (x) =>{return Pow(x[0]*x[0]+x[1]-11,2)+Pow(x[0]+x[1]*x[1]-7,2);};
+		vector vec2 = new vector(5,3);
+		WriteLine($"Start guess is ({vec2[0]},{vec2[1]})");
+		var nsteps2 = qnewton.minimum(F2,ref vec2,epsi);
+		var GradF2 = qnewton.gradient(F2,vec2);
+		WriteLine($"The minimum is found be be: ({vec2[0]},{vec2[1]})");
+		WriteLine($"In the minimum the function Gradf(x,y) is: ({GradF2[0]},{GradF2[1]})");
+		WriteLine("There is a theoretical minimum at (-2.805123,3.13131) for grad(f(x,y))=0"); 
+		WriteLine($"Number of steps in caculation: {nsteps2}");
+}//Main()
 
-
-// public class genlist<T>{
-// 	public T[] data;
-// 	public int size => data.Length;
-// 	public T this[int i] => data[i]; 
-// 	public genlist(){ data = new T[0]; }
-// 	public void add(T item){
-// 		T[] newdata = new T[size+1];
-// 		System.Array.Copy(data,newdata,size);
-// 		newdata[size]=item;
-// 		data=newdata;
-// 	}
-// }
-public class func{
-	public static vector qnewton(
-	Func<vector,double> f, /* objective function */
-	vector start, /* starting point */
-	double acc /* accuracy goal, on exit |gradient| should be < acc */
-)
-}
-
-
-
-public class integrate{
-
-
-	public static double Integrate
-	(Func<double,double> f, double a, double b,
-	double delta=0.001, double eps=0.001, double f2=double.NaN, double f3=double.NaN)
-	{
-	double h=b-a;
-	if(double.IsNaN(f2)){ f2=f(a+2*h/6); f3=f(a+4*h/6); } // first call, no points to reuse
-	double f1=f(a+h/6), f4=f(a+5*h/6);
-	double Q = (2*f1+f2+f3+2*f4)/6*(b-a); // higher order rule
-	double q = (  f1+f2+f3+  f4)/4*(b-a); // lower order rule
-	double err = Math.Abs(Q-q);
-	if (err <= delta+eps*Math.Abs(Q)) return Q;
-	else return Integrate(f,a,(a+b)/2,delta/Math.Sqrt(2),eps,f1,f2) + Integrate(f,(a+b)/2,b,delta/Math.Sqrt(2),eps,f3,f4);
-	}
-
-
-}
-
-public class main{
-public static void Main(string[] args){
-
-
-	foreach(var arg in args){
-		if(arg == "-test"){
-			WriteLine("Hej");
-			Func<double,double> f = (double x) => Pow(x,0.5);
-
-			integrate.Integrate(f, 2, 4);
-		}
-
-
-	}//foreach	
-
-
-	}//Main
-}//main
-
-
-
-
-
-
-
-
-
-
+}//class main
