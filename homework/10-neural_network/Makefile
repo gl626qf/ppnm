@@ -1,14 +1,27 @@
-Out.txt : main.exe
-	mono main.exe > Out.txt
+iall : Out.txt TestFunctionPlotA.svg PlotB.svg
+DLLS = $(addprefix -reference:,$(filter %.dll,$^))
+CODE = $(filter %.cs,$^)
+MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
+MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
+DIR = ../../matlib
 
-main.exe : main.cs matrix.dll QRGS.dll
-	mcs main.cs -reference:matrix.dll -reference:QRGS.dll -target:exe -out:main.exe
+PlotB.svg : plotB.gpi TrainPointsB.txt
+	gnuplot $<
 
-DIR = ../../matlib/matrix
-matrix.dll : $(DIR)/vector.cs $(DIR)/matrix.cs
-	mcs -target:library -out:$@ $^
+TestFunctionPlotA.svg : plotA.gpi TrainPointsA.txt
+	gnuplot $<
 
-QRGS.dll : QRGS.cs matrix.dll
-	mcs QRGS.cs -target:library -out:$@ -reference:matrix.dll
-clean : 
-	$(RM) *.dll *.exe [Oo]ut*
+Out.txt TrainPointsA.txt TrainPointsB.txt : main.exe
+	mono $< 1> $@ 
+
+
+main.exe : main.cs matlib.dll
+	$(MKEXE)
+
+matlib.dll : ann.cs $(DIR)/mixed/qnewton.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
+	 $(MKLIB) 
+
+
+i.PHONY: clean
+clean:
+	-$(RM) out* *.txt *.exe *.dll *.data *.svg log*

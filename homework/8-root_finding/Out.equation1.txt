@@ -1,0 +1,7 @@
+ ----First test equation: x**3 equation----- 
+Given funciton: f(x)=x**3 # 
+Initial vector : 0.1
+
+x_root =   0.000771 
+f(roots) =   4.58e-10 
+ The correct result for roots is x = 0

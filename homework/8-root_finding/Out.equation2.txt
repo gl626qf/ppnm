@@ -1,0 +1,7 @@
+----Second test equation: ----
+ # Function to find root f(x) = 1 / (1 + Exp(-x[0] + 2))- 0.5 # 
+Initial vector : -0.2
+
+x_root =          2 
+f(roots) =   5.78e-14 
+ The correct result for roots is x_root = 2
