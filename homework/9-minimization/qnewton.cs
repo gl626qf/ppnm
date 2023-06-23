@@ -15,10 +15,9 @@ public static vector gradient(Func<vector,double>f, vector x){
 		x[i] += dx;
 		dfdx[i] = (f(x)-fx)/dx;
 		x[i] -= dx;
-	}//forloop
+	}
 	return dfdx;
-
-}//gradient
+}
 
 
 public static int minimum(
@@ -26,21 +25,18 @@ public static int minimum(
 	ref vector x, /* starting point */
 	double acc /* accuracy goal, on exit |gradient| should be < acc */
 	){
-	vector gx=gradient(f,x);
+	vector gx = gradient(f,x);
 	double fx = f(x);
 	double epsilon = Pow(2,-20);
 	int step = 0;
-/*	
-	matrix H = hessian(f,x);
-	var (Q,R) = QRGS.dec(H);
-	matrix B = QRGS.inverse(H);
-*/
+
 	var n = x.size;
 	matrix B = matrix.id(n);
 
 	while(gx.norm() > acc){
 		step++;
 		vector Dx = -B*gx;
+
 	if(Dx.norm() < epsilon*x.norm() || Dx.norm() < acc){
 		Error.WriteLine("dx < deltax");
 		}
@@ -71,9 +67,7 @@ public static int minimum(
 	x = z;
 	gx = gz;
 	fx = fz;
-//WriteLine($"gx.norm = {gx.norm()} acc = {acc}");
-	}//while
+	}
 	return step;
- 
-}//qnewton minimum
-}//class
+}
+}

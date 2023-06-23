@@ -1,4 +1,4 @@
-iall : Out.txt
+ALL : Out.rosenbrock.txt Out.himmelblau.txt
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
@@ -6,9 +6,15 @@ MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../matlib
 
 
-Out.txt : main.exe
-	mono $< 1> $@ 2> log.Out
 
+
+
+Out.rosenbrock.txt : main.exe
+	mono $< $@ -rosenbrock 2> log.Out
+
+
+Out.himmelblau.txt : main.exe
+	mono $< $@ -himmelblau 2> log.Out
 
 main.exe : main.cs matlib.dll
 	$(MKEXE)
