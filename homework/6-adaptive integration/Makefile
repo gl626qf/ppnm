@@ -1,30 +1,55 @@
-ALL : Out.txt Error.svg 
+all : Out.integrals14.txt Erf.svg Out.ccTransform.txt
+DLLS = $(addprefix -reference:,$(filter %.dll,$^))
+CODE = $(filter %.cs,$^)
+MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
+MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
+DIR = ../../matlib/
 
-Error.svg : Error.gpi erfs.data error_factorials.data
+
+
+main.exe : main.cs matlib.dll 
+	$(MKEXE)
+
+
+matlib.dll : integration.cs $(DIR)/erf/erf.cs $(DIR)/complex/complex.cs
+	mcs -target:library -out:$@ $^
+
+
+Out.integrals14.txt : main.exe
+	mono $< >$@ -integrals14
+
+
+Out.erf.txt : main.exe
+	mono $< >$@ -erfs
+
+
+Out.ccTransform.txt : main.exe
+	mono $< >$@ -ccTransform2
+
+
+
+
+Erf.svg : erf.gpi Out.erf.txt
 	gnuplot $<
 
 
-Out.txt: main.exe
-	mono $< Test | sed -e's/,/./g' > $@
 
-erfs.data: main.exe
-	mono $< erfs | sed -e's/,/./g' >$@
 
-error_factorials.data : Makefile
-	>$@
-	echo 0 0 >>$@
-	echo 0.2 0.222702589 >>$@
-	echo 1 0.842700793 >>$@
-	echo 0.6 0.60385609 >>$@
-	echo 1.3 0.934007945 >>$@
-	echo -0.2 -0.222702589 >>$@
-	echo -1 -0.842700793 >>$@
-	echo -0.6 -0.60385609 >>$@
-	echo -1.3 -0.934007945 >>$@
 
-main.exe : main.cs 
-	mcs -target:exe -out:$@ \
-                $(filter %.cs,$^) $(addprefix -reference:,$(filter %.dll,$^))
+
+
+
+
+
+
+# Error.svg : Error.gpi erfs.data error_factorials.data
+# 	gnuplot $<
+
+
+
+
+
+
 
 clean:
-	rm -rf *.txt main.exe lib.dll *.svg *.data plots/*
+	rm -rf *.txt main.exe lib.dll *.svg *.data plots/* 

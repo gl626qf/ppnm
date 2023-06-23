@@ -1,0 +1,12 @@
+set terminal svg
+set output "Erf.svg"
+set xlabel "z"
+set ylabel ""
+set title "error function via integral rep."
+set terminal svg background "white"
+set key right bottom width 1
+set pointintervalbox 3
+
+plot [-4:4] [-1.6:1.6] "Out.erf.txt" index 0 with lines ls 1 title "erf(z)"\
+	, "Out.erf.txt" index 1 with points pointtype 5 ps 1 title "Integrated points"
+

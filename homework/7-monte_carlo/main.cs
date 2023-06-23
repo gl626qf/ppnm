@@ -19,9 +19,9 @@ public class main{
                 for(int k=0;k<dim;k++) x[k] = a[k] + rnd.NextDouble() * (b[k]-a[k]);
                 double fx = f(x); sum += fx; sum2 += fx*fx;
 	}
-        double mean = sum/N, sigma = Sqrt(sum2/N-mean*mean);
-        var result = (mean*V,sigma*V/Sqrt(N));
-        return result;
+    double mean = sum/N, sigma = Sqrt(sum2/N-mean*mean);
+    var result = (mean*V,sigma*V/Sqrt(N));
+    return result;
 	}
 
 	
