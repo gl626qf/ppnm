@@ -1,0 +1,10 @@
+set terminal svg background "white"
+set key left
+set xlabel "x"
+set ylabel "y"
+set tics in
+set title "Several Differential Equations"
+set output "ODE.svg"
+
+
+plot [0:5][-2:2] "Out.harmonic.data" u 1:2 title "y' = -y" w linespoints 

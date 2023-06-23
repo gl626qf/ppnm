@@ -6,10 +6,10 @@ class main{
 	public static void Main(){
 		WriteLine("############# Part A: ###########");
 		WriteLine("QR-dec for tall matrices");
-		var A = matrix.random(8,3);
+		var A = matrix.random_matrix(8,3);
 		A.print("A = ");
 		WriteLine($" n ={A.size1},m = {A.size2}");	
-		var (Q,R) = QRGS.decomp(A);
+		var (Q,R) = QRGS_copy.dec(A);
 		Q.print("Q = ");
 		R.print("R = ");
 		var test1 = Q.T*Q;
@@ -34,7 +34,7 @@ class main{
 			dlny[i] = dy[i]/y[i];
 		}
 		
-		var (c,S) = lsfit.LS(t, lny, dlny, fs); 		
+		var (c,S) = LeastSquare.solQRdec(t, lny, dlny, fs); 		
 		c.print("c = ");
 		S.print("covariance matrix S = ");
 		double lna = c[0]; double lna_err = Sqrt(S[0,0]);

@@ -82,7 +82,7 @@ public static void Main(string[] args){
 
 
 	foreach(var arg in args){
-		if(arg == "Harmonic"){
+		if(arg == "-harmonic"){
 			vector init_y = new vector(0, 1);
 			(var xs, var ys) = runge_kutta.driver(func.harmonic, 0, init_y, 30);
 			var harmonic_data = new System.IO.StreamWriter("harmonic.data");
@@ -91,19 +91,15 @@ public static void Main(string[] args){
 		}
 
 
-		// if(arg=="Pendul"){
-		// vector init_pendul = new vector(Math.PI-0.1,0);
-		// (var pendul_xs, var pendul_ys) = driver(pendul,0,init_pendul,30);
-		// for(int i=0; i<pendul_xs.size;i++)
-		// 	WriteLine($"{pendul_xs[i]} {pendul_ys[i][0]} {pendul_ys[i][1]}");
-		// }
+DO THE LAST PART!!!
 
 
-	}//foreach	
+
+	}
 
 
-	}//Main
-}//main
+	}
+}
 
 
 

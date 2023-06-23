@@ -56,6 +56,69 @@ public class spline{
 
 
 
+
+// class qspline {
+// 	vector x,y,b,c;
+// 	public qspline(vector xs,vector ys){
+// 		/* x=xs.copy(); y=ys.copy(); calculate b and c */
+// 		}
+// 	public double evaluate(double z){/* evaluate the spline */}
+// 	public double derivative(double z){/* evaluate the derivative */}
+// 	public double integral(double z){/* evaluate the integral */}
+// 	}
+
+
+
+class qspline {
+	// Initialize the variables
+	vector x,y,b,c;
+	public qspline(vector xs,vector ys){
+		x=xs.copy(); y=ys.copy(); 
+		int n = x.size;
+		c = new vector(n-1);
+		b = new vector(n-1);
+		double[] p = new double[n-1], h = new double[n-1]; 
+		for(int i=0 ; i<n-1 ; i++){
+			h[i] = x[i+1] - x[i];
+			p[i] = (y[i+1] - y[i])/h[i];
+		}
+		c[0] = 0;
+		for(int i=0 ; i<n-2 ; i++){
+			c[i+1] = (p[i+1]-p[i]-c[i]*h[i])/h[i+1];
+		}
+		c[n-2] /= 2;
+		for(int i=n-3 ; i>=0 ; i--){
+			c[i] = (p[i+1]-p[i]-c[i+1]*h[i+1])/h[i];
+		}
+		for(int i=0 ; i<n-1 ; i++){
+			b[i] = p[i] - (c[i]*h[i]);
+		}
+	}
+	public double evaluate(double z){/* evaluate the spline */
+		int i = binsearch.binsearch_(x,z);
+		double s = y[i] + b[i]*(z-x[i]) + c[i]*Pow(z-x[i],2);
+		return s;
+	}
+	public double derivative(double z){/* evaluate the derivative */	
+		int i = binsearch.binsearch_(x,z);
+		double deriv = b[i] + 2*c[i]*(z-x[i]);
+		return deriv;
+	}
+	public double integral(double z){/* evaluate the integral */	
+		int i = binsearch.binsearch_(x,z);
+		double sum = 0;
+		for(int j=0 ; j<i ; j++){
+			double dx = x[i+1]-x[i];
+			sum += y[j]*dx + b[i]*Pow(dx,2)/2 + c[i]*Pow(dx,3)/6;
+		}	
+		return sum;
+	}
+	// Print the variables
+	public vector show_b(){return b;}
+	public vector show_c(){return c;}
+}
+
+
 public class main{
 
 	static void Main(string[] args){
@@ -86,154 +149,38 @@ public class main{
                         	}	
                		}
 
+			if(arg == "-qspline"){
+				vector xsvec = new vector("1,2,3,4,5"), ysvec = new vector(5);
+				for(int i=0; i<5; i++) ysvec[i] = 1;
+				qspline qspline_ = new qspline(xsvec,ysvec);
+				vector b = qspline_.show_b();
+				vector c = qspline_.show_b();
+
+
+				WriteLine("For x = {1,2,3,4,5}, y = {1,1,1,1,1}");
+				b.print("b = ");
+				c.print("c = ");
+				for(int i=0; i<5; i++) ysvec[i] = i+1;
+				qspline_ = new qspline(xsvec, ysvec);
+				b = qspline_.show_b();
+				c = qspline_.show_b();
+				WriteLine("For x = {1,2,3,4,5}, y = {1,2,3,4,5}");
+				b.print("b = ");
+				c.print("c = ");
+				for(int i=0; i<5; i++) ysvec[i] = Pow(i+1,2);
+				qspline_ = new qspline(xsvec, ysvec);
+				b = qspline_.show_b();
+				c = qspline_.show_b();
+				WriteLine("For x = {1,2,3,4,5}, y = {1,4,9,16,25}");
+				b.print("b = ");
+				c.print("c = ");
+
+			}
+
 
 		}
 		
 
 	}
 }
-
-
-
-// public class main
-// {
-//     public static int Main(string[] args)
-//     {
-//         string infile = null, outfile = null;
-//         List<double> xs = new List<double>();
-//         List<double> ys = new List<double>();
-
-
-//         foreach (var arg in args)
-//         {
-//             var words = arg.Split(':');
-//             if (words[0] == "-input")
-//                 infile = words[1];
-//             if (words[0] == "-output")
-//                 outfile = words[1];
-//         }
-
-//         if (infile == null || outfile == null)
-//         {
-//             Console.Error.WriteLine("wrong filename argument");
-//             return 1;
-//         }
-
-//         var instream = new StreamReader(infile);
-//         var outstream = new StreamWriter(outfile, append: false);
-
-//         foreach (var arg in args)
-//         {
-//             if (arg == "-data")
-//             {
-//                 outstream.WriteLine("The data points:");
-
-//                 string line;
-//                 while ((line = instream.ReadLine()) != null)
-//                 {
-//                     var XY = line.Split(" ");
-//                     if (XY.Length == 2 && double.TryParse(XY[0], out double x) && double.TryParse(XY[1], out double y))
-//                     {
-//                         xs.Add(x);
-//                         ys.Add(y);
-//                         outstream.WriteLine($"x = {x}, y = {y}");
-//                     }
-//                 }
-//             }
-
-//             if (arg == "-interpolate")
-//             {
-//                 outstream.WriteLine("The interpolated data");
-//                 for (int i = 0; i < xs.Count; i++)
-//                 {
-//                     double x = xs[i];
-//                     double y = ys[i];
-
-//                     // Perform interpolation and write the results
-//                     for (double z = xs[0]; z <= xs[xs.Count - 1]; z += 1.0 / 10.0)
-//                     {
-//                         double interpValue = spline.linterp(xs.ToArray(), ys.ToArray(), z);
-//                         outstream.WriteLine($"{z} {interpValue}");
-//                     }
-//                 }
-//         }
-
-//         instream.Close();
-//         outstream.Close();
-//         return 0;
-//     }
-// }
-
-// }
-
-
-
-
-// I NEED TO IMPLEMENT THE WRITING TO FILE!!!
-// public class main{
-// public static int Main(string[] args){
-
-
-
-// 	string infile=null,outfile=null;
-// 	foreach(var arg in args){
-// 			var words=arg.Split(':');
-// 				if(words[0]=="-input")infile=words[1];
-// 				if(words[0]=="-output")outfile=words[1];
-// 						}
-// 	if( infile==null || outfile==null) {
-// 			Error.WriteLine("wrong filename argument");
-// 				return 1;
-// 					}
-// 	var instream =new System.IO.StreamReader(infile);
-// 	var outstream=new System.IO.StreamWriter(outfile,append:false);
-    
-
-//     foreach(var arg in args){
-
-//         if(arg == "-data"){
-//             outstream.WriteLine("The data points:");
-//             for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){
-//                     // WriteLine(line);
-//                     var XY = line.Split(" ");
-//                     // WriteLine(XY);
-//                     double x = double.Parse(XY[0]);
-//                     double y = double.Parse(XY[1]);
-//                     outstream.WriteLine($"x = {x}, y = {y}");
-
-//                     }
-//         }
-
-        
-//         if(arg == "-interpolate"){
-//         outstream.WriteLine("The interpolated data");
-//         for(string line=instream.ReadLine();line!=null;line=instream.ReadLine()){    
-//                     var XY = line.Split(" ");
-//                     // WriteLine(XY);
-//                     double x = double.Parse(XY[0]);
-//                     double y = double.Parse(XY[1]);
-
-//                 // for(double z=x[0];z<=x[x.Length-1];z+=1.0/10.0){
-// 				// 	double interpValue = spline.linterp(x, y, z);
-//     			// 	// outstream.WriteLine($"{z} {interpValue}");
-//                 // }
-
-
-
-//                 for(int i = 0;i<N;i++){/*genereates N z values and makes lineterp for them with x and y*/
-//                     double z = x + i*(x-x)/(N-1);
-//         }
-
-
-            
-
-//                 }
-//         }
-//     instream.Close();
-// 	outstream.Close();
-// 	return 0;
-//     } //foreach
-
-// }
-// }
 

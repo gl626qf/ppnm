@@ -1,4 +1,4 @@
-all : taskA.svg 
+all : taskA.svg qspline.txt
 
 Out.txt : main.exe
 	mono main.exe > Out.txt 
@@ -28,6 +28,9 @@ datapoints.txt : main.exe
 linterpdata.txt : main.exe
 	mono $< >$@ -interpolate
 
+
+qspline.txt: main.exe Makefile
+	mono main.exe > $@ -qspline
 
 data_integrate.txt : main.exe
 	mono $< >$@ -integrate
