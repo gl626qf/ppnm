@@ -1,25 +1,31 @@
-iall : Out.txt TestFunctionPlotA.svg PlotB.svg
+ALL : Out.txt 
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../matlib
 
-PlotB.svg : plotB.gpi TrainPointsB.txt
-	gnuplot $<
 
-TestFunctionPlotA.svg : plotA.gpi TrainPointsA.txt
-	gnuplot $<
 
 Out.txt TrainPointsA.txt TrainPointsB.txt : main.exe
-	mono $< 1> $@ 
+	mono $< 1> $@ -A 2> log.txt
 
 
 main.exe : main.cs matlib.dll
 	$(MKEXE)
 
-matlib.dll : ann.cs $(DIR)/mixed/qnewton.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
+matlib.dll : ann.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs $(DIR)/num_tools/qnewton.cs 
 	 $(MKLIB) 
+
+
+
+# PlotB.svg : plotB.gpi TrainPointsB.txt
+# 	gnuplot $<
+
+# TestFunctionPlotA.svg : plotA.gpi TrainPointsA.txt
+# 	gnuplot $<
+
+
 
 
 i.PHONY: clean

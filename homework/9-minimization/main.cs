@@ -13,7 +13,7 @@ public static class main{
 
 				WriteLine("Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:");
 
-				Func<vector,double> F_rosen = (x) =>{return Pow(1-x[0],2)+10*Pow(x[1]-x[0]*x[0],2);};
+				Func<vector,double> F_rosen = (x) =>{return Pow(1-x[0],2)+100*Pow(x[1]-x[0]*x[0],2);};
 				vector vec1 = new vector(2,1.6);
 				WriteLine($"Start guess is ({vec1[0]},{vec1[1]})");
 				int nsteps1 = qnewton.minimum(F_rosen,ref vec1,epsilon_);

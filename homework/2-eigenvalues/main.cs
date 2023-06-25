@@ -124,21 +124,13 @@ public class Hydrogen{
 public static class main{
 
     public static void Main(string[] args){
-            // partA PartA_ = new partA(); 
-            // PartA_.Run();
-
 
             double rmax = 10;
             double dr = 0.3;
             int size = 20;
             double scale = 1.0;
-            bool trace = false;
 
-            foreach(string param in args){ // set all params
-                string[] words = param.Split(":");
-                if(words[0] == "-rmax"){rmax = double.Parse(words[1]);}
-                if(words[0] == "-dr"){dr = double.Parse(words[1]);}
-            }
+
             foreach(string run in args){
 
                 if(run == "-partA"){partA PartA_ = new partA(); PartA_.Run();}
@@ -150,10 +142,6 @@ public static class main{
             }
 
 
-            // WriteLine("------------TASK B------------"); 
-
-            // matrix H = hamiltonian(rmax, dr);
-            // WriteLine(H);
 
 
 

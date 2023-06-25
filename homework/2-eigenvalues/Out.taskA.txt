@@ -1,15 +1,15 @@
 ------------TASK A------------
 random square matrix A:
-        51         71 
-        71          4 
+        78         37 
+        37         79 
 matrix V:
-     0.586      0.811 
-    -0.811      0.586 
-vector w     -47.3        102 
+     0.712      0.702 
+    -0.702      0.712 
+vector w      41.5        116 
 -------------------------
 Eigen value decomp: (V.T * A * V) = D. Matrix D
-        51         71 
-        71          4 
+        78         37 
+        37         79 
 Testing if (V.T * A * V) = D: True
 Testing if (V * D * V.T) = A: True
 Testing if (V.T * V) = I: True

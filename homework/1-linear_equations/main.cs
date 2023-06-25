@@ -23,12 +23,6 @@ public class main{
         return true;
     }
 
-    public static bool checkQTQ(matrix A, matrix B){
-        return B.approx(A);
-
-    }
-
-
 
 
 
@@ -44,18 +38,19 @@ public class main{
             //random tall
             // var random = new Random(Guid.NewGuid().GetHashCode());
             var random = new Random();
-            int random_n = random.Next(2,7);
+            int random_n = random.Next(2,8);
             int random_m = random.Next(2,random_n);
             // Here the matrix library is used 
-            matrix random_a = new matrix(random_n, random_m);
-            for(int i=0;i<random_n;i++){
-                for(int j=i;j<random_m;j++){
-                    random_a[i,j] = random.NextDouble();
-                }
-            }
-            
+            // matrix random_a = new matrix(random_n, random_m);
+            // for(int i=0;i<random_n;i++){
+            //     for(int j=0;j<random_m;j++){
+            //         random_a[i,j] = random.NextDouble();
+            //     }
+            // }
 
 
+
+            matrix random_a = matrix.randomMatrix(random_n, 2);
 
             // WriteLine("\n \n");
 
@@ -63,13 +58,9 @@ public class main{
 
 
             matrix A = random_a.copy();
-            matrix Q_ = random_a.copy();
-            matrix R_ = new matrix(random_m, random_m);
-
-            // Q.print("This is Q before decomposition");
-            // R.print("This is R before decomposition");
 
 
+            A.print("This is A:");
             //We use decomposition
             (matrix Q, matrix R) = QRGS.decomp(A);
             
