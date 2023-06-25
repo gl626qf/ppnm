@@ -1,0 +1,16 @@
+R = 
+      44.9        165 
+         0        144 
+RTR = 
+  2.01e+03   7.41e+03 
+  7.41e+03    4.8e+04 
+S = 
+   0.00115  -0.000178 
+ -0.000178   4.83e-05 
+c =       4.95      -0.17 
+covariance matrix S = 
+   0.00115  -0.000178 
+ -0.000178   4.83e-05 
+lambda = 0.16989 pm 0.0070
+T_0.5 = 4.08 pm 0.17 days
+Theoretical is found to be 3.8215 days from wikipedia https://en.wikipedia.org/wiki/Radon-222
