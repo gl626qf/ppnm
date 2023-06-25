@@ -6,7 +6,7 @@ class main{
 	public static void Main(){
 		WriteLine("############# Part A: ###########");
 		WriteLine("QR-dec for tall matrices");
-		var A = matrix.random(8,3);
+		var A = matrix.randomMatrix(8,3);
 		A.print("A = ");
 		WriteLine($" n ={A.size1},m = {A.size2}");	
 		var (Q,R) = QRGS.decomp(A);
