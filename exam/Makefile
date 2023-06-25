@@ -2,35 +2,41 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
-MATLIB = ../../matlib
-MATRIX := $(shell find $(MATLIB)/matrix -name '*.cs')
+DIR = ../matlib/matrix
 
-all : Out.A.txt Out.B.txt decay.svg
 
-Out.A.txt: main.exe
-	mono main.exe -test >$@
+all : Out.function1.txt Out.function2.txt Out.divFunction1.txt
 
-Out.B.txt: main.exe
-	mono main.exe -testB -input:decay.txt >$@
-
-out.lndecay.data : main.exe
-	mono main.exe -input:decay.txt -writeData > $@
-
-out.decayfit.par: main.exe
-	mono main.exe -input:decay.txt -writeFit > $@
-
-decay.svg : decay.gpi out.lndecay.data out.decayfit.par
-	gnuplot $<
-
-main.exe : main.cs matlib.dll
+main.exe : main.cs matrix.dll ; 
 	$(MKEXE)
 
-matlib.dll : ls.cs $(MATRIX) 
+
+Out.function1.txt : main.exe
+	mono $< > $@ -function1
+
+Out.function2.txt : main.exe
+	mono $< > $@ -function2
+
+Out.divFunction1.txt : main.exe
+	mono $< > $@ -divFunction1
+
+matrix.dll : svarm.cs $(DIR)/matrix.cs $(DIR)/vector.cs $(DIR)/QRGS.cs ; 
 	$(MKLIB)
 
-.PHONEY : clean test
+# Out.checkQR.txt : main.exe
+# 	mono $< > $@ -checkQR
 
+
+
+# Out.THX.txt : main.exe
+# 	mono $< > $@ -THX
+
+
+
+# thx.svg : thx.gpi Out.thx.data Out.thxFit.data
+# 	gnuplot $<
+
+
+i.PHONY: clean
 clean:
-	$(RM) *.exe *.dll [Oo]ut* log* err start.par *.data
-test: 
-	echo $(RM)
+	-$(RM) out* *.txt *.exe *.dll *.data *.svg

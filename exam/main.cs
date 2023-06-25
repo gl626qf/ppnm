@@ -1,137 +1,109 @@
 using System;
+using static System.Console;
+using static System.Math;
 
-public class Particle
-{
-    public double[] Position { get; set; }
-    public double[] Velocity { get; set; }
-    public double[] BestPosition { get; set; }
-    public double BestFitness { get; set; }
-}
 
-public class PSO
-{
-    private int swarmSize;
-    private int dimensions;
-    private double inertiaWeight;
-    private double cognitiveWeight;
-    private double socialWeight;
-    private double[] globalBestPosition;
-    private double globalBestFitness;
-    private Particle[] particles;
-    private Random random;
+public class main{
 
-    public PSO(int swarmSize, int dimensions, double inertiaWeight, double cognitiveWeight, double socialWeight)
+
+    // Function to minimize (example)
+    public static double function1(vector x)
     {
-        this.swarmSize = swarmSize;
-        this.dimensions = dimensions;
-        this.inertiaWeight = inertiaWeight;
-        this.cognitiveWeight = cognitiveWeight;
-        this.socialWeight = socialWeight;
-
-        particles = new Particle[swarmSize];
-        random = new Random();
-
-        globalBestPosition = new double[dimensions];
-        globalBestFitness = double.MaxValue;
-
-        for (int i = 0; i < swarmSize; i++)
-        {
-            particles[i] = new Particle();
-            particles[i].Position = new double[dimensions];
-            particles[i].Velocity = new double[dimensions];
-            particles[i].BestPosition = new double[dimensions];
-            particles[i].BestFitness = double.MaxValue;
-
-            for (int j = 0; j < dimensions; j++)
-            {
-                particles[i].Position[j] = random.NextDouble() * 100;  // Randomly initialize particle position
-                particles[i].Velocity[j] = random.NextDouble();       // Randomly initialize particle velocity
-                particles[i].BestPosition[j] = particles[i].Position[j];
-            }
-
-            double fitness = CalculateFitness(particles[i].Position);
-            particles[i].BestFitness = fitness;
-
-            if (fitness < globalBestFitness)
-            {
-                globalBestFitness = fitness;
-                particles[i].Position.CopyTo(globalBestPosition, 0);
-            }
-        }
+		double result = Sin(x[0]) + Cos(x[1]);
+        return result;
     }
 
-    public void Run(int maxIterations)
+
+    public static double function2(vector x)
     {
-        for (int iteration = 0; iteration < maxIterations; iteration++)
-        {
-            for (int i = 0; i < swarmSize; i++)
-            {
-                for (int j = 0; j < dimensions; j++)
-                {
-                    // Update velocity
-                    particles[i].Velocity[j] = inertiaWeight * particles[i].Velocity[j]
-                        + cognitiveWeight * random.NextDouble() * (particles[i].BestPosition[j] - particles[i].Position[j])
-                        + socialWeight * random.NextDouble() * (globalBestPosition[j] - particles[i].Position[j]);
-
-                    // Update position
-                    particles[i].Position[j] += particles[i].Velocity[j];
-
-                    // Check boundaries
-                    if (particles[i].Position[j] < 0)
-                        particles[i].Position[j] = 0;
-                    else if (particles[i].Position[j] > 100)
-                        particles[i].Position[j] = 100;
-                }
-
-                double fitness = CalculateFitness(particles[i].Position);
-
-                // Update personal best
-                if (fitness < particles[i].BestFitness)
-                {
-                    particles[i].BestFitness = fitness;
-                    particles[i].Position.CopyTo(particles[i].BestPosition, 0);
-                }
-
-                // Update global best
-                if (fitness < globalBestFitness)
-                {
-                    globalBestFitness = fitness;
-                    particles[i].Position.CopyTo(globalBestPosition, 0);
-                }
-            }
-
-            Console.WriteLine($"Iteration {iteration + 1}: Best Fitness = {globalBestFitness}");
-        }
-
-        Console.WriteLine("Optimization finished!");
+        double result = Pow(x[0] - 0, 2) + Pow(x[1] - 3, 2);
+		// double result = - Exp(Pow(-x[0],2)) - Exp(Pow(-x[1],2));
+        return result;
     }
 
-    private double CalculateFitness(double[] position)
-    {
-        // TODO: Implement your fitness function here
-        // This method should return the fitness value for the given position
 
-        // Placeholder code that calculates the sum of the position values
-        double sum = 0;
-        foreach (var p in position)
-        {
-            sum += p;
-        }
-        return sum;
-    }
-}
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        int swarmSize = 30;
-        int dimensions = 10;
-        double inertiaWeight = 0.729;
-        double cognitiveWeight = 1.49445;
-        double socialWeight = 1.49445;
+	public static double divFunction1(vector x)
+	{
+		double result = Log(x[0]) + 2 * Log(x[1]) + 0.5 * Log(x[2]);
+		return result;
+	}
 
-        PSO pso = new PSO(swarmSize, dimensions, inertiaWeight, cognitiveWeight, socialWeight);
-        pso.Run(100);
-    }
+
+    public static void Main(string[] args){
+		
+		foreach(var arg in args){
+			if(arg == "-testRandomVec"){
+				// var rnd = new Random();
+
+				// vector a_test = new vector(1, 0);
+				// vector b_test = new vector(2,0);
+				// vector vecSvarm = svarm.randomvec(a_test, b_test, rnd);
+				// vecSvarm.print("Random vector");
+
+
+
+			}
+
+
+
+			if(arg == "-function1"){
+				    
+				// Initial vectors
+				vector a = new vector(0, 0); 
+				vector b = new vector(5, 5); 
+
+				// Run algorithm 
+				vector solution = svarm.run(function1, a, b, seconds: 2);
+
+				// Print solution
+				// Console.WriteLine("Optimal solution: " + solution);
+				solution.print("Solution: ");
+				Console.WriteLine("Function evaluated at vector: " + function1(solution));
+			
+			}
+
+
+			if(arg == "-function2"){
+				    
+				// Initial vectors
+				vector a = new vector(0, 0); 
+				vector b = new vector(1, 1); 
+
+				// Run algorithm 
+				vector solution = svarm.run(function2, a, b, seconds: 2);
+
+				solution.print("Solution: ");
+				Console.WriteLine("Function evaluated at vector: " + function2(solution));
+			
+			}
+
+
+
+			if(arg == "-divFunction1"){
+				    
+				// Initial vectors
+				vector a = new vector(0, 0, 2); 
+				vector b = new vector(5, 5, 2); 
+
+				// Run algorithm 
+				vector solution = svarm.run(function2, a, b, seconds: 2);
+
+				solution.print("Solution: ");
+				Console.WriteLine("Function evaluated at vector: " + divFunction1(solution));
+			
+			}
+
+
+		}
+
+
+
+
+
+
+
+
+	} 
+
 }
