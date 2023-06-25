@@ -1,0 +1,26 @@
+set terminal svg
+set output "thx.svg"
+set xlabel "t time [days]"
+set ylabel "Activity (relative units)"
+set title "Radioactivity ThX (224 Ra)"
+set terminal svg background "white"
+
+set key right top
+set grid
+
+set multiplot
+
+plot "Out.thxFit.data" using 1:3:4 with filledcurves linecolor "grey" title "Fit errors" \
+	, "Out.thxFit.data" using 1:5 with lines ls "dashed" linecolor "red" title "Minus a uncertainty"\
+	, "Out.thxFit.data" using 1:6 with lines ls "dashed" linecolor "red" title "Plus a uncertainty"\
+	, "Out.thxFit.data" using 1:7 with lines ls "dashed" linecolor "blue" title "Minus lambda uncertainty"\
+	, "Out.thxFit.data" using 1:8 with lines ls "dashed" linecolor "blue" title "Plus lambda uncertainty"\
+	, "Out.thxFit.data" using 1:2 with lines linecolor "black" title "Fit A=a*exp(-lambda*t)" \
+	, "Out.thx.data" with yerrorbars pointtype 7 ps 0.5 lc rgb "red" title "Measured data"
+
+set nokey
+set noylabel
+set noxlabel
+set notitle
+
+

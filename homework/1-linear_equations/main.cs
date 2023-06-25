@@ -156,15 +156,8 @@ public class main{
 
             B.print("The inverse matrix: B");
 
-            WriteLine("\n");
+            WriteLine($"Testing if A * B = I is: {((A2_test) * B).approx(matrix.id(A2_square.size1))}");
 
-            WriteLine("Now we test if AB = I");
-            // (A2_square * B).approx(matrix.id(random_m));
-            // WriteLine((A2_square * B).approx(matrix.id(random_n)));
-
-            // WriteLine(matrix.id(random_m));
-            WriteLine($"Testing if Q.T * A is equal to the identity matrix: {((A2_test) * B).approx(matrix.id(A2_square.size1))}");
-            // WriteLine(matrix.id(random_n));
 
         
 

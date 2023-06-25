@@ -1,4 +1,4 @@
-all : Out.checkQR.txt Out.THX.txt
+all : Out.checkQR.txt Out.THX.txt thx.svg
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
@@ -22,8 +22,8 @@ Out.THX.txt : main.exe
 
 
 
-# Plot.svg : plot.gpi DataPartABC.data DataPartABC_fit.data
-# 	gnuplot $<
+thx.svg : thx.gpi Out.thx.data Out.thxFit.data
+	gnuplot $<
 
 
 i.PHONY: clean
