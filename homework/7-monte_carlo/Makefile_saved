@@ -64,9 +64,14 @@ Out.qDivError.txt: main.exe Makefile
 	mono main.exe > $@ -qDivError
 
 
-Error.svg: error.gpi Out.divError.txt Out.mcUnitCircle.txt Out.qDivError.txt Out.qMcUnitCircle.txt
+Error.svg: error.gpi Out.divVolume.txt Out.mcUnitCircle.txt Out.qDivVolume.txt Out.qMcUnitCircle.txt
 	gnuplot $<
 
+# Error.svg: error.gpi Out.divError.txt 
+# 	gnuplot $<
+
+# Quasi.svg: quasi.gpi out.b.data
+# 	gnuplot $<
 
 
 

@@ -1,0 +1,3 @@
+The results of the quasi Monte Carlo of Unit Circle
+Result = 2.09475721792119 pm 2.70340757451777E-05
+The results is close to the correct value

@@ -1,13 +1,28 @@
 set terminal svg background "white"
 set key left
-set xlabel "Number of sampled points"
+set xlabel "Number of points"
 set ylabel "Error"
 set tics in
 set title "Error as a function of sampling points"
 set output "Error.svg"
+set key box top
+set grid 
+set xrange [0:10000]
+set multiplot layout 2,1
+
+
 f(x) = A * 1 / sqrt(x) + B
 fit f(x) 'Out.mcUnitCircle.txt' using 1:2 via A,B
-plot [0:1e4][0:0.6] "Out.divVolume.txt" using 1:2 with lines lw 0.2 title "Estimated error" \
-	,  "Out.mcUnitCircle.txt"  using 1:2 with points pt 7 ps 0.5 title "Actual error " \
-	, f(x) lc 'black' lw 2 title "1/sqrt(n) fit to Actual error" 
+plot [0:1e4][0:0.6] "Out.divError.txt" using 1:2 with lines lw 0.2 title "Estimated error" \
+	,  "Out.mcUnitCircle.txt"  using 1:2 with points pt 1 ps 0.5 title "Actual error " \
+	, f(x) lc 'black' lw 2 title "1/sqrt(n) fit to actual error" 
 
+
+
+set title "Quasi Monte Carlo on unit circle"
+set xlabel "Number of points"
+set yrange [0:0.02]
+fit f(x) "Out.qMcUnitCircle.txt" using 1:2 via A,B
+plot "Out.qDivError.txt" using 1:2 with lines lw 0.6 title "Estimated error" \
+	,  "Out.qMcUnitCircle.txt"  using 1:2 with points pt 1  ps 0.5 title "Actual error " \
+	, f(x) lc 'black' lw 2 title "1/sqrt(n) fit to actual error"

@@ -15,7 +15,9 @@ public class main{
 		// Initializing vectors
 		vector a = new vector("-1, -1");
         vector b = new vector("1, 1");
-        int N = 10000;
+		int[] shift_ = new int[2] {0,2};
+        
+		int N = 10000;
         double actVol = (4.0/3.0)*PI*0.5; /*Actual half volume of sphere*/
 
 		if(arg == "-2Dshapes"){
@@ -24,7 +26,7 @@ public class main{
 			WriteLine($"Actual value:	{PI * Pow(1,2) * 0.5}");
 			int number = N;
 			var result = monteCarlo.plainmc(shapes.unitCircle, a, b, number);
-			WriteLine($"Calculated value with {number} points:	{result.Item1} ± {result.Item2}");
+			WriteLine($"Calculated value with {number} points:	{result.Item1} pm {result.Item2}");
 		
 			WriteLine("----Difficult shape----");
 			WriteLine("Difficult integral from task description");
@@ -34,7 +36,7 @@ public class main{
 			vector b_hard = new vector(PI, PI, PI);
 			int N_hard = N;
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
-			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} ± {answer_hard.Item2}");
+			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} pm {answer_hard.Item2}");
 		}
 
 
@@ -44,7 +46,7 @@ public class main{
 			WriteLine($"Actual value:	{(4.0/3.0)*PI*0.5}");
 			int N_unitCircle = N;
 			var result = monteCarlo.plainmc(shapes.unitCircle, a, b, N_unitCircle);
-			WriteLine($"Calculated value with {N_unitCircle} points:	{result.Item1} ± {result.Item2}");
+			WriteLine($"Calculated value with {N_unitCircle} points:	{result.Item1} pm {result.Item2}");
 		
 			WriteLine("----Difficult shape----");
 			WriteLine("Difficult integral from task description");
@@ -54,9 +56,12 @@ public class main{
 			vector b_hard = new vector(PI, PI, PI);
 			int N_hard = N;
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
-			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} ± {answer_hard.Item2}");
+			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} pm {answer_hard.Item2}");
 			
 		}
+
+
+
 		if(arg == "-mcUnitCircle"){
 			for(int i=1;i<=N;i++){
 				var result = monteCarlo.plainmc(shapes.unitCircle, a, b, i);
@@ -80,6 +85,46 @@ public class main{
 				WriteLine($"{i} {result.Item2 - (Abs(result.Item1-actVol))}");
 		}
 		}
+
+
+
+		if(arg == "-quasiCircle"){
+			vector aQuasi = new vector(-1.0,-1.0);
+			vector bQuasi = new vector(1.0,1.0); 
+			int[] shift = new int[2] {0,2};
+			(double meanQuasi, double sigmaQuasi) = monteCarlo.qmc(shapes.unitCircle, aQuasi, bQuasi, N, shift);
+
+
+			WriteLine("The results of the quasi Monte Carlo of Unit Circle");
+			WriteLine($"Result = {meanQuasi} pm {sigmaQuasi}");
+			WriteLine("The results is close to the correct value");		
+
+		}
+
+
+
+
+		if(arg == "-qMcUnitCircle"){
+			for(int i=1;i<=N;i++){
+				var result = monteCarlo.qmc(shapes.unitCircle, a, b, i, shift_);
+				WriteLine($"{i} {result.Item2}");	
+			}
+		}
+		if(arg == "-qDivVolume"){
+			for(int i=1;i<=N;i++){
+				var result = monteCarlo.qmc(shapes.unitCircle, a, b, i, shift_);
+				WriteLine($"{i} {Abs(result.Item1-actVol)}");
+		}
+		}		
+
+		if(arg == "-qDivError"){
+			for(int i=1;i<=N;i++){
+        		var result = monteCarlo.qmc(shapes.unitCircle, a, b, i, shift_);	
+				WriteLine($"{i} {result.Item2 - (Abs(result.Item1-actVol))}");
+		}
+		}
+
+
 	}
 	}
 }
