@@ -88,8 +88,9 @@ public static void Main(string[] args){
 		WriteLine($"Result without transformation {woTrans}. Called {ncalls}");
 		ncalls = 0;	var wTrans = integration.ccTransform2(g,0,1);
 		WriteLine($"Result with transformation {wTrans}. Called {ncalls}");
-		
-		Write("\n\n");	
+		WriteLine("Results achieved with scipy");
+		WriteLine("Result for 1/Sqrt(x) = 2.0000000000000004. Called: 231");
+		WriteLine("\n");	
 
 		WriteLine("Integration from 0 to 1 with respect to x ln(x)/sqrt(x)");
 		g = delegate(double x){ncalls ++; return Log(x)/Sqrt(x);};
@@ -97,11 +98,8 @@ public static void Main(string[] args){
 		WriteLine($"Result without transformation {woTrans2}. Called {ncalls}");
 		ncalls = 0; var wTrans2 = integration.ccTransform2(g,0,1);
 		WriteLine($"Result with transformation {wTrans2}. Called {ncalls}");
-
+	
 		WriteLine("Results achieved with scipy");
-		WriteLine("Result for 1/Sqrt(x) = 2.0000000000000004. Called: 231");
-
-		Write("\n\n");	
 		WriteLine("Result for ln(x)/Sqrt(x) = -3.999999999999974. Called 315");
 	}
 

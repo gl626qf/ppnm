@@ -3,13 +3,12 @@ Using Clenshaw–Curtis transformation number 2 from the homework
 Integration from 0 to 1 with respect to x 1/sqrt(x)
 Result without transformation 1.99996150007805. Called 8572
 Result with transformation 1.99999201046432. Called 16
+Results achieved with scipy
+Result for 1/Sqrt(x) = 2.0000000000000004. Called: 231
 
 
 Integration from 0 to 1 with respect to x ln(x)/sqrt(x)
 Result without transformation -3.99991705899915. Called 8604
 Result with transformation -3.99987385646141. Called 96
 Results achieved with scipy
-Result for 1/Sqrt(x) = 2.0000000000000004. Called: 231
-
-
 Result for ln(x)/Sqrt(x) = -3.999999999999974. Called 315

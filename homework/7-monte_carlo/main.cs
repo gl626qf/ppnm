@@ -15,14 +15,14 @@ public class main{
 		// Initializing vectors
 		vector a = new vector("-1, -1");
         vector b = new vector("1, 1");
-        int N = 3000;
+        int N = 10000;
         double actVol = (4.0/3.0)*PI*0.5; /*Actual half volume of sphere*/
 
 		if(arg == "-2Dshapes"){
 			WriteLine("----Half unit circle----");
 			WriteLine("Half unit circle");
-			WriteLine($"Actual value:	{PI * Pow(1,2) *0.5}");
-			int number = 100000;
+			WriteLine($"Actual value:	{PI * Pow(1,2) * 0.5}");
+			int number = N;
 			var result = monteCarlo.plainmc(shapes.unitCircle, a, b, number);
 			WriteLine($"Calculated value with {number} points:	{result.Item1} ± {result.Item2}");
 		
@@ -32,7 +32,7 @@ public class main{
 	
 			vector a_hard = new vector("0, 0, 0");
 			vector b_hard = new vector(PI, PI, PI);
-			int N_hard = 1000000;
+			int N_hard = N;
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
 			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} ± {answer_hard.Item2}");
 		}
@@ -42,7 +42,7 @@ public class main{
 			WriteLine("----Half unit sphere----");
 			WriteLine("Half unit sphere");
 			WriteLine($"Actual value:	{(4.0/3.0)*PI*0.5}");
-			int N_unitCircle = 100000;
+			int N_unitCircle = N;
 			var result = monteCarlo.plainmc(shapes.unitCircle, a, b, N_unitCircle);
 			WriteLine($"Calculated value with {N_unitCircle} points:	{result.Item1} ± {result.Item2}");
 		
@@ -52,7 +52,7 @@ public class main{
 	
 			vector a_hard = new vector("0, 0, 0");
 			vector b_hard = new vector(PI, PI, PI);
-			int N_hard = 1000000;
+			int N_hard = N;
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
 			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} ± {answer_hard.Item2}");
 			

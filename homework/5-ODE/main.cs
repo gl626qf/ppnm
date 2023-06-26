@@ -1,6 +1,7 @@
 using System;
 using static System.Console;
 using static System.Math;
+using System.IO;
 using System.Collections.Generic;
 
 
@@ -72,6 +73,11 @@ public class func{
         return new vector(y[1], -y[0]);
 	}
 
+	public static vector pendulumFriction(double x, vector y){
+		double b = 0.25;
+		double c = 5.0;
+		return new vector(y[1], -b * y[1] - c * Sin(y[0]));
+	}
 
 
 }
@@ -85,13 +91,18 @@ public static void Main(string[] args){
 		if(arg == "-harmonic"){
 			vector init_y = new vector(0, 1);
 			(var xs, var ys) = runge_kutta.driver(func.harmonic, 0, init_y, 30);
-			var harmonic_data = new System.IO.StreamWriter("harmonic.data");
 			for(int i=0; i<xs.size; i++) 
-				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
+				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
 		}
 
 
-DO THE LAST PART!!!
+
+		if(arg == "-pendulumFriction"){
+			vector ya = new vector(PI - 0.1, 0.0);
+			(var xs, var ys) = runge_kutta.driver(func.pendulumFriction, 0, ya, 50);
+			for(int i=0; i<xs.size; i++) 
+				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
+		}
 
 
 

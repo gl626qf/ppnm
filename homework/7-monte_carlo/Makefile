@@ -45,7 +45,7 @@ Out.divError.txt: main.exe Makefile
 
 
 
-Error.svg: error.gpi Out.invSqrt.txt
+Error.svg: error.gpi Out.invSqrt.txt Out.divVolume.txt
 	gnuplot $<
 
 # Error.svg: error.gpi Out.divError.txt 

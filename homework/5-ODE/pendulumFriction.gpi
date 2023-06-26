@@ -1,0 +1,10 @@
+set terminal svg background "white"
+set key left
+set xlabel "x"
+set ylabel "y"
+set tics in
+set title "Pendulum with Friction Differential Equations"
+set output "pendulumFriction.svg"
+
+
+plot [0:10][-2:2] "Out.pendulumFriction.data" u 1:2 title "y' = -b * y' - c * Sin(y)" w linespoints 

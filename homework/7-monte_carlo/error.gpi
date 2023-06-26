@@ -1,11 +1,11 @@
 set terminal svg background "white"
 set key left
-set xlabel "No. of sampled points"
+set xlabel "Number of sampled points"
 set ylabel "Error"
-set tics out
+set tics in
 set title "Error as a function of sampling points"
 set output "Error.svg"
 
 
-plot [0:2.0e5][0:0.1] "Out.invSqrt.txt" using 1:3 title "Actual Error" w points, \
-			"Out.invSqrt.txt" using 1:2 title "Predicted Error" lw 3 w lines
+plot [0:1e3][0:1] "Out.invSqrt.txt" using 1:2 title "Predicted Error" w points pt 2 ps 0.5, \
+			"Out.divVolume.txt" using 1:2 title "Actual Error" lw 0.6 w lines

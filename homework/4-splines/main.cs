@@ -22,8 +22,6 @@ public class binsearch{
 }
 
 
-
-
 public class spline{
     public static double linterp(double[] x, double[] y, double z){
             int i=binsearch.binsearch_(x,z);
@@ -56,16 +54,6 @@ public class spline{
 
 
 
-
-// class qspline {
-// 	vector x,y,b,c;
-// 	public qspline(vector xs,vector ys){
-// 		/* x=xs.copy(); y=ys.copy(); calculate b and c */
-// 		}
-// 	public double evaluate(double z){/* evaluate the spline */}
-// 	public double derivative(double z){/* evaluate the derivative */}
-// 	public double integral(double z){/* evaluate the integral */}
-// 	}
 
 
 
@@ -127,6 +115,9 @@ public class main{
         0.22222222,  0.66666667,  1.11111111,  1.55555556,  2};
         double[] ys = {0.01831564, 0.08894358, 0.29096046, 0.64118039, 0.95181678,
        0.95181678, 0.64118039, 0.29096046, 0.08894358, 0.01831564};
+
+
+	   
 		foreach(var arg in args){
 			if(arg == "-data"){
 				int l = xs.Length;
