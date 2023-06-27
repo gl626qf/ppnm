@@ -72,6 +72,16 @@ public class func{
 	public static vector harmonic(double x, vector y){
         return new vector(y[1], -y[0]);
 	}
+	
+	public static vector testFunc(double x, vector y){
+		return new vector(y[1], -2*y[1] - y[0]);
+	}
+
+	public static vector hydrogen(double r, vector y){
+		double E = -13.6;
+		// double E = 4;
+		return new vector(y[1], -2/r*y[1] - 2*E / r);
+	}
 
 	public static vector pendulumFriction(double x, vector y){
 		double b = 0.25;
@@ -96,6 +106,26 @@ public static void Main(string[] args){
 		}
 
 
+
+		if(arg == "-testingODE"){
+			vector init_y = new vector(0, 4);
+			(var xs, var ys) = runge_kutta.driver(func.testFunc, 0, init_y, 30);
+			for(int i=0; i<xs.size; i++) 
+				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
+		}
+
+		if(arg == "-hydrogen"){
+			vector init_y = new vector(0, 4);
+			(var xs, var ys) = runge_kutta.driver(func.testFunc, 0, init_y, 30);
+			for(int i=0; i<xs.size; i++) 
+				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
+
+
+		}
+
+
+
+		// Reproducing the scipy function
 
 		if(arg == "-pendulumFriction"){
 			vector ya = new vector(PI - 0.1, 0.0);

@@ -6,11 +6,6 @@ public class monteCarlo{
 
 
 
-	// int[] bs = new int[]
-	// {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67};
-	// int n = 0,s=0,d=1;
-
-
 	public static double corput(int n, int b){
 		double q=0,bk=1.0/b;
 		while(n>0){q+=(n%b)*bk;n/=b;bk/=b;}

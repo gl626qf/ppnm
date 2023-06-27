@@ -49,6 +49,13 @@ public static class main{
 			}
 
 
+		if(arg == "-hydrogen"){
+			
+		}
+
+
+
+
 		}
 
 

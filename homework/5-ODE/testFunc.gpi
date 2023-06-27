@@ -1,0 +1,10 @@
+set terminal svg background "white"
+set key left
+set xlabel "x"
+set ylabel "y"
+set tics in
+set title "Test functions"
+set output "testFunc.svg"
+
+
+plot [0:5][-2:2] "Out.testFunc.data" u 1:2 title "y' = 2*y' - y w linespoints 
