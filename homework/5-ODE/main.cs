@@ -79,7 +79,6 @@ public class func{
 
 	public static vector hydrogen(double r, vector y){
 		double E = -13.6;
-		// double E = 4;
 		return new vector(y[1], -2/r*y[1] - 2*E / r);
 	}
 
@@ -131,6 +130,7 @@ public static void Main(string[] args){
 			vector ya = new vector(PI - 0.1, 0.0);
 			(var xs, var ys) = runge_kutta.driver(func.pendulumFriction, 0, ya, 50);
 			for(int i=0; i<xs.size; i++) 
+				// WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
 				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
 		}
 

@@ -7,4 +7,5 @@ set title "Pendulum with Friction Differential Equations"
 set output "pendulumFriction.svg"
 
 
-plot [0:10][-2:2] "Out.pendulumFriction.data" u 1:2 title "y' = -b * y' - c * Sin(y)" w linespoints 
+plot [0:10][-4:4] "Out.pendulumFriction.data" u 1:2 title "theta(t)" w linespoints \
+                , "Out.pendulumFriction.data" u 1:3 title "omegat(t)" w linespoints
