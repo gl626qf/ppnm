@@ -1,11 +1,11 @@
-All : Out.equation1.txt Out.equation2.txt Out.rosenbrock.txt
+
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../matlib
 
-
+All : Out.equation1.txt Out.equation2.txt Out.rosenbrock.txt
 Out.equation1.txt : main.exe
 	mono $< > $@ -A
 

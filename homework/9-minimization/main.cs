@@ -56,7 +56,8 @@ public static class main{
 				List<double> error  = new List<double>();
 
 				StreamReader data = new StreamReader("higgs.data",true);
-				StreamWriter fitData = new StreamWriter("fit.data", false);
+				StreamWriter fitParams = new StreamWriter("Out.fitParams.txt", false);
+				StreamWriter fitData = new StreamWriter("Out.fitData.data", false);
 				var separators = new char[] {' ', '\t'};
 				var options = StringSplitOptions.RemoveEmptyEntries;
 
@@ -74,19 +75,19 @@ public static class main{
 				int nDataPoints = energy.Count;
 				WriteLine(nDataPoints);
 
-				vector start = new vector(6, 120, 3);
+				vector start = new vector(6, 110, 4);
 				double A, m, G;
 				vector vec = start.copy();
 				int nsteps = qnewton.minimum(breitwigner.dervBreitWigner, ref vec, 1e-2);
 				A = vec[0]; m = vec[1]; G = vec[2];
-				fitData.WriteLine($" A = {Round(A,2)}, m = {Round(m,2)}, G = {Round(G,2)}");
-				fitData.WriteLine($" steps = {nsteps}");
+				fitParams.WriteLine($" A = {Round(A,2)}, m = {Round(m,2)}, G = {Round(G,2)}");
+				fitParams.WriteLine($" steps = {nsteps}");
 			
 				WriteLine($"A = {Round(A,2)}, m = {Round(m,2)}, G = {Round(G,2)}");
 				for(double E = energy[0];E<energy[nDataPoints-1];E+=1.0/64){
-					WriteLine($"{E} {breitwigner.breitWigner(A,E,m,G)}");}
+					fitData.WriteLine($"{E} {breitwigner.breitWigner(A,E,m,G)}");}
 				
-				fitData.Close();
+				fitParams.Close();
 
 
 			}

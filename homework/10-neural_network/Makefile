@@ -1,4 +1,3 @@
-ALL : Out.txt 
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
@@ -6,9 +5,12 @@ MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../matlib
 
 
+ALL : Out.txt plotA.svg plotB.svg
 
-Out.txt TrainPointsA.txt TrainPointsB.txt : main.exe
+
+Out.txt data.data data2.data : main.exe
 	mono $< 1> $@ -A 2> log.txt
+	mono $< 1> $@ -B 2> log.txt
 
 
 main.exe : main.cs matlib.dll
@@ -22,9 +24,12 @@ matlib.dll : ann.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matr
 # PlotB.svg : plotB.gpi TrainPointsB.txt
 # 	gnuplot $<
 
-# TestFunctionPlotA.svg : plotA.gpi TrainPointsA.txt
-# 	gnuplot $<
+plotA.svg : plotA.gpi data.data
+	gnuplot $<
 
+
+plotB.svg : plotB.gpi data2.data Network2.data derv.data
+	gnuplot $<
 
 
 

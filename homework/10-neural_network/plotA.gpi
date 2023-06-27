@@ -1,0 +1,12 @@
+set terminal svg
+set output "taskA.svg"
+set xlabel "x"
+set ylabel "y"
+set title "Neutral network fitting"
+set terminal svg background "white"
+set grid
+set key top left 
+plot "data.data" with points pt 2 title "Data"\
+	, "Network.data" with lines title "Fit with 6 neurons"
+
+

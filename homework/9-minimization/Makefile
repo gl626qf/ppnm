@@ -9,7 +9,7 @@ DIR = ../../matlib
 
 
 # All : Out.rosenbrock.txt Out.himmelblau.txt
-All : Out.higgs.txt
+All : Higgs.svg
 
 
 
@@ -29,8 +29,15 @@ Out.himmelblau.txt : main.exe
 	mono $< $@ -himmelblau 2> log
 
 
-Out.higgs.txt : main.exe
-	mono $< $@ -higgs 
+# Out.higgs.data : main.exe
+# 	mono $< $@ -higgs 
+
+
+
+
+
+Higgs.svg : higgs.gpi Out.fitData.data higgs.data
+	gnuplot $<
 
 
 

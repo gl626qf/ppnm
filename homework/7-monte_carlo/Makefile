@@ -69,8 +69,6 @@ Error.svg: error.gpi Out.divError.txt Out.mcUnitCircle.txt Out.qDivError.txt Out
 
 
 
-
-
 clean:
 	$(RM) *.exe *.dll [Oo]ut* log* *.svg
 

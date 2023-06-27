@@ -52,6 +52,6 @@ public static class main{
 		}
 
 
-}//Main
+}
 
-}// class main
+}

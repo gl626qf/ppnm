@@ -165,6 +165,7 @@ public class main{
 				WriteLine("For x = {1,2,3,4,5}, y = {1,4,9,16,25}");
 				b.print("b = ");
 				c.print("c = ");
+				WriteLine("The same is achieved when calculated");
 
 			}
 
@@ -174,4 +175,3 @@ public class main{
 
 	}
 }
-

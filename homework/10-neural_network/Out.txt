@@ -1,6 +1,0 @@
-------- Part A --------
-Test of ann.cs are performed with training points for g(x)=Cos(5*x-1)*exp(-x^2)
-The minimization of the cost function is performed with quasi-newton minimization
-Construting x and y trainingpoitns on the interval of -1 to 1 wiht 20 points. The Network is set up with 6 neurons
-
- The results are plotted on TestFunctionPlotA.svg

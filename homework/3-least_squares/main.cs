@@ -114,6 +114,7 @@ public class main{
 						thxFit.WriteLine($"{i} {y_fit} {y_fit_minus} {y_fit_plus} {y_fit_a_minus} {y_fit_a_plus} {y_fit_l_minus} {y_fit_l_plus}");
 						}
 				thxFit.Close();
+				WriteLine("Plot is viewed in thx.svg");
 
 
 

@@ -1,5 +1,3 @@
-Done points distributed
-Done response
 dx < deltax
 dx < deltax
 dx < deltax
@@ -43,37 +41,3 @@ dx < deltax
 dx < deltax
 dx < deltax
 dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-dx < deltax
-Done minimum
