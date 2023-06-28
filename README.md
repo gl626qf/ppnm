@@ -1,3 +1,13 @@
+# Exam - Particle Swarm Optimization (PSO): question 17
+The question: 
+- Implement the particle swarm optimization algorithm.
+
+## Solution to PSO
+ 
+ 
+
+
+ ## Homework
  ======================================
 | #  | homework      | A | B | C | Σ   |
  ======================================
