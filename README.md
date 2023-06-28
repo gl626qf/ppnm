@@ -3,7 +3,9 @@ The question:
 - Implement the particle swarm optimization algorithm.
 
 ## Solution to PSO
- 
+PSO is a method to find optima. The method initialize points at different positions in a given function, and a cost function is evaluted for all points.
+Random generated vectors moves the different points to new locations and evalute the cost function again. This repeats and the best location determines the optima.
+The output is a vector and the vector inputted in a function yields the optima.
  
 # Homework table
 All the following homework questions are made. In some files there are multiple Out. files, which contain the answer.
