@@ -5,7 +5,7 @@ The question:
 ## Solution to PSO
  
  
-
+# Homework table
 | # | Homework        | A | B | C | Σ |
 |---|-----------------|---|---|---|---|
 | 1 | LinEq           | 6 | 3 | - | 9 |
