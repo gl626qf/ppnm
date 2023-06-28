@@ -6,6 +6,9 @@ The question:
  
  
 # Homework table
+All the following homework questions are made. In some files there are multiple Out. files, which contain the answer.
+Sometimes the .svg is the only answers viewed.
+
 | # | Homework        | A | B | C | Σ |
 |---|-----------------|---|---|---|---|
 | 1 | LinEq           | 6 | 3 | - | 9 |
