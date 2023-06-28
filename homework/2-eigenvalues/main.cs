@@ -74,8 +74,6 @@ public class partA{
             matrix check3 = V * D * V.T;
             WriteLine($"Testing if (V * D * V.T) = A: {check3.approx(A)}");            
 
-
-
             
 
             matrix check4 = V.T * V;
@@ -102,7 +100,7 @@ public class Hydrogen{
 		for(int i=0 ; i<V.size2 ; i++){
 			Write($"{i*dr} ");
 			for(int j=0 ; j<V.size1 ; j++){
-				Write($"{V[j][i]/Sqrt(dr)} ");
+				Write($"{V[j][i]/Sqrt(dr)} "); //normalized
 			}
 			Write("\n");
 		}
@@ -127,9 +125,12 @@ public static class main{
 
             double rmax = 10;
             double dr = 0.3;
-            int size = 20;
-            double scale = 1.0;
 
+            foreach(string param in args){
+                string[] words = param.Split(":");
+                if(words[0] == "-rmax"){rmax = double.Parse(words[1]);}
+                if(words[0] == "-dr"){dr = double.Parse(words[1]);}
+            }
 
             foreach(string run in args){
 

@@ -25,7 +25,7 @@ out.dr.data : main.exe
 
 out.rmax.data : main.exe
 	>$@
-	for N in $$(seq 1 2 5); do \
+	for N in $$(seq 1 0.2 10); do \
 		mono $< -plotrmax -rmax:$$N -dr:0.1 1>>$@ 2>err ;\
 	done
 

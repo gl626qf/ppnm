@@ -1,16 +1,14 @@
 ------------TASK A------------
 ----Decomp Testing----
 This is A:
-      42.8       68.6 
-        83         36 
-      16.1       81.3 
+      49.9       48.6 
+      71.4       6.92 
 This is Q after decomposition
-     0.451      0.414 
-     0.876     -0.374 
-      0.17       0.83 
+     0.573       0.82 
+      0.82     -0.573 
 This is R after decomposition
-      94.8       76.3 
-         0       82.3 
+      87.1       33.5 
+         0       35.9 
 Testing if R is upper triangular: True
 Testing if Q.T * Q is equal to the identity matrix: True
 Testing if Q * R is equal to the matrix A: True
@@ -20,19 +18,16 @@ QR = A: True
 
 ----Solve Testing----
 Random square matrix
-     0.313     0.0638      0.266 
-     0.616      0.369     0.0411 
-     0.212      0.187      0.891 
-Random vector of size b    0.0273      0.208      0.569 
-Solution vector x    -0.618       1.54      0.461 
+     0.628      0.698 
+     0.115      0.999 
+Random vector of size b    0.0489       0.73 
+Solution vector x    -0.842      0.827 
 Testing if Ax = b : True
 ------------TASK B------------
 Random square matrix: A
-     0.313     0.0638      0.266 
-     0.616      0.369     0.0411 
-     0.212      0.187      0.891 
+     0.628      0.698 
+     0.115      0.999 
 The inverse matrix: B
-      4.23    -0.0936      -1.25 
-     -7.11       2.93       1.98 
-     0.488     -0.594          1 
+      1.83      -1.28 
+    -0.209       1.15 
 Testing if A * B = I is: True

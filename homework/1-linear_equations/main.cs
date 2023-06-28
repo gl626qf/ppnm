@@ -160,14 +160,6 @@ public class main{
 
                 if(arg == "-time"){
 
-                    // int ndim = 1;
-                    
-                    
-                    // for(int i = 1; i < 20; i += 50){
-                    //     var A = matrix.randomMatrix(i,i);
-                    //     var (Q,R) = QRGS.decomp(A);
-                    // }
-
                     
 
 

@@ -6,4 +6,4 @@ set tics in
 set output "Dr.svg"
 
 
-plot [0:4][-1:0] "out.dr.data" using ($1):($2) with points title "experiment"
+plot [0:4][-1:0] "out.dr.data" using 1:2 with points title "experiment"

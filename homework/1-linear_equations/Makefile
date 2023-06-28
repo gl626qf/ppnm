@@ -29,12 +29,12 @@ Out.time.txt : main.exe
 # 	>$@
 # 	for N in $(Ns); do \
 # 	echo $$N; \
-# 	$(TIME) -f "$$N %U" mono main.exe -dim:$$N >log ; \
+# 	$(TIME) -f "$$N %U" mono -time -dim:$$N >log ; \
 # 	done
 
-out.times.data : main.exe
-	>$@ 
-	for N in $$(seq 400 50 1000); do \
-		time --format "$$N %e" --output $@ --append \
-		mono $< -size:$$N 1>out 2>err ;\
-	done
+# out.times.data : main.exe
+# 	>$@
+# 	for N in $$(seq 100 100 800); do \
+# 		time --format "$$N %e" --output $@ --append \
+# 		mono $< -size:$$N 2>err ;\
+# 	done
