@@ -51,21 +51,68 @@ public static class runge_kutta{
 	double x=a; vector y=ya.copy();
 	var xlist=new genlist<double>(); xlist.add(x);
 	var ylist=new genlist<vector>(); ylist.add(y);
-	do{ if(x>=b) return (xlist,ylist);/* job done */
-	if(x+h>b) h=b-x;/* last step should end at b */
+	do{ if(x>=b) return (xlist,ylist);
+	if(x+h>b) h=b-x;
 		var (yh,erv) = rkstep12(F,x,y,h);
 		double tol = (acc+eps*yh.norm()) * Sqrt(h/(b-a));
 		double err = erv.norm();
-	if(err<=tol){ // accept step
+
+	// Including tolerance
+	if(err<=tol){ 
 		x+=h; y=yh;
 		xlist.add(x);
 		ylist.add(y);
 	}
-		h *= Min( Pow(tol/err,0.25)*0.95 , 2); // reajust stepsize
+		h *= Min( Pow(tol/err,0.25)*0.95 , 2); 
 	}while(true);
-}//driver
+	} //driver with rkstep12
+
+
+	public static vector driverImproved(
+	Func<double,vector,vector> F, /* the f from dy/dx=f(x,y) */
+	double a,                    /* the start-point a */
+	vector ya,                   /* y(a) */
+	double b,                    /* the end-point of the integration */
+	genlist<double> xlist=null, genlist<vector> ylist=null,
+	double h=0.01,               /* initial step-size */
+	double acc=0.01,             /* absolute accuracy goal */
+	double eps=0.01              /* relative accuracy goal */
+	){
+	if(a>b) throw new ArgumentException("driver: a>b");
+	double x=a; vector y=ya.copy();
+	if(xlist!=null){xlist.add(x);}
+	if(ylist!=null){ylist.add(y);}
+
+	do{
+		if(x>=b) return y; 
+		if(x+h>b) h=b-x;  
+		var (yh,err) = rkstep12(F,x,y,h);
+		vector tol = new vector(err.size);
+		for(int i=0;i<y.size;i++)
+			tol[i]=Max(acc,Abs(yh[i])*eps)*Sqrt(h/(b-a));
+		bool ok=true;
+		for(int i=0;i<y.size;i++)
+			if(!(err[i]<tol[i])) ok=false;
+		if(ok){ 
+			x+=h; y=yh;
+			if(xlist!=null)xlist.add(x);
+			if(ylist!=null)ylist.add(y);
+			}
+		double factor = tol[0]/Abs(err[0]);
+		for(int i=1;i<y.size;i++) factor=Min(factor,tol[i]/Abs(err[i]));
+		h *= Min( Pow(factor,0.25)*0.95 ,2);
+		}while(true);
+	}//driverImproved
+
+
+	
+
+
 
 }
+
+
+
 
 
 public class func{
@@ -87,6 +134,17 @@ public class func{
 		double c = 5.0;
 		return new vector(y[1], -b * y[1] - c * Sin(y[0]));
 	}
+
+
+	public static Func<double,vector,vector> lotkavolterra = delegate(double x, vector y){
+		double a = 1.5; 
+		double b = 1.0; 
+		double c = 3.0; 
+		double d = 1.0;
+		return new vector (a*y[0]-b*y[0]*y[1], -c*y[1]+d*y[0]*y[1]);
+	};
+
+
 
 
 }
@@ -132,6 +190,25 @@ public static void Main(string[] args){
 			for(int i=0; i<xs.size; i++) 
 				// WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
 				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]} {ys[i][0]+ys[i][1]}");
+		}
+
+
+
+		// Continuing with task B
+
+		if(arg == "-lotkaVolterra"){
+				double a = 0, b = 15;
+				vector ya = new vector (10.0,5.0);
+				var xs = new genlist<double>();
+				var ys = new genlist<vector>();
+				var y_end = runge_kutta.driverImproved(func.lotkavolterra, a, ya, b, xs, ys);
+				WriteLine("Test of yend is returned");
+				y_end.print("y end = ");
+				for(int i = 0;i<xs.size;i++)
+					WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
+
+
+
 		}
 
 

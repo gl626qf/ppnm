@@ -3,7 +3,7 @@ set key left
 set xlabel "x"
 set ylabel "y"
 set tics in
-set title "Pendulum with Friction Differential Equations"
+set title "Damped pendulum"
 set output "pendulumFriction.svg"
 
 

@@ -7,7 +7,7 @@ MATRIX := $(shell find $(MATLIB)/matrix -name '*.cs')
 # GENLIST := $(shell find $(MATLIB)/genlist -name '*.cs')
 
 # all: ode.svg ode_damp.svg ode_planets.svg
-all : harmonicData.svg pendulumFriction.svg testFunc.svg hydrogen.svg
+all : harmonicData.svg pendulumFriction.svg testFunc.svg hydrogen.svg lotkaVolterra.svg
 
 
 
@@ -33,6 +33,10 @@ Out.pendulumFriction.data: main.exe
 	mono main.exe > $@ -pendulumFriction
 
 
+Out.lotkaVolterra.data: main.exe
+	mono main.exe > $@ -lotkaVolterra
+
+
 
 harmonicData.svg : harmonicData.gpi Out.harmonicData.data 
 	gnuplot $<
@@ -48,9 +52,10 @@ hydrogen.svg : hydrogen.gpi Out.hydrogen.data
 pendulumFriction.svg : pendulumFriction.gpi Out.pendulumFriction.data
 	gnuplot $<
 
-# ode_planets.svg : planets.gpi BData
-# 	gnuplot planets.gpi
 
+
+lotkaVolterra.svg : lotkaVolterra.gpi Out.lotkaVolterra.data
+	gnuplot $<
 
 
 
