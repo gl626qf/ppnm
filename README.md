@@ -6,6 +6,12 @@ The question:
 PSO is a method to find optima. The method initialize points at different positions in a given function, and a cost function is evaluted for all points.
 Random generated vectors moves the different points to new locations and evalute the cost function again. This repeats and the best location determines the optima.
 The output is a vector and the vector inputted in a function yields the optima.
+
+What has been done:
+- The algorithm is implemented
+- Several functions is tested, som diverging and converging
+
+The exam question is fully answered, so I would expect 10/10.
  
 # Homework table
 All the following homework questions are made. In some files there are multiple Out. files, which contain the answer.
