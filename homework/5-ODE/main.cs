@@ -145,6 +145,25 @@ public class func{
 	};
 
 
+	public static Func<double,vector,vector> planets = delegate(double x, vector y){
+		// Making the masses
+		double m1 = 2;
+		double m2 = m1;
+		double m3 = m1;
+
+		double sum_ = 0;
+
+
+
+		double a = 1.5; 
+		double b = 1.0; 
+		double c = 3.0; 
+		double d = 1.0;
+		return new vector (a*y[0]-b*y[0]*y[1], -c*y[1]+d*y[0]*y[1]);
+	};
+
+
+
 
 
 }
@@ -208,6 +227,10 @@ public static void Main(string[] args){
 					WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
 
 
+
+		}
+
+		if(arg == "-planets"){
 
 		}
 
