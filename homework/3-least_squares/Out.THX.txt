@@ -7,3 +7,4 @@ lambda = 0.16989 pm 0.0070
 T_0.5 = 4.08 pm 0.17 days
 Theoretical halflife 3.8235 days from wikipedia https://en.wikipedia.org/wiki/Radon-222
 The calculated T_0.5 is agrees with the theoretical halflife
+Plot is viewed in thx.svg

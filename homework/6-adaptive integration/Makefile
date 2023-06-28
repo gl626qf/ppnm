@@ -33,23 +33,5 @@ Erf.svg : erf.gpi Out.erf.txt
 	gnuplot $<
 
 
-
-
-
-
-
-
-
-
-
-# Error.svg : Error.gpi erfs.data error_factorials.data
-# 	gnuplot $<
-
-
-
-
-
-
-
 clean:
 	rm -rf *.txt main.exe lib.dll *.svg *.data plots/* 

@@ -1,8 +1,8 @@
 set terminal svg
 set output "thx.svg"
-set xlabel "t time [days]"
+set xlabel "t time (days)"
 set ylabel "Activity (relative units)"
-set title "Radioactivity ThX (224 Ra)"
+set title "Radioactivity ThX"
 set terminal svg background "white"
 
 set key right top

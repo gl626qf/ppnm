@@ -2,9 +2,35 @@
 using System;
 using static System.Console;
 using static System.Math;
+using System.IO;
+
+
+
+
+public class func{
+
+public static double hydrogen(double E, double r, double rmin=1e-5, double acc = 0.1, double eps = 0.1){
+	if(r<rmin) return r-r*r;
+	Func<double,vector,vector> hydrogen0 = (x,y) => new vector (y[1],2*(-1/x-E)*y[0]);
+	
+	vector ymin = new vector(rmin-rmin*rmin,1-2*rmin);
+
+
+ 	var xs = new genlist<double>();
+        var ys = new genlist<vector>();
+        var ymax = runge_kutta.driverImproved(hydrogen0, rmin, ymin, r, xs, ys,0.01,acc,eps);
+
+	return ymax[0];	
+}
+
+}
+
 
 
 public static class main{
+
+
+
 	public static void Main(string[] args){
 		
 		foreach(var arg in args){
@@ -49,10 +75,166 @@ public static class main{
 			}
 
 
-		if(arg == "-hydrogen"){
-			
-		}
+			if(arg == "-hydrogen"){
 
+				double rmax = 15; 
+				double rmin = 1e-3;
+				double acc = 1e-3; 
+				double eps = 1e-3;
+
+
+				StreamWriter energy0Data= new StreamWriter("energy0.data", false);
+
+				Func<vector,vector> ME = (vector v) => {
+					double E=v[0];
+					double fMax = func.hydrogen(E, rmax, rmin, acc, eps);
+					return new vector (fMax);};
+
+				vector vstart = new vector(-1.0);
+				vector E0 = root_finder.newtonMethod(ME,vstart);
+				double energy0 = E0[0];
+				for (double r=0; r<rmax; r+=rmax/128){
+						double fR = func.hydrogen(energy0,r);
+						double exactFr = r*Exp(-r);
+						energy0Data.WriteLine($"{r} {fR} {exactFr}");
+					}
+
+				WriteLine($"The ground state energy is found with Newton's method to be: E0 = {energy0}");
+				energy0Data.Close();
+			}
+
+			if(arg == "-hydrogenRmax"){
+
+				// double rmax = 15; 
+				double rmin = 1e-3;
+				double acc = 1e-3; 
+				double eps = 1e-3;
+
+
+				StreamWriter rmaxData= new StreamWriter("rmax.data", false);
+
+
+				for (double rmax=1; rmax<16; rmax+=1){
+					Func<vector,vector> ME = (vector v) => {
+						
+						double E=v[0];
+						double fMax = func.hydrogen(E, rmax, rmin, acc, eps);
+						return new vector (fMax);};
+
+
+					vector vstart = new vector(-1.0);
+					vector E0 = root_finder.newtonMethod(ME,vstart);
+					double energy0 = E0[0];
+					// for (double r=0; r<rmax; r+=rmax/128){
+					// 		double fR = func.hydrogen(energy0,r);
+					// 		double exactFr = r*Exp(-r);
+					// 		energy0Data.WriteLine($"{r} {fR} {exactFr}");
+					// 	}
+
+					rmaxData.WriteLine($"{rmax} {rmin} {acc} {eps} {energy0}");
+
+				}
+				rmaxData.Close();
+				
+			}
+			if(arg == "-hydrogenRmin"){
+
+				double rmax = 16; 
+				// double rmin = 1e-3;
+				double acc = 1e-3; 
+				double eps = 1e-3;
+
+
+				StreamWriter rminData= new StreamWriter("rmin.data", false);
+
+
+				for (double rmin=0.001; rmin<0.1; rmin+=0.01){
+					Func<vector,vector> ME = (vector v) => {
+						
+						double E=v[0];
+						double fMax = func.hydrogen(E, rmax, rmin, acc, eps);
+						return new vector (fMax);};
+
+
+					vector vstart = new vector(-1.0);
+					vector E0 = root_finder.newtonMethod(ME,vstart);
+					double energy0 = E0[0];
+					// for (double r=0; r<rmax; r+=rmax/128){
+					// 		double fR = func.hydrogen(energy0,r);
+					// 		double exactFr = r*Exp(-r);
+					// 		energy0Data.WriteLine($"{r} {fR} {exactFr}");
+					// 	}
+
+					rminData.WriteLine($"{rmax} {rmin} {acc} {eps} {energy0}");
+
+				}
+				rminData.Close();
+				
+			}
+			if(arg == "-hydrogenAcc"){
+
+				double rmax = 16; 
+				double rmin = 1e-3;
+				// double acc = 1e-3; 
+				double eps = 1e-3;
+
+
+				StreamWriter accData= new StreamWriter("acc.data", false);
+
+
+				for (double acc=1e-7; acc<0.1; acc+=1e-2){
+					Func<vector,vector> ME = (vector v) => {
+						
+						double E=v[0];
+						double fMax = func.hydrogen(E, rmax, rmin, acc, eps);
+						return new vector (fMax);};
+
+
+					vector vstart = new vector(-1.0);
+					vector E0 = root_finder.newtonMethod(ME,vstart);
+					double energy0 = E0[0];
+
+					accData.WriteLine($"{rmax} {rmin} {acc} {eps} {energy0}");
+
+				}
+				accData.Close();
+				
+			}
+
+			if(arg == "-hydrogenEps"){
+
+				double rmax = 16; 
+				double rmin = 1e-3;
+				double acc = 1e-3; 
+				// double eps = 1e-3;
+
+
+				StreamWriter epsData= new StreamWriter("eps.data", false);
+
+
+				for (double eps=1e-4; eps<1e-1; eps+=1e-1){
+					Func<vector,vector> ME = (vector v) => {
+						
+						double E=v[0];
+						double fMax = func.hydrogen(E, rmax, rmin, acc, eps);
+						return new vector (fMax);};
+
+
+					vector vstart = new vector(-1.0);
+					vector E0 = root_finder.newtonMethod(ME,vstart);
+					double energy0 = E0[0];
+					// for (double r=0; r<rmax; r+=rmax/128){
+					// 		double fR = func.hydrogen(energy0,r);
+					// 		double exactFr = r*Exp(-r);
+					// 		energy0Data.WriteLine($"{r} {fR} {exactFr}");
+					// 	}
+
+					epsData.WriteLine($"{rmax} {rmin} {acc} {eps} {energy0}");
+
+				}
+				epsData.Close();
+				
+			}
 
 
 

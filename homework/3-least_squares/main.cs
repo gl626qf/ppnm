@@ -20,9 +20,6 @@ public class main{
 
 	public static void Main(string[] args){
 
-
-
-
 	
 		
 		foreach(var arg in args){

@@ -8,8 +8,8 @@ DIR = ../../matlib
 
 
 
-# All : Out.rosenbrock.txt Out.himmelblau.txt
-All : Higgs.svg
+All : Out.rosenbrock.txt Out.himmelblau.txt Higgs.svg
+# All : Higgs.svg
 
 
 
