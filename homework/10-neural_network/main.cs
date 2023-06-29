@@ -54,7 +54,8 @@ public class main{
 				int nPoints = 40; 
 				Func<double,double> gaussianWavelet = x => x*Exp(-x*x);
 
-				vector x_s = new vector(nPoints), y_s = new vector(nPoints);
+				vector x_s = new vector(nPoints);
+				vector y_s = new vector(nPoints);
 				for(int i = 0; i< nPoints;i++){ 
 					x_s[i] = a + (b-a)*i/(nPoints-1);
 					y_s[i] = gaussianWavelet(x_s[i]);
@@ -83,7 +84,7 @@ public class main{
 				// y(c) = yc
 				// y'(c) = y'_c
 				// These are given numbers
-				
+
 				
 				
 			}

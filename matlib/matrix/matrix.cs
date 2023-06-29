@@ -200,6 +200,30 @@ public matrix submatrix(int ia, int ib, int ja, int jb){
 	return m;
 }
 
+
+// public static matrix random(int n, int m){
+// 	var rnd = new System.Random();
+// 	matrix A = new matrix(n,m);
+// 	for(int i = 0; i < n; i++){
+// 		for(int j = 0; j < m; j++){
+// 			A[i,j] = 1 + 100*rnd.NextDouble();
+// 		}
+// 	}
+// 	return A;
+// }
+
+public static matrix randomMatrix(int n, int m){
+	var rnd = new System.Random();
+	matrix A = new matrix(n,m);
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+			A[i,j] = 1 + 100*rnd.NextDouble();
+		}
+	}
+	return A;
+}
+
+
 public matrix transpose(){
 	matrix c = new matrix(size2,size1);
 	for(int j=0;j<size2;j++)

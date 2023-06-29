@@ -1,3 +1,4 @@
+// The main algorithm is copied from the matlib folder and is made by Dmitri Fedorov
 using System;
 using System.Diagnostics;
 using static System.Console;
