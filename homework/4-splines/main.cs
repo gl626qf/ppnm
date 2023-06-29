@@ -141,6 +141,7 @@ public class main{
                		}
 
 			if(arg == "-qspline"){
+				WriteLine("-----------Results of TASK B-----------------");
 				vector xsvec = new vector("1,2,3,4,5"), ysvec = new vector(5);
 				for(int i=0; i<5; i++) ysvec[i] = 1;
 				qspline qspline_ = new qspline(xsvec,ysvec);
@@ -165,7 +166,7 @@ public class main{
 				WriteLine("For x = {1,2,3,4,5}, y = {1,4,9,16,25}");
 				b.print("b = ");
 				c.print("c = ");
-				WriteLine("The same is achieved when calculated");
+				WriteLine("The same is achieved when calculated.");
 
 			}
 

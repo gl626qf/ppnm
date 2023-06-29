@@ -1,5 +1,5 @@
 set terminal svg
-set output "thx.svg"
+set output "Thx.svg"
 set xlabel "t time (days)"
 set ylabel "Activity (relative units)"
 set title "Radioactivity ThX"

@@ -1,7 +1,7 @@
-all : taskA.svg Out.qspline.txt
+all : taskA.svg Out.txt
 
 Out.txt : main.exe
-	mono main.exe > Out.txt 
+	mono $< > $@ -qspline
 
 main.exe : main.cs matrix.dll QRGS.dll
 	mcs main.cs -reference:matrix.dll -reference:QRGS.dll -target:exe -out:main.exe
@@ -18,23 +18,23 @@ spline.dll : spline.cs
 	mcs QRGS.cs -target:library -out:$@ -reference:matrix.dll
 
 
-datapoints.txt : main.exe
+datapoints.data : main.exe
 	mono $< >$@ -data
 
 
-linterpdata.txt : main.exe
+linterpdata.data : main.exe
 	mono $< >$@ -interpolate
 
 
 Out.qspline.txt: main.exe Makefile
 	mono main.exe > $@ -qspline
 
-data_integrate.txt : main.exe
+data_integrate.data : main.exe
 	mono $< >$@ -integrate
 
 
 
-taskA.svg : taskA.gpi datapoints.txt linterpdata.txt data_integrate.txt
+taskA.svg : taskA.gpi datapoints.data linterpdata.data data_integrate.data
 	gnuplot $<
 
 

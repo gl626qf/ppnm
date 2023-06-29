@@ -1,4 +1,4 @@
-all : Out.integrals14.txt Erf.svg Out.ccTransform.txt
+all : Out.txt Erf.svg 
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
@@ -25,6 +25,11 @@ Out.erf.txt : main.exe
 
 Out.ccTransform.txt : main.exe
 	mono $< >$@ -ccTransform2
+
+
+Out.txt : main.exe
+	mono $< >$@ -integrals14 -ccTransform2
+
 
 
 

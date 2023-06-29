@@ -50,13 +50,16 @@ public class main{
 				WriteLine($"Testing if A * B = I is: {((A_test) * B).approx(matrix.id(A_square.size1))}");
 
 
-
+				WriteLine("-----------------------------");
+				WriteLine("\n");
 				
 			}
 
 			if(arg == "-THX"){
 		
 
+				WriteLine("------------------THX radiation data. Task B -----------------------");
+				
 				StreamWriter thxData = new StreamWriter("Out.thx.data",false);
 				
 				

@@ -1,3 +1,4 @@
+-----------Results of TASK B-----------------
 For x = {1,2,3,4,5}, y = {1,1,1,1,1}
 b =          0          0          0          0 
 c =          0          0          0          0 
@@ -7,4 +8,4 @@ c =          1          1          1          1
 For x = {1,2,3,4,5}, y = {1,4,9,16,25}
 b =          2          4          6          8 
 c =          2          4          6          8 
-The same is achieved when calculated
+The same is achieved when calculated.

@@ -32,6 +32,7 @@ public static void Main(string[] args){
 
 	foreach(var arg in args){
 		if(arg == "-integrals14"){
+				WriteLine("--------------TASK A---------------");
 				WriteLine("-------Integrals from 1-4-------");
 
 				f = delegate(double x){return Sqrt(x);};
@@ -61,7 +62,8 @@ public static void Main(string[] args){
 				var exact4 = -4.0;
 				WriteLine($"int[0;1] dx ln(x)/sqrt(x) = {result4}");
 				WriteLine($"Is integral within 1e-9 error (comparison = {exact4}): {complex.approx(exact4,result4,1e-6,1e-6)}");
-				
+				WriteLine("\n");
+
 	} // -integrals14
 	if(arg == "-erfs"){
 			for(double x=-4 + 1.0/128;x<=4;x+=1.0/64){
