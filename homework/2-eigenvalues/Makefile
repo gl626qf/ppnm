@@ -12,18 +12,20 @@ main.exe : main.cs matlib.dll
 matlib.dll : EVD.cs $(MATLIB)/matrix/vector.cs  $(MATLIB)/matrix/matrix.cs
 	$(MKLIB)
 
+
+
+
 Out.taskA.txt: main.exe Makefile
 	mono main.exe > $@ -partA
 
 
-
-out.dr.data : main.exe
+dr.data : main.exe
 	>$@
 	for N in $$(seq 0.1 0.4 4); do \
 		mono $< -plotdr -rmax:10 -dr:$$N 1>>$@ 2>err ;\
 	done
 
-out.rmax.data : main.exe
+rmax.data : main.exe
 	>$@
 	for N in $$(seq 1 0.2 10); do \
 		mono $< -plotrmax -rmax:$$N -dr:0.1 1>>$@ 2>err ;\
@@ -31,20 +33,20 @@ out.rmax.data : main.exe
 
 
 
-out.eigen.data : main.exe
+eigen.data : main.exe
 	>$@
 	mono main.exe > $@ -plot
 
 
 
 
-Dr.svg: dr.gpi out.dr.data 
+Dr.svg: dr.gpi dr.data 
 	gnuplot $<
 
-Rmax.svg: rmax.gpi out.rmax.data
+Rmax.svg: rmax.gpi rmax.data
 	gnuplot $<
 
-Eigen.svg: eigen.gpi out.eigen.data
+Eigen.svg: eigen.gpi eigen.data
 	gnuplot $<
 
 
