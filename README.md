@@ -9,7 +9,7 @@ The output is a vector and the vector inputted in a function yields the optima.
 
 What has been done:
 - The algorithm is implemented
-- Several functions is tested, som diverging and converging
+- Several functions is tested, some diverging and converging
 
 The exam question is fully answered, so I would expect 10/10.
  
@@ -30,7 +30,7 @@ Sometimes the .svg is the only answers viewed.
 | 9 | Minimization    | 6 | 3 | - | 9 |
 | 10| Neural Nets     | 6 | 3 | - | 9 |
 |---|-----------------|---|---|---|---|
-|   | total points: 88|   |   |   |   |
+|   | total points: 91|   |   |   |   |
 
 
 # Exercises
