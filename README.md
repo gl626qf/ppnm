@@ -26,8 +26,12 @@ Sometimes the .svg is the only answers viewed.
 | 5 | ODE             | 6 | 3 | - | 9 |
 | 6 | Integration     | 6 | 3 | - | 9 |
 | 7 | Monte Carlo     | 6 | 3 | - | 9 |
-| 8 | Roots           | 6 | - | - | 6 |
+| 8 | Roots           | 6 | 3 | - | 6 |
 | 9 | Minimization    | 6 | 3 | - | 9 |
 | 10| Neural Nets     | 6 | 3 | - | 9 |
 |---|-----------------|---|---|---|---|
 |   | total points: 88|   |   |   |   |
+
+
+# Exercises
+All exercises are done.
