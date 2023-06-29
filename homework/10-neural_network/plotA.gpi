@@ -7,6 +7,6 @@ set terminal svg background "white"
 set grid
 set key top left 
 plot "data.data" with points pt 2 title "Data"\
-	, "Network.data" with lines title "Fit with 6 neurons"
+	, "Network.data" with lines title "Fit with 4 neurons"
 
 

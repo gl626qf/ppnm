@@ -8,19 +8,18 @@ set key bottom left
 set multiplot layout 2,2 rowsfirst scale 1.1, 1.1 spacing 0.1
 
 set ylabel "y"
-set label 1 'a' at graph 0.1,0.9 font ',8' 
 plot "data2.data" with points pt 2 title "Data"\
 	, "Network2.data" with lines title " Fit with 10 neurons"
 
-set label 1 'b' at graph 0.1,0.91 font ',8'
+
 set title "Single derivative of Gaussian Wavelet"
 plot "derv.data" using 1:2 with lines lc rgb "red" title "Single derivative"
 
-set label 1 'c' at graph 0.1,0.91 font ',8'
+
 set title "Double derivative of Gaussian Wavelet"
 plot "derv.data" using 1:3 with lines lc rgb "green" title "Double derivative"
 
-set label 1 'd' at graph 0.1,0.91 font ',8'
+
 set title "Anti derivative of Gaussian Wavelet"
 plot "derv.data" using 1:4 with lines lc rgb "blue" title "Anti derivative"
 unset multiplot

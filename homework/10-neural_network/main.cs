@@ -27,16 +27,15 @@ public class main{
 
 				// Making Network
 				var Network = new StreamWriter("Network.data");
-				int nNeurons = 6;
+				int nNeurons = 4;
 				ann network = new ann(nNeurons, g);
 
 
 				network.train(xs,ys);
+
 				for(double j=a; j<b;j+=1.0/64){
 					Network.WriteLine($"{j} {network.response(j)}");		
 				}
-
-				WriteLine("Plot is viewed in plotA.svg");
 
 				data.Close();
 				Network.Close();
@@ -45,25 +44,32 @@ public class main{
 			}
 
 			if(arg == "-B"){
-				double a = -1, b = 1; //interval
 				
-				int nPoints = 20; 
-				Func<double,double> gaussianWavelet = x => x*Exp(-x*x);
-				var data2 = new StreamWriter("data2.data");
-				vector x_s = new vector(nPoints), y_s = new vector(nPoints);
-				for(int i = 0; i< nPoints;i++){ //equal distributed uniform points
-					x_s[i] = a+(b-a)*i/(nPoints-1);
-					y_s[i] = gaussianWavelet(x_s[i]);
-					data2.WriteLine($"{x_s[i]} {y_s[i]}");}
-				data2.Close();
+				
 				var Network2 = new StreamWriter("Network2.data");
 				var derv = new StreamWriter("derv.data");
+				var data2 = new StreamWriter("data2.data");
+				
+				double a = -1, b = 1; //interval
+				int nPoints = 40; 
+				Func<double,double> gaussianWavelet = x => x*Exp(-x*x);
+
+				vector x_s = new vector(nPoints), y_s = new vector(nPoints);
+				for(int i = 0; i< nPoints;i++){ 
+					x_s[i] = a + (b-a)*i/(nPoints-1);
+					y_s[i] = gaussianWavelet(x_s[i]);
+					data2.WriteLine($"{x_s[i]} {y_s[i]}");}
+
+
+				// Making new network calculating anti derivative, double derivative and anti-derivative
 				int N = 10;
 				ann network2 = new ann(N,gaussianWavelet);
 				network2.train(x_s,y_s);
 				for(double j = a; j<b; j+=1.0/64) {
 					Network2.WriteLine($"{j} {network2.response(j)}");
 					derv.WriteLine($" {j} {network2.dGaussWavelet(j)} {network2.ddfGaussianWavelet(j)} {network2.intGaussianWavelet(j,-1)}");}
+				
+				data2.Close();
 				Network2.Close();
 				derv.Close();
 
@@ -71,6 +77,14 @@ public class main{
 			}
 			
 			if(arg == "-C"){
+
+
+				// yc = 2
+				// y(c) = yc
+				// y'(c) = y'_c
+				// These are given numbers
+				
+				
 				
 			}
 
