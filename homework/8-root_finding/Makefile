@@ -5,10 +5,14 @@ MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../matlib
 
-All : Out.equation1.txt Out.equation2.txt Out.rosenbrock.txt \
- Out.hydrogen.txt hydrogen.svg Out.hydrogenRmin.txt \
- Out.hydrogenRmax.txt Out.hydrogenAcc.txt Out.hydrogenEps.txt taskB.svg 
+# All : Out.equation1.txt Out.equation2.txt Out.rosenbrock.txt \
+#  Out.hydrogen.txt hydrogen.svg Out.hydrogenRmin.txt \
+#  Out.hydrogenRmax.txt Out.hydrogenAcc.txt Out.hydrogenEps.txt taskB.svg 
 
+
+
+All : Out.hydrogenRmin.txt \
+ Out.hydrogenRmax.txt Out.hydrogenAcc.txt Out.hydrogenEps.txt taskB.svg 
 
 Out.equation1.txt : main.exe
 	mono $< > $@ -A

@@ -1,9 +1,0 @@
-----Extremum for Rosenbrock's vally function----
-Compare the numerical and analytical roots of Rosenbrock's valley function.
-Rosenbrock's vally function : f(x,y)=(1-x)^2+100(y-x^2)^2
-Gradient analytical: (-2*(1-x)-400*x*(y-x^2),200*(y-x^2))
-Initial vector : 2.5, 4
-x_roots =          1          1 
-f(roots) =  -8.48e-14   4.44e-14 
-The correct result for roots is x = 1, y = 1
-The solutions are the same.

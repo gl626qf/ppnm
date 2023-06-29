@@ -1,1 +1,0 @@
-The ground state energy is found with Newton's method to be: E0 = -0.500000236160147
