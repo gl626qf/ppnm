@@ -11,6 +11,8 @@ public class main{
 
 		foreach(var arg in args){
 			if(arg == "-A"){
+				WriteLine("---------Task A-------");
+				WriteLine("The neural network approximate Cos(5*x-1)*Exp(-x*x), and visualized on taskA.svg");
 				Func<double,double> g = x => Cos(5*x-1)*Exp(-x*x);// function
 				var data = new StreamWriter("data.data");
 				
@@ -45,7 +47,8 @@ public class main{
 
 			if(arg == "-B"){
 				
-				
+				WriteLine("---------Task B-------");
+				WriteLine("The derivatives and anti derivative is visualized on taskB.svg");
 				var Network2 = new StreamWriter("Network2.data");
 				var derv = new StreamWriter("derv.data");
 				var data2 = new StreamWriter("data2.data");

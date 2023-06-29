@@ -1,0 +1,17 @@
+Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:
+Initial vectors (2,1.6)
+The minimum is found be: (0.999993435870683,0.999986834035715)
+In the minimum the function Gradf(x,y) is: (7.94638636721451E-06,-6.05965137434919E-06)
+norm of Gradf(x,y) = 9.99321925486E-06
+The theoretical is a minimum at (1,1) for grad(f(x,y))=0
+Number of steps in caculation: 9204
+
+
+
+----------------
+Minimum of Himmelblau's function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2:
+Start guess is (5,3)
+The minimum coordinates: (-2.8051181044991,3.13131249741439)
+The gradient at the minimum is: (1.90615207668563E-07,1.77718845533822E-07)
+The theoretical minimum at (-2.81,3.13) for grad(f(x,y))=0
+Number of steps: 11

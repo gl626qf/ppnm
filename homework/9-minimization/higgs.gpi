@@ -1,13 +1,11 @@
 set terminal svg
-set output "HiggsPlot.svg"
-set xlabel "energy E[GeV]"
-set ylabel "signal sigma(E)"
+set output "Higgs.svg"
+set xlabel "Energy E(GeV)"
+set ylabel "Signal sigma(E)"
 set terminal svg background "white"
 set key box top
 set grid
-set title "Higgs discovery"
-data_file = "higgs.data"
-parameteres = system('head -n 1 ' . data_file)
-plot "Out.fitData.data" with yerrorbars pointtype 7 ps 0.5 lc rgb "red" title "Measured datapoints" \
+set title "Higgs"
+data_file = "Out.fitData.data"
+plot "higgs.data" with yerrorbars pointtype 7 ps 0.5 lc rgb "red" title "Measured datapoints" \
 	, data_file using 1:2 with lines title "Fit with minimization" \
-	, keyentry with labels nopoint title parameteres

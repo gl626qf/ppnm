@@ -8,7 +8,7 @@ DIR = ../../matlib
 
 
 
-All : Out.rosenbrock.txt Out.himmelblau.txt Higgs.svg
+All : Out.txt Out.higgs.txt Higgs.svg
 # All : Higgs.svg
 
 
@@ -19,7 +19,8 @@ main.exe : main.cs matlib.dll
 matlib.dll : qnewton.cs breitWigner.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
 	 $(MKLIB) 
 
-
+Out.txt : main.exe
+	mono $< > $@ -rosenbrock -himmelblau 2> log
 	 
 Out.rosenbrock.txt : main.exe
 	mono $< $@ -rosenbrock 2> log
@@ -29,8 +30,10 @@ Out.himmelblau.txt : main.exe
 	mono $< $@ -himmelblau 2> log
 
 
-# Out.higgs.data : main.exe
-# 	mono $< $@ -higgs 
+
+Out.higgs.txt : main.exe
+	mono $< $@ -higgs
+
 
 
 

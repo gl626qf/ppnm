@@ -9,8 +9,7 @@ ALL : Out.txt plotA.svg plotB.svg
 
 
 Out.txt data.data data2.data : main.exe
-	mono $< 1> $@ -A 2> log.txt
-	mono $< 1> $@ -B 2> log.txt
+	mono $< 1> $@ -A -B 2> log.txt
 
 
 main.exe : main.cs matlib.dll

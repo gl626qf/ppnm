@@ -68,6 +68,7 @@ public static int minimum(
 	gx = gz;
 	fx = fz;
 	}
+
 	return step;
 }
 }

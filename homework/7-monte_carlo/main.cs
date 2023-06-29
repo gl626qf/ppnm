@@ -57,6 +57,8 @@ public class main{
 			int N_hard = N;
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
 			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} pm {answer_hard.Item2}");
+
+			WriteLine("The plots of the plainmc and the qmc is distplayed in the Error.svg file");
 			
 		}
 
@@ -88,18 +90,6 @@ public class main{
 
 
 
-		if(arg == "-quasiCircle"){
-			vector aQuasi = new vector(-1.0,-1.0);
-			vector bQuasi = new vector(1.0,1.0); 
-			int[] shift = new int[2] {0,2};
-			(double meanQuasi, double sigmaQuasi) = monteCarlo.qmc(shapes.unitCircle, aQuasi, bQuasi, N, shift);
-
-
-			WriteLine("The results of the quasi Monte Carlo of Unit Circle");
-			WriteLine($"Result = {meanQuasi} pm {sigmaQuasi}");
-			WriteLine("The results is close to the correct value");		
-
-		}
 
 
 

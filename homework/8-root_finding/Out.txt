@@ -1,0 +1,30 @@
+------------TASK A-----------------
+ ----First test equation: x**3 equation----- 
+Given funciton: f(x)=x**3 # 
+Initial vector : 0.1
+
+x_root =   0.000771 
+f(roots) =   4.58e-10 
+ The correct result for roots is x = 0
+----Second test equation: ----
+ # Function to find root f(x) = 1 / (1 + Exp(-x[0] + 2))- 0.5 # 
+Initial vector : -0.2
+
+x_root =          2 
+f(roots) =   5.78e-14 
+ The correct result for roots is x_root = 2
+----Extremum for Rosenbrock's vally function----
+Compare the numerical and analytical roots of Rosenbrock's valley function.
+Rosenbrock's vally function : f(x,y)=(1-x)^2+100(y-x^2)^2
+Gradient analytical: (-2*(1-x)-400*x*(y-x^2),200*(y-x^2))
+Initial vector : 2.5, 4
+x_roots =          1          1 
+f(roots) =  -8.48e-14   4.44e-14 
+The correct result for roots is x = 1, y = 1
+The solutions are the same.
+------------------------------------------
+
+
+---------------TASK B-----------------
+Finding the ground state for hydrogen with rmax = 15
+The ground state energy is found with Newton's method to be: E0 = -0.500000236160147

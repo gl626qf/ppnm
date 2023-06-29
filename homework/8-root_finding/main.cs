@@ -35,6 +35,7 @@ public static class main{
 		
 		foreach(var arg in args){
 			if(arg == "-A"){
+					WriteLine("------------TASK A-----------------");
 					WriteLine(" ----First test equation: x**3 equation----- ");
 					Func<vector,vector> f = x => new vector (x[0]*x[0]*x[0]);
 					vector x0 = new vector(1);
@@ -72,6 +73,8 @@ public static class main{
 				h(result3).print("f(roots) = ");
 				WriteLine("The correct result for roots is x = 1, y = 1");
 				WriteLine("The solutions are the same.");
+				WriteLine("------------------------------------------");
+				WriteLine("\n");
 			}
 
 
@@ -98,7 +101,8 @@ public static class main{
 						double exactFr = r*Exp(-r);
 						energy0Data.WriteLine($"{r} {fR} {exactFr}");
 					}
-
+				WriteLine("---------------TASK B-----------------");
+				WriteLine("Finding the ground state for hydrogen with rmax = 15");
 				WriteLine($"The ground state energy is found with Newton's method to be: E0 = {energy0}");
 				energy0Data.Close();
 			}

@@ -6,8 +6,7 @@ MATLIB = ../../matlib
 MATRIX := $(shell find $(MATLIB)/matrix -name '*.cs')
 
 
-all: Out.3Dshapes.txt Error.svg  Out.quasiCircle.txt
-# all: Out.3Dshapes.txt Out.mcUnitCircle.txt Out.divVolume.txt Out.invSqrt.txt Out.divError.txt
+all: Out.txt Error.svg 
 
 
 
@@ -24,7 +23,7 @@ matlib.dll : $(MATRIX)
 Out.2Dshapes.txt: main.exe Makefile
 	mono main.exe > $@ -2Dshapes
 
-Out.3Dshapes.txt: main.exe Makefile
+Out.txt: main.exe Makefile
 	mono main.exe > $@ -3Dshapes
 
 
@@ -46,8 +45,6 @@ Out.divError.txt: main.exe Makefile
 	mono main.exe > $@ -divError
 
 # Part B
-Out.quasiCircle.txt: main.exe Makefile
-	mono main.exe > $@ -quasiCircle
 
 # Data is given for Part B
 

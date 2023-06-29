@@ -11,9 +11,6 @@ public static class main{
 		
 
 		var epsilon_ = 1e-5;
-		// energy = new System.Collections.Generic.List<double>();
-		// signal = new System.Collections.Generic.List<double>();
-		// error  = new System.Collections.Generic.List<double>();
 	
 		foreach(var arg in args){
 			if(arg == "-rosenbrock"){
@@ -27,7 +24,7 @@ public static class main{
 				vector gradF1 = qnewton.gradient(fRosen,vec1);
 				WriteLine($"The minimum is found be: ({vec1[0]},{vec1[1]})");
 				WriteLine($"In the minimum the function Gradf(x,y) is: ({gradF1[0]},{gradF1[1]})");
-				WriteLine($"||Gradf(x,y)|| = {gradF1.norm()}");
+				WriteLine($"norm of Gradf(x,y) = {gradF1.norm()}");
 				WriteLine("The theoretical is a minimum at (1,1) for grad(f(x,y))=0"); 
 				WriteLine($"Number of steps in caculation: {nsteps1}");
 				WriteLine("\n\n");
@@ -45,7 +42,7 @@ public static class main{
 				vector gradF2 = qnewton.gradient(F2,vec2);
 				WriteLine($"The minimum coordinates: ({vec2[0]},{vec2[1]})");
 				WriteLine($"The gradient at the minimum is: ({gradF2[0]},{gradF2[1]})");
-				WriteLine("The theoretical minimum at (-2.805123,3.13131) for grad(f(x,y))=0"); 
+				WriteLine("The theoretical minimum at (-2.81,3.13) for grad(f(x,y))=0"); 
 				WriteLine($"Number of steps: {nsteps2}");
 
 			}
@@ -75,7 +72,7 @@ public static class main{
 				int nDataPoints = energy.Count;
 				WriteLine(nDataPoints);
 
-				vector start = new vector(6, 110, 4);
+				vector start = new vector(8, 130, 6);
 				double A, m, G;
 				vector vec = start.copy();
 				int nsteps = qnewton.minimum(breitwigner.dervBreitWigner, ref vec, 1e-2);

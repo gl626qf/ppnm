@@ -1,5 +1,5 @@
 set terminal svg
-set output "hydrogen.svg"
+set output "Hydrogen.svg"
 set terminal svg background "white"
 
 
