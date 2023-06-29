@@ -190,16 +190,6 @@ public static void Main(string[] args){
 				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
 		}
 
-		if(arg == "-hydrogen"){
-			vector init_y = new vector(0, 4);
-			(var xs, var ys) = runge_kutta.driver(func.hydrogen, 0, init_y, 30);
-			for(int i=0; i<xs.size; i++) 
-				WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
-
-
-		}
-
-
 
 		// Reproducing the scipy function
 
