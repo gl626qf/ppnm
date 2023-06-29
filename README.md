@@ -1,3 +1,7 @@
+# Implementation
+I used Visual Studios to write the code, because I had problems with copy in VIM. 
+The formatting is therefore hard to see, sometimes using VIM as an editor.
+
 # Exam - Particle Swarm Optimization (PSO): question 17
 The question: 
 - Implement the particle swarm optimization algorithm.
