@@ -2,6 +2,8 @@
 I used Visual Studios to write the code, because I had problems with copy in VIM. 
 The formatting is therefore hard to see sometimes, using VIM as an editor.
 
+The 9-minimization is divided in two parts, because I had struggles with making it work.
+
 # Exam - Particle Swarm Optimization (PSO): question 17
 The question: 
 - Implement the particle swarm optimization algorithm.
