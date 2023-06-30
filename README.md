@@ -17,7 +17,7 @@ What has been done:
 - The algorithm is implemented
 - Several functions is tested, some diverging and converging
 
-The exam question is fully answered, so I would expect 10/10.
+The exam question is fully answered, so I would expect 9/10 or 10/10.
  
 # Homework table
 All the following homework questions are made. In some files there are multiple Out. files, which contain the answer.
