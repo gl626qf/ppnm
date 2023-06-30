@@ -65,6 +65,7 @@ static class main{
         fitParams.WriteLine("Here the Higgs data is fitted and the parameters of the Breit Wigner formula is given as:");
         fitParams.WriteLine($"A = {Math.Round(A,2)}, m = {Math.Round(m,2)}, G = {Math.Round(G,2)}");
         fitParams.WriteLine($"The steps of the qnewton method: {nsteps}");
+        fitParams.WriteLine("The result is shown on Higgs.svg");
 	    for(double E = energy[0];E<energy[datapoints-1];E+=1.0/64){
 		    fitData.WriteLine($"{E} {breitWigner(A,E,m,G)}");}
 

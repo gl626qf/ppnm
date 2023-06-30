@@ -1,6 +1,4 @@
 ---------Task A-------
 The neural network approximate Cos(5*x-1)*Exp(-x*x), and visualized on taskA.svg
-step 1356
 ---------Task B-------
 The derivatives and anti derivative is visualized on taskB.svg
-step 38

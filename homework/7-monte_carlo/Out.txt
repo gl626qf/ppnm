@@ -1,9 +1,12 @@
+----------Task A--------------
+Showing the Monte Carlo computation works.
 ----Half unit sphere----
 Half unit sphere
 Actual value:	2.0943951023932
-Calculated value with 10000 points:	2.1103634404928 pm 0.0137781302261629
+Calculated value with 10000 points:	2.09473981905368 pm 0.0138231953863483
 ----Difficult shape----
 Difficult integral from task description
 Actual value: 1.3932039296856768591842462603255
-Calculated value with 10000 points:	1.35611337324257 pm 0.0241495358273889
+Calculated value with 10000 points:	1.37828688723989 pm 0.030985820443391
+---------------TASK B---------------
 The plots of the plainmc and the qmc is distplayed in the Error.svg file

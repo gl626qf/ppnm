@@ -1,0 +1,19 @@
+------------TASK A------------
+random square matrix A:
+        54         29         68 
+        29         33         56 
+        68         56         10 
+matrix V:
+    -0.416      0.633      0.652 
+    -0.397     -0.772      0.496 
+     0.818    -0.0525      0.573 
+vector w     -51.8         13        136 
+-------------------------
+Eigen value decomp: (V.T * A * V) = D. Matrix D
+        54         29         68 
+        29         33         56 
+        68         56         10 
+Testing if (V.T * A * V) = D: True
+Testing if (V * D * V.T) = A: True
+Testing if (V.T * V) = I: True
+Testing if (V * V.T) = I: True

@@ -17,7 +17,6 @@ main.exe : main.cs matlib.dll
 matlib.dll : qnewton.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
 	 $(MKLIB) 
 
-# "Out.fitData.data" using 1:2 with lines title "Fitting"
 
 i.PHONY: clean
 clean:

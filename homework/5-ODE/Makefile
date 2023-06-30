@@ -16,9 +16,6 @@ main.exe : main.cs matlib.dll
 	mcs -target:exe -out:$@ $(CODE) $(DLLS)
 
 
-
-
-
 Out.harmonicData.data: main.exe
 	mono main.exe > $@ -harmonic
 

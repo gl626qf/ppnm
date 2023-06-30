@@ -58,7 +58,8 @@ public class main{
 			if(arg == "-THX"){
 		
 
-				WriteLine("------------------THX radiation data. Task B -----------------------");
+				WriteLine("------------------THX radiation data. Task A-B-C -----------------------");
+				WriteLine("The checking of QR-decomposition is above, and the different ABC tasks is plotted in the Thx.svg file");
 				
 				StreamWriter thxData = new StreamWriter("Out.thx.data",false);
 				
@@ -114,7 +115,6 @@ public class main{
 						thxFit.WriteLine($"{i} {y_fit} {y_fit_minus} {y_fit_plus} {y_fit_a_minus} {y_fit_a_plus} {y_fit_l_minus} {y_fit_l_plus}");
 						}
 				thxFit.Close();
-				WriteLine("Plot is viewed in thx.svg");
 
 
 

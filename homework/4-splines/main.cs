@@ -141,6 +141,8 @@ public class main{
                		}
 
 			if(arg == "-qspline"){
+				WriteLine("------------TASK A------------------");
+				WriteLine("The plots of task A is plotted in the taskA.svg. Here the interpolation and integration is showed");
 				WriteLine("-----------Results of TASK B-----------------");
 				vector xsvec = new vector("1,2,3,4,5"), ysvec = new vector(5);
 				for(int i=0; i<5; i++) ysvec[i] = 1;

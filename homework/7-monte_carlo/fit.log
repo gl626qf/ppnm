@@ -1966,3 +1966,225 @@ correlation matrix of the fit parameters:
                 A      B      
 A               1.000 
 B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:21:07 2023
+
+
+FIT:    data read from 'Out.mcUnitCircle.txt' using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.8574781784e+03   0.00e+00  7.07e-01    1.000000e+00   1.000000e+00
+   3 1.7633767016e+00  -1.26e-05  7.07e-04    1.071569e+00   5.821023e-03
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 1.76338
+rel. change during last iteration : -1.25917e-10
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0132805
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000176373
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 1.07157          +/- 0.005493     (0.5126%)
+B               = 0.00582102       +/- 0.0001718    (2.952%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:21:07 2023
+
+
+FIT:    data read from "Out.qMcUnitCircle.txt" using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.9591801361e+00   0.00e+00  2.41e-02    1.071569e+00   5.821023e-03
+   2 3.5601285074e+00  -2.72e-01  2.41e-04    6.366809e-01  -8.552092e-03
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 3.56013
+rel. change during last iteration : -2.71953e-06
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0188702
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000356084
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.636681         +/- 0.007805     (1.226%)
+B               = -0.00855209      +/- 0.0002442    (2.855%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:23:38 2023
+
+
+FIT:    data read from 'Out.mcUnitCircle.txt' using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.8586828249e+03   0.00e+00  7.07e-01    1.000000e+00   1.000000e+00
+   3 2.0689979287e+00  -5.27e-07  7.07e-04    1.000511e+00   7.185045e-03
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 2.069
+rel. change during last iteration : -5.26919e-12
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0143855
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000206941
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 1.00051          +/- 0.00595      (0.5947%)
+B               = 0.00718504       +/- 0.0001861    (2.591%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:23:38 2023
+
+
+FIT:    data read from "Out.qMcUnitCircle.txt" using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.6059067107e+00   0.00e+00  2.27e-02    1.000511e+00   7.185045e-03
+   2 3.5601285074e+00  -1.10e-01  2.27e-04    6.366809e-01  -8.552093e-03
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 3.56013
+rel. change during last iteration : -1.10395e-06
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0188702
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000356084
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.636681         +/- 0.007805     (1.226%)
+B               = -0.00855209      +/- 0.0002442    (2.855%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:24:46 2023
+
+
+FIT:    data read from 'Out.mcUnitCircle.txt' using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.8583333383e+03   0.00e+00  7.07e-01    1.000000e+00   1.000000e+00
+   3 1.5400929899e+00  -2.70e-06  7.07e-04    1.019759e+00   6.793971e-03
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 1.54009
+rel. change during last iteration : -2.69611e-11
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0124113
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00015404
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 1.01976          +/- 0.005133     (0.5034%)
+B               = 0.00679397       +/- 0.0001606    (2.364%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 
+
+
+*******************************************************************************
+Fri Jun 30 10:24:46 2023
+
+
+FIT:    data read from "Out.qMcUnitCircle.txt" using 1:2
+        format = x:z
+        x range restricted to [0.00000 : 10000.0]
+        #datapoints = 10000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = A * 1 / sqrt(x) + B
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   A             B            
+   0 9.6858488796e+00   0.00e+00  2.31e-02    1.019759e+00   6.793971e-03
+   2 3.5601285074e+00  -1.40e-01  2.31e-04    6.366809e-01  -8.552093e-03
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 3.56013
+rel. change during last iteration : -1.40146e-06
+
+degrees of freedom    (FIT_NDF)                        : 9998
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0188702
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.000356084
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.636681         +/- 0.007805     (1.226%)
+B               = -0.00855209      +/- 0.0002442    (2.855%)
+
+correlation matrix of the fit parameters:
+                A      B      
+A               1.000 
+B              -0.635  1.000 

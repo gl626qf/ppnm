@@ -28,3 +28,4 @@ The solutions are the same.
 ---------------TASK B-----------------
 Finding the ground state for hydrogen with rmax = 15
 The ground state energy is found with Newton's method to be: E0 = -0.500000236160147
+The plots Hydorgen.svg and taskB.svg shows the results of TASK B

@@ -20,21 +20,3 @@ clean :
 	$(RM) *.dll *.exe [Oo]ut* 
 
 
-
-Out.time.txt : main.exe
-	mono $< > $@ -time
-
-# Ns = $$(seq 400 50 1000)
-# out.times.data : main.exe
-# 	>$@
-# 	for N in $(Ns); do \
-# 	echo $$N; \
-# 	$(TIME) -f "$$N %U" mono -time -dim:$$N >log ; \
-# 	done
-
-# out.times.data : main.exe
-# 	>$@
-# 	for N in $$(seq 100 100 800); do \
-# 		time --format "$$N %e" --output $@ --append \
-# 		mono $< -size:$$N 2>err ;\
-# 	done

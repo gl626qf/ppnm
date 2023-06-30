@@ -104,6 +104,7 @@ public static class main{
 				WriteLine("---------------TASK B-----------------");
 				WriteLine("Finding the ground state for hydrogen with rmax = 15");
 				WriteLine($"The ground state energy is found with Newton's method to be: E0 = {energy0}");
+				WriteLine("The plots Hydorgen.svg and taskB.svg shows the results of TASK B");
 				energy0Data.Close();
 			}
 

@@ -4,7 +4,7 @@ MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 MATLIB = ../../matlib
 
-all : Out.taskA.txt Dr.svg Rmax.svg Eigen.svg
+all : Out.txt Dr.svg Rmax.svg Eigen.svg
 
 main.exe : main.cs matlib.dll
 	$(MKEXE)
@@ -15,7 +15,7 @@ matlib.dll : EVD.cs $(MATLIB)/matrix/vector.cs  $(MATLIB)/matrix/matrix.cs
 
 
 
-Out.taskA.txt: main.exe Makefile
+Out.txt: main.exe Makefile
 	mono main.exe > $@ -partA
 
 

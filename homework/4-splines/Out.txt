@@ -1,3 +1,5 @@
+------------TASK A------------------
+The plots of task A is plotted in the taskA.svg. Here the interpolation and integration is showed
 -----------Results of TASK B-----------------
 For x = {1,2,3,4,5}, y = {1,1,1,1,1}
 b =          0          0          0          0 

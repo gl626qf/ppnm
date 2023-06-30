@@ -2,3 +2,4 @@
 Here the Higgs data is fitted and the parameters of the Breit Wigner formula is given as:
 A = 10.03, m = 125.97, G = 2.12
 The steps of the qnewton method: 26
+The result is shown on Higgs.svg

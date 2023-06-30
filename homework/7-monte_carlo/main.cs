@@ -41,6 +41,8 @@ public class main{
 
 
 		if(arg == "-3Dshapes"){
+			WriteLine("----------Task A--------------");
+			WriteLine("Showing the Monte Carlo computation works.");
 			WriteLine("----Half unit sphere----");
 			WriteLine("Half unit sphere");
 			WriteLine($"Actual value:	{(4.0/3.0)*PI*0.5}");
@@ -58,6 +60,7 @@ public class main{
 			var answer_hard = monteCarlo.plainmc(shapes.difficultSingular, a_hard, b_hard, N_hard);
 			WriteLine($"Calculated value with {N_hard} points:	{answer_hard.Item1} pm {answer_hard.Item2}");
 
+			WriteLine("---------------TASK B---------------");
 			WriteLine("The plots of the plainmc and the qmc is distplayed in the Error.svg file");
 			
 		}
