@@ -5,6 +5,8 @@ The formatting is therefore hard to see sometimes, using VIM as an editor.
 
 The 5-ODE is only consisting of plots, and does not have an Out.txt file.
 
+The 7-Monte Carlo is a little slow to load.
+
 The 9-minimization is divided in two parts, because I had struggles with making it work.
 
 # Exam - Particle Swarm Optimization (PSO): question 17
