@@ -1,3 +1,4 @@
+------------------PART A---------------------
 Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:
 Initial vectors (2,1.6)
 The minimum is found be: (0.999993435870683,0.999986834035715)
@@ -15,3 +16,5 @@ The minimum coordinates: (-2.8051181044991,3.13131249741439)
 The gradient at the minimum is: (1.90615207668563E-07,1.77718845533822E-07)
 The theoretical minimum at (-2.81,3.13) for grad(f(x,y))=0
 Number of steps: 11
+
+

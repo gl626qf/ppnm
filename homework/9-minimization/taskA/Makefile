@@ -3,20 +3,20 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
-DIR = ../../matlib
+DIR = ../../../matlib
 
 
 
 
-All : Out.txt Out.higgs.txt Higgs.svg
-# All : Higgs.svg
+All : Out.txt
+
 
 
 
 main.exe : main.cs matlib.dll
 	$(MKEXE)
 
-matlib.dll : qnewton.cs breitWigner.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
+matlib.dll : qnewton.cs $(DIR)/matrix/vector.cs  $(DIR)/matrix/matrix.cs $(DIR)/matrix/QRGS.cs
 	 $(MKLIB) 
 
 Out.txt : main.exe
@@ -30,17 +30,6 @@ Out.himmelblau.txt : main.exe
 	mono $< $@ -himmelblau 2> log
 
 
-
-Out.higgs.txt : main.exe
-	mono $< $@ -higgs
-
-
-
-
-
-
-Higgs.svg : higgs.gpi Out.fitData.data higgs.data
-	gnuplot $<
 
 
 

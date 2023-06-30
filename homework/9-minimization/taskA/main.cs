@@ -5,8 +5,7 @@ using System.IO;
 using System.Collections.Generic;
 public static class main{
 
-    public static int nDataPoints;
-	
+
 	public static void Main(string[] args){
 		
 
@@ -14,7 +13,7 @@ public static class main{
 	
 		foreach(var arg in args){
 			if(arg == "-rosenbrock"){
-
+				WriteLine("------------------PART A---------------------");
 				WriteLine("Minimum of Rosenbrock's vally function f(x,y)=(1-x)^2+100*(y-x^2)^2:");
 
 				Func<vector,double> fRosen = (x) =>{return Pow(1-x[0],2)+100*Pow(x[1]-x[0]*x[0],2);};
@@ -44,51 +43,10 @@ public static class main{
 				WriteLine($"The gradient at the minimum is: ({gradF2[0]},{gradF2[1]})");
 				WriteLine("The theoretical minimum at (-2.81,3.13) for grad(f(x,y))=0"); 
 				WriteLine($"Number of steps: {nsteps2}");
+				WriteLine("\n");
 
 			}
-			if(arg == "-higgs"){
-
-				List<double> energy = new List<double>();
-				List<double> signal = new List<double>();
-				List<double> error  = new List<double>();
-
-				StreamReader data = new StreamReader("higgs.data",true);
-				StreamWriter fitParams = new StreamWriter("Out.fitParams.txt", false);
-				StreamWriter fitData = new StreamWriter("Out.fitData.data", false);
-				var separators = new char[] {' ', '\t'};
-				var options = StringSplitOptions.RemoveEmptyEntries;
-
-				do {
-					string line = data.ReadLine();
-					if (line == null) break;
-					string[] words = line.Split(separators, options);
-					energy.Add(double.Parse(words[0]));
-					signal.Add(double.Parse(words[1]));
-					error.Add(double.Parse(words[2]));
-				} while (true);
-
-				data.Close();
-
-				int nDataPoints = energy.Count;
-				WriteLine(nDataPoints);
-
-				vector start = new vector(8, 130, 6);
-				double A, m, G;
-				vector vec = start.copy();
-				int nsteps = qnewton.minimum(breitwigner.dervBreitWigner, ref vec, 1e-2);
-				A = vec[0]; m = vec[1]; G = vec[2];
-				fitParams.WriteLine($" A = {Round(A,2)}, m = {Round(m,2)}, G = {Round(G,2)}");
-				fitParams.WriteLine($" steps = {nsteps}");
-			
-				WriteLine($"A = {Round(A,2)}, m = {Round(m,2)}, G = {Round(G,2)}");
-				for(double E = energy[0];E<energy[nDataPoints-1];E+=1.0/64){
-					fitData.WriteLine($"{E} {breitwigner.breitWigner(A,E,m,G)}");}
-				
-				fitParams.Close();
-
-
-			}
-
+		
 
 		}
 

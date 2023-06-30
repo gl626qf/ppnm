@@ -1,0 +1,14 @@
+set terminal svg
+set output "Higgs.svg"
+set xlabel "Energy [GeV]"
+set ylabel "signal σ(E) [certain units]"
+set title "Higgs data plotted with fit"
+set terminal svg background "white"
+
+set key right top
+set grid
+
+
+plot [100:160] [-10:10] "higgs.data" using 1:2:3 with yerrorbars pointtype 7 ps 0.5 lc rgb "red" title "Measured datapoints" \
+	, "fitData.data" using 1:2 with lines title "Fitting"
+
