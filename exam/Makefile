@@ -5,20 +5,24 @@ MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../matlib/matrix
 
 
-all : Out.function1.txt Out.function2.txt Out.divFunction1.txt
+all : Out.gauss.txt
 
 main.exe : main.cs matrix.dll ; 
 	$(MKEXE)
 
 
-Out.function1.txt : main.exe
-	mono $< > $@ -function1
+# Out.function1.txt : main.exe
+# 	mono $< > $@ -function1
 
-Out.function2.txt : main.exe
-	mono $< > $@ -function2
+# Out.function2.txt : main.exe
+# 	mono $< > $@ -function2
 
-Out.divFunction1.txt : main.exe
-	mono $< > $@ -divFunction1
+# Out.divFunction1.txt : main.exe
+# 	mono $< > $@ -divFunction1
+
+
+Out.gauss.txt : main.exe
+	mono $< > $@ -gauss
 
 matrix.dll : svarm.cs $(DIR)/matrix.cs $(DIR)/vector.cs $(DIR)/QRGS.cs ; 
 	$(MKLIB)

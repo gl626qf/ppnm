@@ -1,2 +1,0 @@
-Solution: -1.68e-164          3          2 
-Function evaluated at vector: NaN

@@ -1,2 +1,0 @@
-Solution:  4.51e-163          3 
-Function evaluated at vector: 0
